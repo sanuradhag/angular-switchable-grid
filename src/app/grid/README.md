@@ -2,6 +2,11 @@
 
 A simple grid for angular, Which can be switched between typical **`List`** view and a **`tile`** block view
 
+
+###Images
+
+
+![Alt text](https://ibb.co/b8S5Hv)
 ### Installation
 
 Install through npm;
