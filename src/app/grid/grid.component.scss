@@ -1,0 +1,230 @@
+@import '~compass-mixins';
+
+$default-font-color: #5c5c5c;
+$primary-bg-color: #f2f2f2;
+$panel-shadow-color: #a9a9a9;
+$primary-color: #407de1;
+$secondary-accent-txt: #fff;
+$default-font: open_sansregular;
+$bold-font: open_sanssemibold;
+
+:host /deep/ .grid-list{
+  padding: 3px 0 0 0px;
+  position: relative;
+  .sort{
+    text-align: right;
+    padding: 0 15px;
+    button{
+      outline: none;
+      &.btn{
+        font-size: 14px;
+        text-decoration: none;
+        color: $default-font-color;
+        padding: 5px 10px;
+        background: none;
+        i{
+          @include transition(all 0.2s ease-in);
+          display: inline-block;
+        }
+        &:hover, &:active{
+          background: lighten($primary-bg-color,4%);
+          @include box-shadow(0 1px 2px $panel-shadow-color);
+          outline: none;
+        }
+        &.asc{
+          i{
+            @include transform(rotate(0deg));
+          }
+        }
+        &.desc{
+          i{
+            @include transform(rotate(180deg));
+          }
+        }
+      }
+      [class^='flaticon-']:before{
+        font-size: 14px;
+      }
+    }
+  }
+  .grid-header{
+    display: none;
+    &.expand{
+      display: block;
+      position: absolute;
+      top: 38px;
+      right: 54px;
+      background: $secondary-accent-txt;
+      @include box-shadow(0 1px 10px $panel-shadow-color);
+      z-index: 4;
+      padding: 5px 0;
+      span{
+        display: block;
+        padding: 10px 10px 10px 15px;
+        min-width: 250px;
+        cursor: pointer;
+        border-left-width:3px;
+        border-left-style: solid;
+        border-color:transparent;
+        font-size: 14px;
+        position: relative;
+        &:hover{
+          background: $primary-bg-color;
+          border-color:$primary-color;
+        }
+        &.active:before{
+          content: "\f136";
+          font-family: Flaticon;
+          font-size: 16px;
+          position: absolute;
+          right: 15px;
+        }
+      }
+    }
+  }
+  .table-row-wrapper{
+    display: flex;
+    //flex-direction: row;
+    flex-wrap: wrap;
+    padding: 15px 5px 0 5px;
+    overflow: auto;
+    .list-item{
+      flex: 1 0 250px;
+      margin: 0 10px 20px 10px;
+      background: $secondary-accent-txt;
+      @include box-shadow(0 1px 3px $panel-shadow-color);
+      position: relative;
+      cursor: pointer;
+      padding: 5px;
+      min-height: 160px;
+      &:empty {
+        display: flex;
+        height: 0;
+        border: none;
+        margin-bottom: 0;
+        min-height: 0;
+        padding: 0;
+      }
+      div{
+        &.hidden-grid{
+          display: none;
+        }
+        &.show-grid{
+          display: block;
+        }
+      }
+      &:hover{
+        @include box-shadow(0 1px 8px $panel-shadow-color);
+      }
+      &.selected{
+        @include box-shadow(0 3px 16px $panel-shadow-color);
+        .name{
+          color:$secondary-accent-txt;
+        }
+        .status{
+          background: $primary-color;
+          height: 42px;
+          z-index: 2;
+        }
+      }
+
+    }
+  }
+
+  &.table-grid{
+    display: table;
+    table-layout: fixed;
+    padding:0;
+    width:100%;
+    .sort{
+      display: none;
+    }
+    .grid-header{
+      display: table-header-group;
+      width:100%;
+      background: lighten($primary-bg-color,2%);
+      span{
+        display: table-cell;
+        line-height: 36px;
+        border-bottom: 1px solid $primary-bg-color;
+        padding: 0 10px;
+        font-family: $bold-font;
+        font-size: 12px;
+        cursor: pointer;
+        position: relative;
+        &:hover{
+          background: darken($primary-bg-color,2%);
+        }
+        &:nth-child(1){
+          //width: 100px;
+        }
+        &.active{
+          &:before{
+            content: "\f116";
+            font-family: Flaticon;
+            font-size: 16px;
+            position: absolute;
+            right: 10px;
+            @include transition(all 0.2s ease-in);
+          }
+          &.asc{
+            &:before{
+              @include transform(rotate(0deg));
+            }
+          }
+          &.desc{
+            &:before{
+              @include transform(rotate(180deg));
+            }
+          }
+        }
+      }
+    }
+    .table-row-wrapper{
+      display: table-row-group;
+      .list-item{
+        display: table-row;
+        margin: 0;
+        @include box-shadow(none);
+        min-height: 45px;
+        padding: 0;
+        position: relative;
+        &.selected{
+          background: lighten($primary-color,1%);
+          &:hover{
+            background:lighten($primary-color,1%);
+          }
+          div{
+            color:$secondary-accent-txt;
+            border-bottom-color:darken($primary-color, 5%);
+          }
+        }
+        div{
+          display:table-cell;
+          position: static;
+          font-size: 14px;
+          align-items: center;
+          line-height: 40px;
+          padding: 0 10px;
+          border-bottom: 1px solid $primary-bg-color;
+          font-family: $default-font;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          [class^="flaticon-"]:before{
+            font-size: 16px;
+          }
+          &.hidden-table{
+            display: none;
+          }
+          &.show-table{
+            display: table-cell;
+          }
+        }
+        &:hover{
+          background: $primary-bg-color;
+        }
+      }
+    }
+  }
+}

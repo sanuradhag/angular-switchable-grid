@@ -1,0 +1,4 @@
+<div class="inline-form-control filter pull-left" tooltip="Filter" [ngClass]="{active: isFilterEnabled}"
+     (click)="changeFilterViewState()">
+  <input type="text" [(ngModel)]="filterTerm" (keyup)="onFilterTextChnage()" [placeholder]="filterBy">
+</div>

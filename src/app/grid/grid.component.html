@@ -1,0 +1,48 @@
+<div *ngIf="data && data.length !== 0" class="grid-list" [ngClass]="gridClass">
+
+  <ng-container *ngIf="!isGridView">
+    <div class="sort">
+      <button class="btn" (click)="toggleSortExpand()">{{sortByCategory}}</button>
+      <button class="btn" [ngClass]="{asc: sortAscending, desc: !sortAscending}" (click)="descendingSort()">
+        <i class="flaticon-download-arrow"></i>
+      </button>
+    </div>
+
+    <div class="grid-header" [ngClass]="{expand: isSortExpand}">
+      <ng-container *ngIf="!enableSort">
+        <ng-container *ngFor="let title of columnTitles">
+                    <span class="header-item">
+                        {{title}}
+                    </span>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="enableSort">
+        <ng-container *ngFor="let title of columnTitles">
+                    <span class="header-item" [ngClass]="{asc: sortAscending, desc: !sortAscending, active: sortByCategory === title}" (click)="getSortCategory($event)">
+                        {{title}}
+                    </span>
+        </ng-container>
+      </ng-container>
+
+    </div>
+  </ng-container>
+
+  <div class="table-row-wrapper">
+    <ng-container *ngFor="let item of (sortedData | filter: filterTerm: filterBy)" class=" ">
+      <div (click)="setSelectedItem(item)" class="list-item" [ngClass]="{'selected': item.selected}">
+        <template [ngTemplateOutlet]="itemTemplate" [ngOutletContext]="{ $implicit: item }"></template>
+      </div>
+    </ng-container>
+    <div class='list-item'></div>
+    <div class='list-item'></div>
+    <div class='list-item'></div>
+    <div class='list-item'></div>
+    <div class='list-item'></div>
+    <div class='list-item'></div>
+    <div class='list-item'></div>
+    <div class='list-item'></div>
+  </div>
+
+
+</div>
