@@ -1,5 +1,5 @@
 {
-  "name": "angualr-switchable-grid",
+  "name": "angular-switchable-grid",
   "version": "0.0.1",
   "license": "MIT",
   "angular-cli": {},
@@ -9,13 +9,13 @@
     "angular list grid",
     "angular switchable grid"
   ],
-  "homepage": "https://github.com/davguij/angular-npm-module-seed",
+  "homepage": "https://github.com/sanuradhag/angular-switchable-grid",
   "bugs": {
-    "url": "https://github.com/davguij/angular-npm-module-seed/issues"
+    "url": "https://github.com/sanuradhag/angular-switchable-grid/issuess"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/davguij/angular-npm-module-seed.git"
+    "url": "https://github.com/sanuradhag/angular-switchable-grid.git"
   },
   "scripts": {
     "ng": "ng",
@@ -24,7 +24,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/common": "^2.4.0",
     "@angular/compiler": "^2.4.0",
