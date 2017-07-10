@@ -5,8 +5,8 @@ A simple grid for angular, Which can be switched between typical **`List`** view
 
 ###Images
 
+![Image](../../assets/module_preview.gif)
 
-![Alt text](../../assets/module_preview.gif)
 ### Installation
 
 Install through npm;
