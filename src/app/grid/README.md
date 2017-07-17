@@ -60,7 +60,8 @@ Style guide will be added soon.
 
 ### Documentation
    
-   ##### angular-switchable-grid properties.
+##### angular-switchable-grid properties.
+
    
    |Property| Input/Output| Default value | Description|
    | :-------|: --------|:-------|:--------------|
@@ -75,6 +76,7 @@ Style guide will be added soon.
    |[isGridView]| Input  | false |If sets to true, Grid's view will be changed to <b>Tile</b> view from <b>List</b> view|
    |[noDataTemplate]| Input  | Simple text 'No Data'  | The template that will be displayed when there is no data.|
    |(getSelectedItems)| Output  | [] - empty array  | Will emit the selected items when user is selecting items from the grid.|
+
 
 And should pass a template for the row template.
  
