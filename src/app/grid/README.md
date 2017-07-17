@@ -89,3 +89,8 @@ And should pass a template for the row template.
             <div>{{item.gender}}</div>
             <div>{{item.ip_address}}</div>
      </ng-template>
+
+### ToDo
+
+* Grid pagination.
+* Lazy loading.
