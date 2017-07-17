@@ -63,8 +63,8 @@ Style guide will be added soon.
 ##### angular-switchable-grid properties.
 
    
-   |Property| Input/Output| Default value | Description|
-   | :-------|: --------|:-------|:--------------|
+   Property| Input/Output| Default value | Description
+   | -------| --------|-------|:--------------|
    |[data]| Input | [] - empty array |The data to be displayed in the grid.|
    |[columnTitles]| Input| [] - empty array |  Titles of the columns in the grid.|
    |[enableSelection]| Input| false| Enable the selection of the rows of the grid.| 
