@@ -1,0 +1,157 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 17/07/2017 12:44
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-check-mark:before { content: "\f100"; }
+.flaticon-arrows-2:before { content: "\f101"; }
+.flaticon-technology-2:before { content: "\f102"; }
+.flaticon-round-error-symbol:before { content: "\f103"; }
+.flaticon-rubbish-bin:before { content: "\f104"; }
+.flaticon-medical:before { content: "\f105"; }
+.flaticon-wireless-router:before { content: "\f106"; }
+.flaticon-user-silhouette:before { content: "\f107"; }
+.flaticon-pie-chart-outline:before { content: "\f108"; }
+.flaticon-frame-landscape:before { content: "\f109"; }
+.flaticon-repairing-service:before { content: "\f10a"; }
+.flaticon-squares:before { content: "\f10b"; }
+.flaticon-sad-hand-drawn-face:before { content: "\f10c"; }
+.flaticon-book:before { content: "\f10d"; }
+.flaticon-interface-send-symbol:before { content: "\f10e"; }
+.flaticon-refresh-page-arrow-button:before { content: "\f10f"; }
+.flaticon-random-access-memory-chip:before { content: "\f110"; }
+.flaticon-full-battery:before { content: "\f111"; }
+.flaticon-funnel:before { content: "\f112"; }
+.flaticon-signal-bars:before { content: "\f113"; }
+.flaticon-interface:before { content: "\f114"; }
+.flaticon-link-symbol:before { content: "\f115"; }
+.flaticon-barcode-scanner:before { content: "\f116"; }
+.flaticon-arrow-point-to-right:before { content: "\f117"; }
+.flaticon-secret-agent:before { content: "\f118"; }
+.flaticon-hard-drive:before { content: "\f119"; }
+.flaticon-connection:before { content: "\f11a"; }
+.flaticon-eye:before { content: "\f11b"; }
+.flaticon-close:before { content: "\f11c"; }
+.flaticon-sound:before { content: "\f11d"; }
+.flaticon-tag:before { content: "\f11e"; }
+.flaticon-edit:before { content: "\f11f"; }
+.flaticon-menu-1:before { content: "\f120"; }
+.flaticon-arrows-1:before { content: "\f121"; }
+.flaticon-database:before { content: "\f122"; }
+.flaticon-agenda:before { content: "\f123"; }
+.flaticon-technology-1:before { content: "\f124"; }
+.flaticon-folder:before { content: "\f125"; }
+.flaticon-computer:before { content: "\f126"; }
+.flaticon-up-arrow:before { content: "\f127"; }
+.flaticon-download-arrow-1:before { content: "\f128"; }
+.flaticon-download-arrow:before { content: "\f129"; }
+.flaticon-plus-symbol:before { content: "\f12a"; }
+.flaticon-right-arrow:before { content: "\f12b"; }
+.flaticon-left-arrow:before { content: "\f12c"; }
+.flaticon-technology:before { content: "\f12d"; }
+.flaticon-arrows:before { content: "\f12e"; }
+.flaticon-menu:before { content: "\f12f"; }
+.flaticon-cpu:before { content: "\f130"; }
+.flaticon-search:before { content: "\f131"; }
+.flaticon-up-and-down-opposite-arrows-symbol-side-by-side:before { content: "\f132"; }
+.flaticon-wifi-connection-signal-symbol:before { content: "\f133"; }
+.flaticon-clock-circular-outline:before { content: "\f134"; }
+.flaticon-settings-gears:before { content: "\f135"; }
+.flaticon-check-symbol:before { content: "\f136"; }
+.flaticon-circle:before { content: "\f137"; }
+.flaticon-keyboard-right-arrow-button:before { content: "\f138"; }
+.flaticon-display:before { content: "\f139"; }
+.flaticon-profile:before { content: "\f13a"; }
+    
+    $font-Flaticon-check-mark: "\f100";
+    $font-Flaticon-arrows-2: "\f101";
+    $font-Flaticon-technology-2: "\f102";
+    $font-Flaticon-round-error-symbol: "\f103";
+    $font-Flaticon-rubbish-bin: "\f104";
+    $font-Flaticon-medical: "\f105";
+    $font-Flaticon-wireless-router: "\f106";
+    $font-Flaticon-user-silhouette: "\f107";
+    $font-Flaticon-pie-chart-outline: "\f108";
+    $font-Flaticon-frame-landscape: "\f109";
+    $font-Flaticon-repairing-service: "\f10a";
+    $font-Flaticon-squares: "\f10b";
+    $font-Flaticon-sad-hand-drawn-face: "\f10c";
+    $font-Flaticon-book: "\f10d";
+    $font-Flaticon-interface-send-symbol: "\f10e";
+    $font-Flaticon-refresh-page-arrow-button: "\f10f";
+    $font-Flaticon-random-access-memory-chip: "\f110";
+    $font-Flaticon-full-battery: "\f111";
+    $font-Flaticon-funnel: "\f112";
+    $font-Flaticon-signal-bars: "\f113";
+    $font-Flaticon-interface: "\f114";
+    $font-Flaticon-link-symbol: "\f115";
+    $font-Flaticon-barcode-scanner: "\f116";
+    $font-Flaticon-arrow-point-to-right: "\f117";
+    $font-Flaticon-secret-agent: "\f118";
+    $font-Flaticon-hard-drive: "\f119";
+    $font-Flaticon-connection: "\f11a";
+    $font-Flaticon-eye: "\f11b";
+    $font-Flaticon-close: "\f11c";
+    $font-Flaticon-sound: "\f11d";
+    $font-Flaticon-tag: "\f11e";
+    $font-Flaticon-edit: "\f11f";
+    $font-Flaticon-menu-1: "\f120";
+    $font-Flaticon-arrows-1: "\f121";
+    $font-Flaticon-database: "\f122";
+    $font-Flaticon-agenda: "\f123";
+    $font-Flaticon-technology-1: "\f124";
+    $font-Flaticon-folder: "\f125";
+    $font-Flaticon-computer: "\f126";
+    $font-Flaticon-up-arrow: "\f127";
+    $font-Flaticon-download-arrow-1: "\f128";
+    $font-Flaticon-download-arrow: "\f129";
+    $font-Flaticon-plus-symbol: "\f12a";
+    $font-Flaticon-right-arrow: "\f12b";
+    $font-Flaticon-left-arrow: "\f12c";
+    $font-Flaticon-technology: "\f12d";
+    $font-Flaticon-arrows: "\f12e";
+    $font-Flaticon-menu: "\f12f";
+    $font-Flaticon-cpu: "\f130";
+    $font-Flaticon-search: "\f131";
+    $font-Flaticon-up-and-down-opposite-arrows-symbol-side-by-side: "\f132";
+    $font-Flaticon-wifi-connection-signal-symbol: "\f133";
+    $font-Flaticon-clock-circular-outline: "\f134";
+    $font-Flaticon-settings-gears: "\f135";
+    $font-Flaticon-check-symbol: "\f136";
+    $font-Flaticon-circle: "\f137";
+    $font-Flaticon-keyboard-right-arrow-button: "\f138";
+    $font-Flaticon-display: "\f139";
+    $font-Flaticon-profile: "\f13a";

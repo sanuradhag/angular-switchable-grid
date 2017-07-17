@@ -7,6 +7,9 @@ $primary-color: #407de1;
 $secondary-accent-txt: #fff;
 $default-font: open_sansregular;
 $bold-font: open_sanssemibold;*/
+
+
+
 $primary:#407de1;
 $secondary: #5c5c5c;
 $accent: #f2f2f2;
@@ -14,6 +17,7 @@ $fade: #fff;
 
 :host /deep/ .grid-list{
   font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   padding: 3px 0 0 0px;
   position: relative;
   .sort{
@@ -73,6 +77,7 @@ $fade: #fff;
         border-color:transparent;
         font-size: 14px;
         position: relative;
+        font-weight: 400;
         &:hover{
           background: $accent;
           border-color: $primary;
@@ -157,6 +162,7 @@ $fade: #fff;
         cursor: pointer;
         height: 70px;
         position: relative;
+        font-weight: 600;
         &:hover{
           background: darken($accent,2%);
         }
@@ -165,7 +171,7 @@ $fade: #fff;
         }
         &.active{
           &:before{
-            content: "\f116";
+            content: "\f129";
             font-family: Flaticon;
             font-size: 16px;
             position: absolute;

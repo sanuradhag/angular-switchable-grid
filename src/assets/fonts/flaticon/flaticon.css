@@ -1,0 +1,90 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 17/07/2017 12:44
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-check-mark:before { content: "\f100"; }
+.flaticon-arrows-2:before { content: "\f101"; }
+.flaticon-technology-2:before { content: "\f102"; }
+.flaticon-round-error-symbol:before { content: "\f103"; }
+.flaticon-rubbish-bin:before { content: "\f104"; }
+.flaticon-medical:before { content: "\f105"; }
+.flaticon-wireless-router:before { content: "\f106"; }
+.flaticon-user-silhouette:before { content: "\f107"; }
+.flaticon-pie-chart-outline:before { content: "\f108"; }
+.flaticon-frame-landscape:before { content: "\f109"; }
+.flaticon-repairing-service:before { content: "\f10a"; }
+.flaticon-squares:before { content: "\f10b"; }
+.flaticon-sad-hand-drawn-face:before { content: "\f10c"; }
+.flaticon-book:before { content: "\f10d"; }
+.flaticon-interface-send-symbol:before { content: "\f10e"; }
+.flaticon-refresh-page-arrow-button:before { content: "\f10f"; }
+.flaticon-random-access-memory-chip:before { content: "\f110"; }
+.flaticon-full-battery:before { content: "\f111"; }
+.flaticon-funnel:before { content: "\f112"; }
+.flaticon-signal-bars:before { content: "\f113"; }
+.flaticon-interface:before { content: "\f114"; }
+.flaticon-link-symbol:before { content: "\f115"; }
+.flaticon-barcode-scanner:before { content: "\f116"; }
+.flaticon-arrow-point-to-right:before { content: "\f117"; }
+.flaticon-secret-agent:before { content: "\f118"; }
+.flaticon-hard-drive:before { content: "\f119"; }
+.flaticon-connection:before { content: "\f11a"; }
+.flaticon-eye:before { content: "\f11b"; }
+.flaticon-close:before { content: "\f11c"; }
+.flaticon-sound:before { content: "\f11d"; }
+.flaticon-tag:before { content: "\f11e"; }
+.flaticon-edit:before { content: "\f11f"; }
+.flaticon-menu-1:before { content: "\f120"; }
+.flaticon-arrows-1:before { content: "\f121"; }
+.flaticon-database:before { content: "\f122"; }
+.flaticon-agenda:before { content: "\f123"; }
+.flaticon-technology-1:before { content: "\f124"; }
+.flaticon-folder:before { content: "\f125"; }
+.flaticon-computer:before { content: "\f126"; }
+.flaticon-up-arrow:before { content: "\f127"; }
+.flaticon-download-arrow-1:before { content: "\f128"; }
+.flaticon-download-arrow:before { content: "\f129"; }
+.flaticon-plus-symbol:before { content: "\f12a"; }
+.flaticon-right-arrow:before { content: "\f12b"; }
+.flaticon-left-arrow:before { content: "\f12c"; }
+.flaticon-technology:before { content: "\f12d"; }
+.flaticon-arrows:before { content: "\f12e"; }
+.flaticon-menu:before { content: "\f12f"; }
+.flaticon-cpu:before { content: "\f130"; }
+.flaticon-search:before { content: "\f131"; }
+.flaticon-up-and-down-opposite-arrows-symbol-side-by-side:before { content: "\f132"; }
+.flaticon-wifi-connection-signal-symbol:before { content: "\f133"; }
+.flaticon-clock-circular-outline:before { content: "\f134"; }
+.flaticon-settings-gears:before { content: "\f135"; }
+.flaticon-check-symbol:before { content: "\f136"; }
+.flaticon-circle:before { content: "\f137"; }
+.flaticon-keyboard-right-arrow-button:before { content: "\f138"; }
+.flaticon-display:before { content: "\f139"; }
+.flaticon-profile:before { content: "\f13a"; }

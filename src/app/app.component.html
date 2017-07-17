@@ -1,7 +1,7 @@
 <filter [filterBy]="'First name'" [resetFilterTerm]="resetFilterTerm"
         (getFilterTerm)="getFilterTerm($event)"></filter>
 
-<button (click)="isGridView = !isGridView">Switch Grid View</button>
+<button (click)="isGridView = !isGridView"><i [ngClass]="{'flaticon-squares': !isGridView, 'flaticon-interface': isGridView}"></i></button>
 
 <angular-switchable-grid
   [data]="data"
@@ -17,12 +17,12 @@
 >
 
   <ng-template let-item>
-    <div class="name">{{item.id}}</div>
-    <div class="hidden-grid show-table">{{item.first_name}}</div>
-    <div class="hidden-grid show-table">{{item.last_name}}</div>
-    <div class="hidden-grid show-table">{{item.email}}</div>
+    <div class="hidden-grid name">{{item.id}}</div>
+    <div class="show-table">{{item.first_name}}</div>
+    <div class="show-table">{{item.last_name}}</div>
+    <div class="show-table">{{item.email}}</div>
     <div class="hidden-grid show-table">{{item.gender}}</div>
-    <div class="hidden-grid show-table">{{item.ip_address}}</div>
+    <div class="show-table">{{item.ip_address}}</div>
   </ng-template>
 
 </angular-switchable-grid>
