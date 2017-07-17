@@ -1,11 +1,13 @@
 <filter [filterBy]="'First name'" [resetFilterTerm]="resetFilterTerm"
         (getFilterTerm)="getFilterTerm($event)"></filter>
 
+<button (click)="isGridView = !isGridView">Switch Grid View</button>
+
 <angular-switchable-grid
   [data]="data"
   [columnTitles]="columnTitles"
   [sortAscending]="true"
-  [isGridView]="false"
+  [isGridView]="isGridView"
   [filterBy]="'first_name'"
   [filterTerm]="filterTerm"
   [multiSelect]="true"
@@ -14,13 +16,13 @@
   (getSelectedItems)="getSelectedItems($event)"
 >
 
-  <template let-item>
+  <ng-template let-item>
     <div class="name">{{item.id}}</div>
     <div class="hidden-grid show-table">{{item.first_name}}</div>
     <div class="hidden-grid show-table">{{item.last_name}}</div>
     <div class="hidden-grid show-table">{{item.email}}</div>
     <div class="hidden-grid show-table">{{item.gender}}</div>
     <div class="hidden-grid show-table">{{item.ip_address}}</div>
-  </template>
+  </ng-template>
 
 </angular-switchable-grid>

@@ -31,7 +31,7 @@
   <div class="table-row-wrapper">
     <ng-container *ngFor="let item of (sortedData | filter: filterTerm: filterBy)" class=" ">
       <div (click)="setSelectedItem(item)" class="list-item" [ngClass]="{'selected': item.selected}">
-        <template [ngTemplateOutlet]="itemTemplate" [ngOutletContext]="{ $implicit: item }"></template>
+        <ng-template [ngTemplateOutlet]="itemTemplate" [ngOutletContext]="{ $implicit: item }"></ng-template>
       </div>
     </ng-container>
     <div class='list-item'></div>

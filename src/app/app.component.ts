@@ -6,10 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  data: any;
-  columnTitles: string[];
-  filterTerm: string;
-  resetFilterTerm: boolean;
+
+  public data: any;
+  public columnTitles: string[];
+  public filterTerm: string;
+  public resetFilterTerm: boolean;
+  public isGridView: boolean;
 
   constructor() {
     this.data = [
@@ -717,6 +719,7 @@ export class AppComponent {
     this.columnTitles = ['ID', 'First name', 'Last name', 'Email', 'Gender', 'IP address'];
     this.filterTerm = '';
     this.resetFilterTerm = false;
+    this.isGridView = false;
   }
 
   /**
