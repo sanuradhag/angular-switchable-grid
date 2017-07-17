@@ -1,14 +1,19 @@
 @import '~compass-mixins';
-
-$default-font-color: #5c5c5c;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+/*$default-font-color: #5c5c5c;
 $primary-bg-color: #f2f2f2;
 $panel-shadow-color: #a9a9a9;
 $primary-color: #407de1;
 $secondary-accent-txt: #fff;
 $default-font: open_sansregular;
-$bold-font: open_sanssemibold;
+$bold-font: open_sanssemibold;*/
+$primary:#407de1;
+$secondary: #5c5c5c;
+$accent: #f2f2f2;
+$fade: #fff;
 
 :host /deep/ .grid-list{
+  font-family: 'Open Sans', sans-serif;
   padding: 3px 0 0 0px;
   position: relative;
   .sort{
@@ -19,7 +24,7 @@ $bold-font: open_sanssemibold;
       &.btn{
         font-size: 14px;
         text-decoration: none;
-        color: $default-font-color;
+        color: $secondary;
         padding: 5px 10px;
         background: none;
         i{
@@ -27,8 +32,8 @@ $bold-font: open_sanssemibold;
           display: inline-block;
         }
         &:hover, &:active{
-          background: lighten($primary-bg-color,4%);
-          @include box-shadow(0 1px 2px $panel-shadow-color);
+          background: lighten($accent,4%);
+          @include box-shadow(0 1px 2px $accent);
           outline: none;
         }
         &.asc{
@@ -54,8 +59,8 @@ $bold-font: open_sanssemibold;
       position: absolute;
       top: 38px;
       right: 54px;
-      background: $secondary-accent-txt;
-      @include box-shadow(0 1px 10px $panel-shadow-color);
+      background: $fade;
+      @include box-shadow(0 1px 5px $secondary);
       z-index: 4;
       padding: 5px 0;
       span{
@@ -69,8 +74,8 @@ $bold-font: open_sanssemibold;
         font-size: 14px;
         position: relative;
         &:hover{
-          background: $primary-bg-color;
-          border-color:$primary-color;
+          background: $accent;
+          border-color: $primary;
         }
         &.active:before{
           content: "\f136";
@@ -91,8 +96,7 @@ $bold-font: open_sanssemibold;
     .list-item{
       flex: 1 0 250px;
       margin: 0 10px 20px 10px;
-      background: $secondary-accent-txt;
-      @include box-shadow(0 1px 3px $panel-shadow-color);
+      @include box-shadow(0 1px 3px $secondary);
       position: relative;
       cursor: pointer;
       padding: 5px;
@@ -114,15 +118,15 @@ $bold-font: open_sanssemibold;
         }
       }
       &:hover{
-        @include box-shadow(0 1px 8px $panel-shadow-color);
+        @include box-shadow(0 1px 8px $secondary);
       }
       &.selected{
-        @include box-shadow(0 3px 16px $panel-shadow-color);
+        @include box-shadow(0 3px 16px $secondary);
         .name{
-          color:$secondary-accent-txt;
+          color:$accent;
         }
         .status{
-          background: $primary-color;
+          background: $primary;
           height: 42px;
           z-index: 2;
         }
@@ -136,24 +140,25 @@ $bold-font: open_sanssemibold;
     table-layout: fixed;
     padding:0;
     width:100%;
+    border: 1px solid $accent;
     .sort{
       display: none;
     }
     .grid-header{
       display: table-header-group;
       width:100%;
-      background: lighten($primary-bg-color,2%);
+      background: lighten($accent,2%);
       span{
         display: table-cell;
         line-height: 36px;
-        border-bottom: 1px solid $primary-bg-color;
+        border-bottom: 1px solid $accent;
         padding: 0 10px;
-        font-family: $bold-font;
         font-size: 12px;
         cursor: pointer;
+        height: 70px;
         position: relative;
         &:hover{
-          background: darken($primary-bg-color,2%);
+          background: darken($accent,2%);
         }
         &:nth-child(1){
           //width: 100px;
@@ -190,13 +195,13 @@ $bold-font: open_sanssemibold;
         padding: 0;
         position: relative;
         &.selected{
-          background: lighten($primary-color,1%);
+          background: lighten($primary,1%);
           &:hover{
-            background:lighten($primary-color,1%);
+            background:lighten($primary,1%);
           }
           div{
-            color:$secondary-accent-txt;
-            border-bottom-color:darken($primary-color, 5%);
+            color:$accent;
+            border-bottom-color:darken($primary, 5%);
           }
         }
         div{
@@ -206,8 +211,7 @@ $bold-font: open_sanssemibold;
           align-items: center;
           line-height: 40px;
           padding: 0 10px;
-          border-bottom: 1px solid $primary-bg-color;
-          font-family: $default-font;
+          border-bottom: 1px solid $accent;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -222,7 +226,7 @@ $bold-font: open_sanssemibold;
           }
         }
         &:hover{
-          background: $primary-bg-color;
+          background: $accent;
         }
       }
     }

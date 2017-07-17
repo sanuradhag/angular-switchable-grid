@@ -1,13 +1,13 @@
 <div *ngIf="data && data.length !== 0" class="grid-list" [ngClass]="gridClass">
 
-  <ng-container *ngIf="!isGridView">
+  <ng-container *ngIf="isGridView">
     <div class="sort">
       <button class="btn" (click)="toggleSortExpand()">{{sortByCategory}}</button>
       <button class="btn" [ngClass]="{asc: sortAscending, desc: !sortAscending}" (click)="descendingSort()">
         <i class="flaticon-download-arrow"></i>
       </button>
     </div>
-
+  </ng-container>
     <div class="grid-header" [ngClass]="{expand: isSortExpand}">
       <ng-container *ngIf="!enableSort">
         <ng-container *ngFor="let title of columnTitles">
@@ -26,7 +26,7 @@
       </ng-container>
 
     </div>
-  </ng-container>
+
 
   <div class="table-row-wrapper">
     <ng-container *ngFor="let item of (sortedData | filter: filterTerm: filterBy)" class=" ">
