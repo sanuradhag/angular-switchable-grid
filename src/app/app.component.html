@@ -8,11 +8,11 @@
   [columnTitles]="columnTitles"
   [sortAscending]="true"
   [isGridView]="isGridView"
-  [filterBy]="'first_name'"
   [filterTerm]="filterTerm"
-  [multiSelect]="true"
+  [enableMultiSelect]="true"
   [enableSelection]="true"
   [enableSort]="true"
+  [noDataTemplate]="null"
   (getSelectedItems)="getSelectedItems($event)"
 >
 
@@ -26,3 +26,7 @@
   </ng-template>
 
 </angular-switchable-grid>
+
+<ng-template #noDataTemplate>
+  <h1>No Data!!!</h1>
+</ng-template>

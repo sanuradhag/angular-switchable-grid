@@ -1,13 +1,10 @@
-import { Component, Input, Output, OnChanges, EventEmitter, TemplateRef, ContentChild } from '@angular/core';
+import { Component, Input, Output, OnChanges, EventEmitter, TemplateRef, ContentChild, HostListener } from '@angular/core';
 import * as _ from 'lodash';
 
 @Component({
   selector: 'angular-switchable-grid',
   templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.scss'],
-  host: {
-    '(document:click)': 'onclick($event)'
-  }
+  styleUrls: ['./grid.component.scss']
 })
 
 /**
@@ -15,24 +12,52 @@ import * as _ from 'lodash';
  */
 export class GridComponent implements OnChanges {
 
+  /**
+   * Data to displayed in the grid.
+   */
   @Input()
   public data: any[];
+  /**
+   * Column titles to be displayed in the grid.
+   */
   @Input()
   public columnTitles: any[];
   @Input()
-  public sortAscending: boolean;
+  /**
+   * Enable item selection from the grid.
+   */
+  public enableSelection: boolean;
   @Input()
-  public isGridView: boolean;
-  @Input()
-  public filterBy: string;
+  /**
+   * Enable multiple item selections in the grid.
+   */
+  public enableMultiSelect: boolean;
+  /**
+   * Filter term for the grid.
+   */
   @Input()
   public filterTerm: string;
-  @Input()
-  public multiSelect: boolean;
+  /**
+   * Enable data sorting.
+   */
   @Input()
   public enableSort: boolean;
+  /**
+   * Sort data ascending when loading.
+   */
   @Input()
-  public enableSelection: boolean;
+  public sortAscending: boolean;
+  /**
+   * Grid view or list view.
+   */
+  @Input()
+  public isGridView: boolean;
+  /**
+   * No data template.
+   */
+  @Input()
+  public noDataTemplate: TemplateRef<any>;
+
   @Output()
   public getSelectedItems: EventEmitter<any[]> = new EventEmitter<any[]>();
 
@@ -44,16 +69,22 @@ export class GridComponent implements OnChanges {
   public isSortExpand: boolean;
   public sortByCategory: string;
 
+  private dataObjectKeys: string[];
+  private formattedStrings: string[];
+
 
   constructor() {
+    this.data = [];
     this.sortedData = this.data;
     this.isSortExpand = false;
     this.filterTerm = '';
-    this.sortByCategory = 'id';
+    this.sortByCategory = '';
     this.selectedItems = [];
-    this.multiSelect = null;
+    this.enableMultiSelect = null;
     this.enableSort = false;
     this.enableSelection = true;
+    this.dataObjectKeys = [];
+    this.formattedStrings = [];
   }
 
   ngOnChanges(changes: any) {
@@ -65,12 +96,7 @@ export class GridComponent implements OnChanges {
       });
       this.selectedItems = [];
     }
-    // if (changes.deselectAll && changes.deselectAll.currentValue) {
-    //   _.each(this.selectedItems, (item: any) => {
-    //     item.selected = false;
-    //   });
-    //   this.selectedItems = [];
-    // }
+    this.dataObjectKeys = _.keys(this.data[0]);
   }
 
   /**
@@ -92,7 +118,7 @@ export class GridComponent implements OnChanges {
       return;
     }
     this.sortByCategory = element.target.textContent.trim();
-    this.sortedData = _.sortBy(this.sortedData, ([this.sortByCategory.toLocaleLowerCase()]));
+    this.sortedData = _.sortBy(this.sortedData, ([this.mapSortByCategory(this.sortByCategory)]));
     this.isSortExpand = false;
 
     _.each(element.target.parentElement.children, (child) => {
@@ -134,7 +160,7 @@ export class GridComponent implements OnChanges {
     if (!this.enableSelection) {
       return;
     }
-    if (this.multiSelect == null) {
+    if (this.enableMultiSelect == null) {
       return;
     }
     if (selectedItem.selected) {
@@ -153,8 +179,8 @@ export class GridComponent implements OnChanges {
    * @param device - selected device.
    */
   private setSelectionPattern(item: any): void {
-    if (!this.multiSelect) {
-      let index = _.findIndex(this.sortedData, ['selected', true]);
+    if (!this.enableMultiSelect) {
+      const index = _.findIndex(this.sortedData, ['selected', true]);
       index !== -1 ? this.sortedData[index].selected = false : {};
       this.selectedItems = [item];
       item.selected = true;
@@ -170,6 +196,7 @@ export class GridComponent implements OnChanges {
    * This method triggers when the document is clicked.
    * @param element
    */
+  @HostListener('document:click', ['$event'])
   private onclick(element: any) {
     if (this.isSortExpand && (element.target.className !== 'btn' && element.target.className !== 'header-item')) {
       this.isSortExpand = false;
@@ -178,6 +205,28 @@ export class GridComponent implements OnChanges {
     if (this.isSortExpand && element.target.parentElement.className.includes('grid-header')) {
       this.isSortExpand = true;
     }
+  }
+
+  private mapSortByCategory(columnName: string): string {
+    let objectIndex: number = 0;
+    columnName = columnName.toLocaleLowerCase();
+    columnName = columnName.replace(' ', '');
+    if (this.dataObjectKeys.length === 0) {
+      this.dataObjectKeys = _.keys(this.data[0]);
+    }
+    if (this.formattedStrings.length === 0) {
+      _.each(this.dataObjectKeys, (property: string) => {
+        const formattedString = _.replace(property, new RegExp('[^a-zA-Z0-9]+'), '');
+        this.formattedStrings.push(formattedString);
+      });
+    }
+
+    _.each(this.formattedStrings, (propertyName: string, index: number) => {
+      if (propertyName.toLowerCase() === columnName) {
+        objectIndex = index;
+      }
+    });
+    return this.dataObjectKeys[objectIndex];
   }
 
 }
