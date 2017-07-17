@@ -14,8 +14,8 @@ export class FilterComponent implements OnChanges {
   @Input() resetFilterTerm: boolean;
   @Output() getFilterTerm: EventEmitter<string> = new EventEmitter<string>();
 
-  private isFilterEnabled: boolean;
-  private filterTerm: string;
+  public isFilterEnabled: boolean;
+  public filterTerm: string;
 
   constructor() {
     this.isFilterEnabled = false;
@@ -33,14 +33,14 @@ export class FilterComponent implements OnChanges {
   /**
    * Change the filter text box view.
    */
-  private changeFilterViewState(): void {
+  public changeFilterViewState(): void {
     this.isFilterEnabled = true;
   }
 
   /**
    * This method will be triggered when the key press event is fired in the text box.
    */
-  private onFilterTextChnage(): void {
+  public onFilterTextChnage(): void {
     this.getFilterTerm.emit(this.filterTerm);
   }
 
