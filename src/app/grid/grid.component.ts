@@ -22,21 +22,26 @@ export class GridComponent implements OnChanges {
    */
   @Input()
   public columnTitles: any[];
-  @Input()
   /**
    * Enable item selection from the grid.
    */
-  public enableSelection: boolean;
   @Input()
+  public enableSelection: boolean;
   /**
    * Enable multiple item selections in the grid.
    */
+  @Input()
   public enableMultiSelect: boolean;
   /**
    * Filter term for the grid.
    */
   @Input()
   public filterTerm: string;
+  /**
+   * Filter by.
+   */
+  @Input()
+  public filterBy: string;
   /**
    * Enable data sorting.
    */
@@ -79,6 +84,7 @@ export class GridComponent implements OnChanges {
     this.isSortExpand = false;
     this.filterTerm = '';
     this.sortByCategory = '';
+    this.filterBy = '';
     this.selectedItems = [];
     this.enableMultiSelect = null;
     this.enableSort = false;
