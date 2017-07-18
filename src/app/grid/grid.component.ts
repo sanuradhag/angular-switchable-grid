@@ -101,6 +101,7 @@ export class GridComponent implements OnChanges {
         item.selected = false;
       });
       this.selectedItems = [];
+      this.sortByCategory = this.columnTitles[0];
     }
     this.dataObjectKeys = _.keys(this.data[0]);
   }

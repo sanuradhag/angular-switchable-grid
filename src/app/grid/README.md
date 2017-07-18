@@ -38,16 +38,15 @@ Then add  **`angular-switchable-grid`** to your app template.
       [sortAscending]="true"
       [isGridView]="isGridView"
       [noDataTemplate]="null"
-      (getSelectedItems)="getSelectedItems($event)"
-    >
+      (getSelectedItems)="getSelectedItems($event)">
     
       <ng-template let-item>
-        <div class="hidden-grid name">{{item.id}}</div>
-        <div class="show-table">{{item.first_name}}</div>
-        <div class="show-table">{{item.last_name}}</div>
-        <div class="show-table">{{item.email}}</div>
-        <div class="hidden-grid show-table">{{item.gender}}</div>
-        <div class="show-table">{{item.ip_address}}</div>
+        <div>{{item.id}}</div>
+        <div>{{item.first_name}}</div>
+        <div>{{item.last_name}}</div>
+        <div>{{item.email}}</div>
+        <div>{{item.gender}}</div>
+        <div>{{item.ip_address}}</div>
       </ng-template>
     
     </angular-switchable-grid>

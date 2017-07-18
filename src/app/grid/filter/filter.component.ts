@@ -10,7 +10,7 @@ import {Component, Output, EventEmitter, Input, OnChanges} from '@angular/core';
  */
 export class FilterComponent implements OnChanges {
 
-  @Input() filterBy: string;
+  @Input() placeholder: string;
   @Input() resetFilterTerm: boolean;
   @Output() getFilterTerm: EventEmitter<string> = new EventEmitter<string>();
 
@@ -21,7 +21,7 @@ export class FilterComponent implements OnChanges {
     this.isFilterEnabled = false;
     this.resetFilterTerm = false;
     this.filterTerm = '';
-    this.filterBy = '';
+    this.placeholder = '';
   }
 
   ngOnChanges() {

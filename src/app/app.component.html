@@ -1,4 +1,4 @@
-<filter [filterBy]="'First name'" [resetFilterTerm]="resetFilterTerm"
+<filter [placeholder]="'First name'" [resetFilterTerm]="resetFilterTerm"
         (getFilterTerm)="getFilterTerm($event)"></filter>
 
 <button (click)="isGridView = !isGridView"><i [ngClass]="{'flaticon-squares': !isGridView, 'flaticon-interface': isGridView}"></i></button>
