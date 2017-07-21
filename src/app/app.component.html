@@ -1,4 +1,13 @@
-<filter [placeholder]="'First name'" [resetFilterTerm]="resetFilterTerm"
+<div md2-menu>
+  <button button="primary" md2-menu-trigger>Filter by<span class="caret"></span></button>
+  <div md2-menu-content>
+    <ng-container *ngFor="let item of dataObject">
+      <a md2-menu-item (click)="setFilterBy(item)">{{item.displayName}}</a>
+    </ng-container>
+  </div>
+</div>
+
+<filter [placeholder]="placeholder" [resetFilterTerm]="resetFilterTerm"
         (getFilterTerm)="getFilterTerm($event)"></filter>
 
 <button (click)="isGridView = !isGridView"><i [ngClass]="{'flaticon-squares': !isGridView, 'flaticon-interface': isGridView}"></i></button>
@@ -9,7 +18,7 @@
   [sortAscending]="true"
   [isGridView]="isGridView"
   [filterTerm]="filterTerm"
-  [filterBy]="'first_name'"
+  [filterBy]="filterBy"
   [enableMultiSelect]="true"
   [enableSelection]="true"
   [enableSort]="true"

@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { GridModule } from './grid/grid.module';
+import { Md2Module } from 'md2';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,11 @@ import { GridModule } from './grid/grid.module';
     BrowserModule,
     FormsModule,
     HttpModule,
+    Md2Module,
     GridModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

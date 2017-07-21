@@ -10,8 +10,11 @@ export class AppComponent {
   public data: any;
   public columnTitles: string[];
   public filterTerm: string;
+  public filterBy: string;
+  public placeholder: string;
   public resetFilterTerm: boolean;
   public isGridView: boolean;
+  public dataObject: Array<{ name: string, displayName: string }>;
 
   constructor() {
     this.data = [
@@ -716,8 +719,18 @@ export class AppComponent {
         'gender': 'Female',
         'ip_address': '119.177.129.101'
       }];
+    this.dataObject = [
+      {name: 'id', displayName: 'ID'},
+      {name: 'first_name', displayName: 'First name'},
+      {name: 'last_name', displayName: 'Last name'},
+      {name: 'email', displayName: 'Email'},
+      {name: 'gender', displayName: 'Gender'},
+      {name: 'ip_address', displayName: 'IP address'}
+    ];
     this.columnTitles = ['ID', 'First name', 'Last name', 'Email', 'Gender', 'IP address'];
     this.filterTerm = '';
+    this.placeholder = this.columnTitles[0];
+    this.filterBy = this.dataObject[0].name;
     this.resetFilterTerm = false;
     this.isGridView = false;
   }
@@ -737,6 +750,11 @@ export class AppComponent {
    */
   public getSelectedItems(data: any): void {
     console.log(data);
+  }
+
+  public setFilterBy(item): void {
+    this.filterBy = item.name;
+    this.placeholder = item.displayName;
   }
 
 }
