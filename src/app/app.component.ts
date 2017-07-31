@@ -732,7 +732,7 @@ export class AppComponent {
     this.placeholder = this.columnTitles[0];
     this.filterBy = this.dataObject[0].name;
     this.resetFilterTerm = false;
-    this.isGridView = false;
+    this.isGridView = true;
   }
 
   /**

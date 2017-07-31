@@ -142,6 +142,9 @@ export class GridComponent implements OnChanges {
     this.sortedData = _.reverse(this.sortedData);
   }
 
+  /**
+   * Select all items in the grid.
+   */
   public selectAll(): void {
     _.each(this.data, (item) => {
       item.selected = true;
@@ -150,6 +153,9 @@ export class GridComponent implements OnChanges {
     this.getSelectedItems.emit(this.selectedItems);
   }
 
+  /**
+   * Deselect all items in the grid.
+   */
   public deselectAll(): void {
     _.each(this.data, (item: any) => {
       item.selected = false;
