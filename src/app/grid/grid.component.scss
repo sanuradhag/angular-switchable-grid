@@ -1,5 +1,6 @@
 @import '~compass-mixins';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+@import "styles/styles";
 /*$default-font-color: #5c5c5c;
 $primary-bg-color: #f2f2f2;
 $panel-shadow-color: #a9a9a9;
@@ -238,3 +239,27 @@ $fade: #fff;
     }
   }
 }
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("styles/fonts/flaticon/Flaticon.eot");
+  src: url("styles/fonts/flaticon/Flaticon.eot?#iefix") format("embedded-opentype"),
+  url("styles/fonts/flaticon/Flaticon.woff") format("woff"),
+  url("styles/fonts/flaticon/Flaticon.ttf") format("truetype"),
+  url("styles/fonts/flaticon/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="flaticon-"]:before,
+[class*=" flaticon-"]:before,
+[class^="flaticon-"]:after,
+[class*=" flaticon-"]:after {
+  font-family: Flaticon;
+  font-size: 24px;
+  font-style: normal;
+}
+
+.flaticon-download-arrow:before { content: "\f129"; }
+.flaticon-squares:before { content: "\f10b"; }
+.flaticon-interface:before { content: "\f114"; }
