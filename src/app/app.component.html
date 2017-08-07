@@ -1,20 +1,48 @@
-<div>
-  <h1>angular-switchable-grid 1.0.5</h1>
-</div>
-
-<div md2-menu>
-  <button button="primary" md2-menu-trigger [tooltip]="'Change the filter category'">Filter by<span class="caret"></span></button>
-  <div md2-menu-content>
-    <ng-container *ngFor="let item of dataObject">
-      <a md2-menu-item (click)="setFilterBy(item)">{{item.displayName}}</a>
-    </ng-container>
+<div class="jumbotron">
+  <div class="container text-center">
+    <img class="angular-logo" src="../assets/img/angular-logo.png" alt="angular-logo" />
+    <div class="package-info">
+      <h2 class="heading">Switchable Grid</h2>
+      <p>Version 1.0.5</p>
+    </div>
   </div>
 </div>
 
-<filter [placeholder]="placeholder" [resetFilterTerm]="resetFilterTerm"
-        (getFilterTerm)="getFilterTerm($event)"></filter>
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a>
+          <filter class="form-control" [placeholder]="placeholder" [resetFilterTerm]="resetFilterTerm"
+                  (getFilterTerm)="getFilterTerm($event)"></filter>
+        </a>
+        </li>
 
-<button (click)="isGridView = !isGridView" [tooltip]="'Change the view'"><i [ngClass]="{'flaticon-squares': !isGridView, 'flaticon-interface': isGridView}"></i></button>
+        <li><a>
+          <div md2-menu>
+            <button class="md-btn btn-flat-default" md2-menu-trigger [tooltip]="'Change the filter category'">Filter
+              by<span
+                class="caret"></span></button>
+            <div md2-menu-content>
+              <ng-container *ngFor="let item of dataObject">
+                <a md2-menu-item (click)="setFilterBy(item)">{{item.displayName}}</a>
+              </ng-container>
+            </div>
+          </div>
+        </a>
+        </li>
+
+        <li><a>
+          <button class="grid-btn md-btn btn-flat-default" (click)="isGridView = !isGridView"
+                  [tooltip]="'Change the view'"><i
+            [ngClass]="{'flaticon-squares': !isGridView, 'flaticon-interface': isGridView}"></i></button>
+        </a>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <angular-switchable-grid
   [data]="data"
@@ -44,3 +72,10 @@
 <ng-template #noDataTemplate>
   <h1>No Data!!!</h1>
 </ng-template>
+
+<footer class="container-fluid text-center">
+    <div class="row">
+      <h5>Follow the project on <a target="_blank" href="https://github.com/sanuradhag/npm-download-counter" class="github">Github</a></h5>
+      <h6 class="author">Coded with <span class="hearts">&hearts;</span> by Anuradha Gunasekara</h6>
+    </div>
+</footer>
