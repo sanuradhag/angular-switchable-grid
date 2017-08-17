@@ -1,6 +1,6 @@
 # Angular Switchable Grid
 
-A simple grid for angular, Which can be switched between typical **`List`** view and a **`tile`** block view
+A simple grid for angular, Which can be switched between typical List view and a tile block view
 
 
 ### Demo
