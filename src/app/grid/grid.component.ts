@@ -47,11 +47,7 @@ export class GridComponent implements OnChanges {
    */
   @Input()
   public enableSort: boolean;
-  /**
-   * Sort data ascending when loading.
-   */
-  @Input()
-  public sortAscending: boolean;
+
   /**
    * Grid view or list view.
    */
@@ -73,6 +69,7 @@ export class GridComponent implements OnChanges {
   public selectedItems: any[];
   public isSortExpand: boolean;
   public sortByCategory: string;
+  public sortAscending: boolean;
 
   private dataObjectKeys: string[];
   private formattedStrings: string[];
@@ -89,6 +86,7 @@ export class GridComponent implements OnChanges {
     this.enableMultiSelect = null;
     this.enableSort = false;
     this.enableSelection = true;
+    this.sortAscending = true;
     this.dataObjectKeys = [];
     this.formattedStrings = [];
   }
