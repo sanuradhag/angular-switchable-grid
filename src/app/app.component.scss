@@ -32,6 +32,8 @@
 /** Jumbotron styles **/
 .jumbotron {
   margin: 0;
+  padding-top: 1px;
+  padding-bottom: 1px;
 
   .package-info {
     h2 {
@@ -44,7 +46,7 @@
   }
 
   .angular-logo {
-    width: 40%;
+    width: 20%;
   }
 
   .heading {

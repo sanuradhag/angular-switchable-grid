@@ -1,6 +1,6 @@
 # Angular Switchable Grid
 
-A simple grid for angular, Which can be switched between typical **`List`** view and a **`tile`** block view
+A simple grid for angular, Which can be switched between typical List view and a tile block view
 
 
 ### Demo
@@ -35,7 +35,6 @@ Then add  **`angular-switchable-grid`** to your app template.
       [filterBy]="'first_name'"
       [filterTerm]="filterTerm"
       [enableSort]="true"
-      [sortAscending]="true"
       [isGridView]="isGridView"
       [noDataTemplate]="null"
       (getSelectedItems)="getSelectedItems($event)">
@@ -71,7 +70,6 @@ Style guide will be added soon.
    |[filterBy]| Input| '' - empty string| Grid will be filtered by this key.| 
    |[filterTerm]| Input| '' - empty string| Grid will filter its's content by the **`filterBy`** and will display only the items which are similar to the this.| 
    |[enableSort]| Input  | false |Enables sorting in the grid|
-   |[sortAscending]| Input  | false |If sets to true, Grid will be sorted ascending before displaying the data|
    |[isGridView]| Input  | false |If sets to true, Grid's view will be changed to **Tile** view from **List** view.|
    |[noDataTemplate]| Input  | Simple text 'No Data'  | The template that will be displayed when there is no data.|
    |(getSelectedItems)| Output  | [] - empty array  | Will emit the selected items when user is selecting items from the grid.|
