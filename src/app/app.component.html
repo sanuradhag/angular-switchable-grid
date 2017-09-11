@@ -1,48 +1,54 @@
-<div class="jumbotron">
-  <div class="container text-center">
-    <!--<img class="angular-logo" src="../assets/img/angular-logo.png" alt="angular-logo" />-->
-    <div class="package-info">
-      <h2 class="heading">Angular Switchable Grid</h2>
-      <p>Version 1.0.7</p>
-    </div>
-  </div>
-</div>
-
-<nav class="navbar navbar-inverse" role="navigation">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        <img src="../assets/img/angular-logo.svg" alt="Angular" />
+        <span class="project-name">Switchable Grid</span><br>
+        <span class="version">Version 1.0.7</span>
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Demo</a></li>
+        <li><a href="#">Guides</a></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a>
-          <filter class="form-control" [placeholder]="placeholder" [resetFilterTerm]="resetFilterTerm"
-                  (getFilterTerm)="getFilterTerm($event)"></filter>
-        </a>
-        </li>
-
-        <li><a>
-          <div md2-menu>
-            <button class="md-btn btn-flat-default" md2-menu-trigger [tooltip]="'Change the filter category'">Filter
-              by<span
-                class="caret"></span></button>
-            <div md2-menu-content>
-              <ng-container *ngFor="let item of dataObject">
-                <a md2-menu-item (click)="setFilterBy(item)">{{item.displayName}}</a>
-              </ng-container>
-            </div>
-          </div>
-        </a>
-        </li>
-
-        <li><a>
-          <button class="grid-btn md-btn btn-flat-default" (click)="isGridView = !isGridView"
-                  [tooltip]="'Change the view'"><i
-            [ngClass]="{'flaticon-squares': !isGridView, 'flaticon-interface': isGridView}"></i></button>
-        </a>
-
-        </li>
+        <li><a href="#"><span class="glyphicon glyphicon-git"></span>Github</a></li>
       </ul>
     </div>
   </div>
 </nav>
+
+<div class="header-panel">
+    <div>
+      <filter class="form-control" [placeholder]="placeholder" [resetFilterTerm]="resetFilterTerm"
+              (getFilterTerm)="getFilterTerm($event)"></filter>
+    </div>
+
+    <div>
+      <div md2-menu>
+        <button class="md-btn btn-flat-default" md2-menu-trigger [tooltip]="'Change the filter category'">Filter
+          by<span
+            class="caret"></span></button>
+        <div md2-menu-content>
+          <ng-container *ngFor="let item of dataObject">
+            <a md2-menu-item (click)="setFilterBy(item)">{{item.displayName}}</a>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button class="grid-btn md-btn btn-flat-default" (click)="isGridView = !isGridView"
+              [tooltip]="'Change the view'"><i
+        [ngClass]="{'flaticon-squares': !isGridView, 'flaticon-interface': isGridView}"></i></button>
+    </div>
+</div>
 
 <angular-switchable-grid
   [data]="data"

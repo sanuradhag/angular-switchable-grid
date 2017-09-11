@@ -6,11 +6,11 @@
 
 @font-face {
   font-family: "Flaticon";
-  src: url("grid/styles/fonts/flaticon/Flaticon.eot");
-  src: url("grid/styles/fonts/flaticon/Flaticon.eot?#iefix") format("embedded-opentype"),
-  url("grid/styles/fonts/flaticon/Flaticon.woff") format("woff"),
-  url("grid/styles/fonts/flaticon/Flaticon.ttf") format("truetype"),
-  url("grid/styles/fonts/flaticon/Flaticon.svg#Flaticon") format("svg");
+  src: url("grid/assets/fonts/flaticon/Flaticon.eot");
+  src: url("grid/assets/fonts/flaticon/Flaticon.eot?#iefix") format("embedded-opentype"),
+  url("grid/assets/fonts/flaticon/Flaticon.woff") format("woff"),
+  url("grid/assets/fonts/flaticon/Flaticon.ttf") format("truetype"),
+  url("grid/assets/fonts/flaticon/Flaticon.svg#Flaticon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -57,33 +57,32 @@
 }
 
 .navbar {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif ;
+  font-family: Roboto,Helvetica Neue,sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 0;
+  padding-top: 5px;
+  min-height: 65px;
 
-  //disabling the collapsing feature
-  .navbar-collapse.collapse {
-    display: block!important;
+  .navbar-brand {
+    img {
+      float: left;
+      margin: -10px 10px 0 10px;
+    }
+    span {
+      &.project-name {
+        color: $white;
+        float: right;
+      }
+      &.version {
+        font-size: 10px;
+        float: right;
+        margin-right: 3px;
+        margin-top: -3px;
+      }
+    }
   }
-
-  .navbar-nav>li, .navbar-nav {
-    float: left !important;
-  }
-
-  .navbar-nav.navbar-right:last-child {
-    margin-right: -15px !important;
-  }
-
-  .navbar-right {
-    float: right!important;
-  }
-
-  .grid-btn {
-    padding-top: 6px;
-  }
-
-  [md2-menu-content] {
-    top:30px;
-  }
-
 }
 
 
@@ -114,14 +113,14 @@
 }
 
 .btn-flat-default {
-  background-color: $grey-900;
+  background-color: $grey-300;
 
   &:hover {
-    background-color: lighten($grey-900, 10%);
+    background-color: lighten($grey-900, 100%);
   }
 
   &:active, &.active {
-    background-color: lighten($grey-500, 10%);
+    background-color: lighten($grey-500, 50%);
   }
 
   &:disabled, &.disabled, &[disabled] {
@@ -129,7 +128,7 @@
   }
 
   .ink {
-    background-color: lighten($grey-300, 20%);
+    background-color: lighten($grey-300, 80%);
   }
 }
 
@@ -156,3 +155,6 @@ footer {
   }
 }
 
+.header-panel {
+  display: inline-flex;
+}
