@@ -1,70 +1,18 @@
-//@import "grid/styles/styles";
 @import "~compass-mixins";
 @import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-
-@import "../assets/sass/colors";
-
-@font-face {
-  font-family: "Flaticon";
-  src: url("grid/assets/fonts/flaticon/Flaticon.eot");
-  src: url("grid/assets/fonts/flaticon/Flaticon.eot?#iefix") format("embedded-opentype"),
-  url("grid/assets/fonts/flaticon/Flaticon.woff") format("woff"),
-  url("grid/assets/fonts/flaticon/Flaticon.ttf") format("truetype"),
-  url("grid/assets/fonts/flaticon/Flaticon.svg#Flaticon") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-[class^="flaticon-"]:before,
-[class*=" flaticon-"]:before,
-[class^="flaticon-"]:after,
-[class*=" flaticon-"]:after {
-  font-family: Flaticon;
-  font-size: 24px;
-  font-style: normal;
-}
-
-.flaticon-download-arrow:before { content: "\f129"; }
-.flaticon-squares:before { content: "\f10b"; }
-.flaticon-interface:before { content: "\f114"; }
-
-
-/** Jumbotron styles **/
-.jumbotron {
-  margin: 0;
-  padding-top: 1px;
-  padding-bottom: 1px;
-
-  .package-info {
-    h2 {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
-
-    p {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
-  }
-
-  .angular-logo {
-    width: 20%;
-  }
-
-  .heading {
-    color: #333;
-    text-shadow: 0px 1px 0px rgba(255,255,255,.9);
-    text-transform: uppercase;
-  }
-}
+@import "grid/assets/sass/angular-switchable-grid";
 
 .navbar {
-  font-family: Roboto,Helvetica Neue,sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 500;
   border-radius: 0;
   padding-top: 5px;
+  margin-bottom: 0;
   min-height: 65px;
-
+  background-color: $outer-space;
+  @include box-shadow(0 2px 5px 0 rgba(0,0,0,0.26));
   .navbar-brand {
     img {
       float: left;
@@ -83,13 +31,64 @@
       }
     }
   }
+  .navbar-collapse {
+    ul {
+      li {
+        font-size: 16px;
+
+        .github {
+          i {
+            padding: 0 10px;
+          }
+        }
+      }
+    }
+  }
 }
 
 
+.header-panel {
+  height: 50px;
+  width: 100%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.10);
+  padding: 8px 15px;
+  .grid-control-group {
+    display: inline-flex;
+    .view-switcher {
+      padding: 0 5px;
+      button {
+        height: 34px;;
+      }
+    }
+    .filter-type {
+      padding: 0 5px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+
+      button {
+        height: 34px;
+        height: 34px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .menu-content  {
+        top: 35px;
+        a {
+          color: $grey-700;
+          font-size: 14px;
+        }
+      }
+    }
+    .filter {
+      padding: 0 5px;
+    }
+  }
+
+}
 
 /** Material design flat button styles **/
 .md-button-flat {
-  background-color: $grey-100;
+  background-color: $grey-500;
 }
 
 .md-btn {
@@ -116,11 +115,11 @@
   background-color: $grey-300;
 
   &:hover {
-    background-color: lighten($grey-900, 100%);
+    background-color: lighten($grey-900, 70%);
   }
 
   &:active, &.active {
-    background-color: lighten($grey-500, 50%);
+    background-color: lighten($grey-900, 60%);
   }
 
   &:disabled, &.disabled, &[disabled] {
@@ -141,20 +140,33 @@
 
 /** Footer styling **/
 footer {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif ;
-  background: $black;
-  color: white;
+  background-color: $outer-space;
+  .footer-content {
+    padding: 12px 35px;
+    .power-text {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      color: $white;
+      margin: 0;
+      opacity: .54;
+      text-align: right;
+      padding: 10px 0;
 
-  .github {
-    color: $persiangreen;
-  }
-  .hearts {
-    color: $red;
+      a {
+        color: $white;
+        font-weight: 400;
+        text-decoration: none;
+      }
+    }
   }
 }
 
-.header-panel {
-  display: inline-flex;
+@media only screen and (max-width: 768px) {
+  footer {
+    text-align: center;
+    .power-text {
+      text-align: center !important;
+    }
+  }
 }

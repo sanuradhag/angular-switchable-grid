@@ -1,3 +1,4 @@
+<!-- Navigation -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -14,28 +15,30 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="#">Demo</a></li>
-        <li><a href="#">Guides</a></li>
+        <li><a href="#">Get Started</a></li>
+        <li><a href="#">Style Guide</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-git"></span>Github</a></li>
+        <li><a target="_blank" href="https://github.com/sanuradhag/angular-switchable-grid"><span class="github"><i class="flaticon-github-logo"></i></span>Github</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
+<!-- Header Panel -->
 <div class="header-panel">
-    <div>
+  <div class="grid-control-group pull-right">
+    <div class="filter">
       <filter class="form-control" [placeholder]="placeholder" [resetFilterTerm]="resetFilterTerm"
               (getFilterTerm)="getFilterTerm($event)"></filter>
     </div>
 
-    <div>
+    <div class="filter-type">
       <div md2-menu>
         <button class="md-btn btn-flat-default" md2-menu-trigger [tooltip]="'Change the filter category'">Filter
           by<span
             class="caret"></span></button>
-        <div md2-menu-content>
+        <div md2-menu-content class="menu-content">
           <ng-container *ngFor="let item of dataObject">
             <a md2-menu-item (click)="setFilterBy(item)">{{item.displayName}}</a>
           </ng-container>
@@ -43,13 +46,15 @@
       </div>
     </div>
 
-    <div>
+    <div class="view-switcher">
       <button class="grid-btn md-btn btn-flat-default" (click)="isGridView = !isGridView"
               [tooltip]="'Change the view'"><i
         [ngClass]="{'flaticon-squares': !isGridView, 'flaticon-interface': isGridView}"></i></button>
     </div>
+  </div>
 </div>
 
+<!-- Grid -->
 <angular-switchable-grid
   [data]="data"
   [columnTitles]="columnTitles"
@@ -79,9 +84,15 @@
   <h1>No Data!!!</h1>
 </ng-template>
 
-<footer class="container-fluid text-center">
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content container-fluid">
     <div class="row">
-      <h5>Follow the project on <a target="_blank" href="https://github.com/sanuradhag/npm-download-counter" class="github">Github</a></h5>
-      <h6 class="author">Coded with <span class="hearts">&hearts;</span> by Anuradha Gunasekara</h6>
+      <div class="col-sm-4"> <img src="../assets/img/angular-logo.svg" alt=""></div>
+      <div class="col-sm-8">
+        <p class="power-text">Coded with &hearts; by Anuradha Gunasekara ©2017. Code licensed under an
+        <a href="https://github.com/sanuradhag/angular-switchable-grid/blob/master/LICENSE" target="_blank">MIT</a>.</p>
+      </div>
     </div>
+  </div>
 </footer>
