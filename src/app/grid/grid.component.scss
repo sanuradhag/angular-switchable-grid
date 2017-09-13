@@ -93,10 +93,11 @@
     .list-item{
       flex: 1 0 250px;
       margin: 0 10px 20px 10px;
-      @include box-shadow(0 1px 3px $grey-800);
+      @include box-shadow(0 1px 4px 0 rgba(0,0,0,0.20));
+      border-radius: 3px;
       position: relative;
       cursor: pointer;
-      padding: 5px;
+      padding: 10px;
       min-height: 160px;
       &:empty {
         display: flex;
@@ -115,10 +116,10 @@
         }
       }
       &:hover{
-        @include box-shadow(0 1px 8px $grey-800);
+        @include box-shadow(0 1px 5px 0 rgba(0,0,0,0.30));
       }
       &.selected{
-        @include box-shadow(0 3px 16px $grey-800);
+        @include box-shadow(0 2px 7px 0 rgba(0,0,0,0.40));
         .name{
           color:$grey-100;
         }
