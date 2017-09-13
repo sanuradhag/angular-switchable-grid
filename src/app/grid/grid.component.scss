@@ -1,20 +1,6 @@
 @import '~compass-mixins';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
-@import "styles/styles";
-/*$default-font-color: #5c5c5c;
-$primary-bg-color: #f2f2f2;
-$panel-shadow-color: #a9a9a9;
-$primary-color: #407de1;
-$secondary-accent-txt: #fff;
-$default-font: open_sansregular;
-$bold-font: open_sanssemibold;*/
-
-
-
-$primary:#407de1;
-$secondary: #5c5c5c;
-$accent: #f2f2f2;
-$fade: #fff;
+@import "assets/sass/angular-switchable-grid";
 
 :host /deep/ .grid-list{
   font-family: 'Open Sans', sans-serif;
@@ -24,12 +10,20 @@ $fade: #fff;
   .sort{
     text-align: right;
     padding: 0 15px;
+    &.sort-header-panel {
+      height: 31px;
+      border-bottom: 1px solid $grey-100;
+      padding: 8px 20px;
+    }
     button{
       outline: none;
+      border: 1px solid $grey-900;
+      border-radius: 2px;
+      cursor: pointer;
       &.btn{
         font-size: 14px;
         text-decoration: none;
-        color: $secondary;
+        color: $grey-800;
         padding: 5px 10px;
         background: none;
         i{
@@ -37,8 +31,8 @@ $fade: #fff;
           display: inline-block;
         }
         &:hover, &:active{
-          background: lighten($accent,4%);
-          @include box-shadow(0 1px 2px $accent);
+          background-color: lighten($grey-900, 70%);
+          @include box-shadow(0 1px 2px $grey-100);
           outline: none;
         }
         &.asc{
@@ -62,10 +56,10 @@ $fade: #fff;
     &.expand{
       display: block;
       position: absolute;
-      top: 38px;
-      right: 54px;
-      background: $fade;
-      @include box-shadow(0 1px 5px $secondary);
+      top: 44px;
+      right: 63px;
+      background: $white;
+      @include box-shadow(0 1px 5px $grey-800);
       z-index: 4;
       padding: 5px 0;
       span{
@@ -73,18 +67,14 @@ $fade: #fff;
         padding: 10px 10px 10px 15px;
         min-width: 250px;
         cursor: pointer;
-        border-left-width:3px;
-        border-left-style: solid;
-        border-color:transparent;
         font-size: 14px;
         position: relative;
         font-weight: 400;
         &:hover{
-          background: $accent;
-          border-color: $primary;
+          background: $grey-100;
         }
         &.active:before{
-          content: "\f136";
+          content: "\f11c";
           font-family: Flaticon;
           font-size: 16px;
           position: absolute;
@@ -103,10 +93,11 @@ $fade: #fff;
     .list-item{
       flex: 1 0 250px;
       margin: 0 10px 20px 10px;
-      @include box-shadow(0 1px 3px $secondary);
+      @include box-shadow(0 1px 4px 0 rgba(0,0,0,0.20));
+      border-radius: 3px;
       position: relative;
       cursor: pointer;
-      padding: 5px;
+      padding: 10px;
       min-height: 160px;
       &:empty {
         display: flex;
@@ -115,6 +106,37 @@ $fade: #fff;
         margin-bottom: 0;
         min-height: 0;
         padding: 0;
+      }
+      img {
+        padding: 5px;
+        border-radius: 3px;
+        border: 1px solid $grey-300;
+        background-color: transparent;
+        @include box-shadow(0 12px 20px -10px rgba(0,0,0,.18), 0 4px 20px 0 rgba(0,0,0,.02), 0 7px 8px -5px rgba(0,0,0,.1));
+        &.red {
+          background-color: $red-600;
+        }
+        &.pink {
+          background-color: $pink-600;
+        }
+        &.purple {
+          background-color: $purple-600;
+        }
+        &.blue {
+          background-color: $blue-600;
+        }
+        &.green {
+          background-color: $green-600;
+        }
+        &.yellow {
+          background-color: $yellow-600;
+        }
+        &.brown {
+          background-color: $brown-600;
+        }
+        &.grey {
+          background-color: $grey-600;
+        }
       }
       div, img{
         &.hidden-grid{
@@ -125,15 +147,15 @@ $fade: #fff;
         }
       }
       &:hover{
-        @include box-shadow(0 1px 8px $secondary);
+        @include box-shadow(0 1px 5px 0 rgba(0,0,0,0.30));
       }
       &.selected{
-        @include box-shadow(0 3px 16px $secondary);
+        @include box-shadow(0 2px 7px 0 rgba(0,0,0,0.40));
         .name{
-          color:$accent;
+          color:$grey-100;
         }
         .status{
-          background: $primary;
+          background: $blue-A200;
           height: 42px;
           z-index: 2;
         }
@@ -147,18 +169,18 @@ $fade: #fff;
     table-layout: fixed;
     padding:0;
     width:100%;
-    border: 1px solid $accent;
+    //border: 1px solid $grey-100;
     .sort{
       display: none;
     }
     .grid-header{
       display: table-header-group;
       width:100%;
-      background: lighten($accent,2%);
+      background: lighten($grey-100,2%);
       span{
         display: table-cell;
         line-height: 36px;
-        border-bottom: 1px solid $accent;
+        border-bottom: 1px solid $grey-100;
         padding: 0 10px;
         font-size: 12px;
         cursor: pointer;
@@ -166,14 +188,14 @@ $fade: #fff;
         position: relative;
         font-weight: 600;
         &:hover{
-          background: darken($accent,2%);
+          background: darken($grey-100,2%);
         }
         &:nth-child(1){
           //width: 100px;
         }
         &.active{
           &:before{
-            content: "\f129";
+            content: "\f11c";
             font-family: Flaticon;
             font-size: 16px;
             position: absolute;
@@ -203,13 +225,13 @@ $fade: #fff;
         padding: 0;
         position: relative;
         &.selected{
-          background: lighten($primary,1%);
+          background: lighten($blue-A200,1%);
           &:hover{
-            background:lighten($primary,1%);
+            background:lighten($blue-A200,1%);
           }
           div{
-            color:$accent;
-            border-bottom-color:darken($primary, 5%);
+            color:$grey-100;
+            border-bottom-color:darken($blue-A200, 5%);
           }
         }
         div, img{
@@ -219,7 +241,7 @@ $fade: #fff;
           align-items: center;
           line-height: 40px;
           padding: 0 10px;
-          border-bottom: 1px solid $accent;
+          border-bottom: 1px solid $grey-100;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -234,7 +256,7 @@ $fade: #fff;
           }
         }
         &:hover{
-          background: $accent;
+          background: $grey-100;
         }
       }
     }
@@ -243,11 +265,11 @@ $fade: #fff;
 
 @font-face {
   font-family: "Flaticon";
-  src: url("styles/fonts/flaticon/Flaticon.eot");
-  src: url("styles/fonts/flaticon/Flaticon.eot?#iefix") format("embedded-opentype"),
-  url("styles/fonts/flaticon/Flaticon.woff") format("woff"),
-  url("styles/fonts/flaticon/Flaticon.ttf") format("truetype"),
-  url("styles/fonts/flaticon/Flaticon.svg#Flaticon") format("svg");
+  src: url("assets/fonts/flaticon/Flaticon.eot");
+  src: url("assets/fonts/flaticon/Flaticon.eot?#iefix") format("embedded-opentype"),
+  url("assets/fonts/flaticon/Flaticon.woff") format("woff"),
+  url("assets/fonts/flaticon/Flaticon.ttf") format("truetype"),
+  url("assets/fonts/flaticon/Flaticon.svg#Flaticon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -260,7 +282,3 @@ $fade: #fff;
   font-size: 24px;
   font-style: normal;
 }
-
-.flaticon-download-arrow:before { content: "\f129"; }
-.flaticon-squares:before { content: "\f10b"; }
-.flaticon-interface:before { content: "\f114"; }
