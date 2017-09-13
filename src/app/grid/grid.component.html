@@ -1,7 +1,7 @@
 <div class="grid-list" [ngClass]="gridClass">
 
   <ng-container *ngIf="isGridView">
-    <div class="sort">
+    <div class="sort sort-header-panel">
       <button class="btn" (click)="toggleSortExpand()">{{sortByCategory}}</button>
       <button class="btn" [ngClass]="{asc: sortAscending, desc: !sortAscending}" (click)="descendingSort()">
         <i class="flaticon-arrows-2"></i>

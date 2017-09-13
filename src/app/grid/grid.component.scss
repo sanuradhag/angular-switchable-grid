@@ -10,8 +10,16 @@
   .sort{
     text-align: right;
     padding: 0 15px;
+    &.sort-header-panel {
+      height: 31px;
+      border-bottom: 1px solid $grey-100;
+      padding: 8px 20px;
+    }
     button{
       outline: none;
+      border: 1px solid $grey-900;
+      border-radius: 2px;
+      cursor: pointer;
       &.btn{
         font-size: 14px;
         text-decoration: none;
@@ -23,7 +31,7 @@
           display: inline-block;
         }
         &:hover, &:active{
-          background: lighten($grey-100,4%);
+          background-color: lighten($grey-900, 70%);
           @include box-shadow(0 1px 2px $grey-100);
           outline: none;
         }
@@ -48,9 +56,9 @@
     &.expand{
       display: block;
       position: absolute;
-      top: 38px;
-      right: 54px;
-      background: $grey-200;
+      top: 44px;
+      right: 63px;
+      background: $white;
       @include box-shadow(0 1px 5px $grey-800);
       z-index: 4;
       padding: 5px 0;
@@ -59,15 +67,11 @@
         padding: 10px 10px 10px 15px;
         min-width: 250px;
         cursor: pointer;
-        border-left-width:3px;
-        border-left-style: solid;
-        border-color:transparent;
         font-size: 14px;
         position: relative;
         font-weight: 400;
         &:hover{
           background: $grey-100;
-          border-color: $blue-A200;
         }
         &.active:before{
           content: "\f11c";
