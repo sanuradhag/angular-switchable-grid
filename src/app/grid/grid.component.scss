@@ -1,20 +1,6 @@
 @import '~compass-mixins';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
 @import "assets/sass/angular-switchable-grid";
-/*$default-font-color: #5c5c5c;
-$primary-bg-color: #f2f2f2;
-$panel-shadow-color: #a9a9a9;
-$primary-color: #407de1;
-$secondary-accent-txt: #fff;
-$default-font: open_sansregular;
-$bold-font: open_sanssemibold;*/
-
-
-
-$primary:#407de1;
-$secondary: #5c5c5c;
-$accent: #f2f2f2;
-$fade: #fff;
 
 :host /deep/ .grid-list{
   font-family: 'Open Sans', sans-serif;
@@ -29,7 +15,7 @@ $fade: #fff;
       &.btn{
         font-size: 14px;
         text-decoration: none;
-        color: $secondary;
+        color: $grey-800;
         padding: 5px 10px;
         background: none;
         i{
@@ -37,8 +23,8 @@ $fade: #fff;
           display: inline-block;
         }
         &:hover, &:active{
-          background: lighten($accent,4%);
-          @include box-shadow(0 1px 2px $accent);
+          background: lighten($grey-100,4%);
+          @include box-shadow(0 1px 2px $grey-100);
           outline: none;
         }
         &.asc{
@@ -64,8 +50,8 @@ $fade: #fff;
       position: absolute;
       top: 38px;
       right: 54px;
-      background: $fade;
-      @include box-shadow(0 1px 5px $secondary);
+      background: $grey-200;
+      @include box-shadow(0 1px 5px $grey-800);
       z-index: 4;
       padding: 5px 0;
       span{
@@ -80,11 +66,11 @@ $fade: #fff;
         position: relative;
         font-weight: 400;
         &:hover{
-          background: $accent;
-          border-color: $primary;
+          background: $grey-100;
+          border-color: $blue-A200;
         }
         &.active:before{
-          content: "\f136";
+          content: "\f11c";
           font-family: Flaticon;
           font-size: 16px;
           position: absolute;
@@ -103,7 +89,7 @@ $fade: #fff;
     .list-item{
       flex: 1 0 250px;
       margin: 0 10px 20px 10px;
-      @include box-shadow(0 1px 3px $secondary);
+      @include box-shadow(0 1px 3px $grey-800);
       position: relative;
       cursor: pointer;
       padding: 5px;
@@ -125,15 +111,15 @@ $fade: #fff;
         }
       }
       &:hover{
-        @include box-shadow(0 1px 8px $secondary);
+        @include box-shadow(0 1px 8px $grey-800);
       }
       &.selected{
-        @include box-shadow(0 3px 16px $secondary);
+        @include box-shadow(0 3px 16px $grey-800);
         .name{
-          color:$accent;
+          color:$grey-100;
         }
         .status{
-          background: $primary;
+          background: $blue-A200;
           height: 42px;
           z-index: 2;
         }
@@ -147,18 +133,18 @@ $fade: #fff;
     table-layout: fixed;
     padding:0;
     width:100%;
-    border: 1px solid $accent;
+    border: 1px solid $grey-100;
     .sort{
       display: none;
     }
     .grid-header{
       display: table-header-group;
       width:100%;
-      background: lighten($accent,2%);
+      background: lighten($grey-100,2%);
       span{
         display: table-cell;
         line-height: 36px;
-        border-bottom: 1px solid $accent;
+        border-bottom: 1px solid $grey-100;
         padding: 0 10px;
         font-size: 12px;
         cursor: pointer;
@@ -166,14 +152,14 @@ $fade: #fff;
         position: relative;
         font-weight: 600;
         &:hover{
-          background: darken($accent,2%);
+          background: darken($grey-100,2%);
         }
         &:nth-child(1){
           //width: 100px;
         }
         &.active{
           &:before{
-            content: "\f129";
+            content: "\f11c";
             font-family: Flaticon;
             font-size: 16px;
             position: absolute;
@@ -203,13 +189,13 @@ $fade: #fff;
         padding: 0;
         position: relative;
         &.selected{
-          background: lighten($primary,1%);
+          background: lighten($blue-A200,1%);
           &:hover{
-            background:lighten($primary,1%);
+            background:lighten($blue-A200,1%);
           }
           div{
-            color:$accent;
-            border-bottom-color:darken($primary, 5%);
+            color:$grey-100;
+            border-bottom-color:darken($blue-A200, 5%);
           }
         }
         div, img{
@@ -219,7 +205,7 @@ $fade: #fff;
           align-items: center;
           line-height: 40px;
           padding: 0 10px;
-          border-bottom: 1px solid $accent;
+          border-bottom: 1px solid $grey-100;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -234,7 +220,7 @@ $fade: #fff;
           }
         }
         &:hover{
-          background: $accent;
+          background: $grey-100;
         }
       }
     }
@@ -260,7 +246,3 @@ $fade: #fff;
   font-size: 24px;
   font-style: normal;
 }
-
-.flaticon-download-arrow:before { content: "\f129"; }
-.flaticon-squares:before { content: "\f10b"; }
-.flaticon-interface:before { content: "\f114"; }
