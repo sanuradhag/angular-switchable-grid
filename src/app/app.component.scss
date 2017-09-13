@@ -46,7 +46,6 @@
   }
 }
 
-
 .header-panel {
   height: 50px;
   width: 100%;
@@ -86,48 +85,13 @@
 
 }
 
-/** Material design flat button styles **/
-.md-button-flat {
-  background-color: $grey-500;
-}
-
-.md-btn {
-  outline: 0;
-  outline-offset: 0;
-  border: 0;
-  border-radius: 2px;
-
-  transition: all .15s ease-in-out;
-  -o-transition: all .15s ease-in-out;
-  -moz-transition: all .15s ease-in-out;
-  -webkit-transition: all .15s ease-in-out;
-
-  &:focus, &:active, &.active, &:active:focus, &.active:focus {
-    outline: 0;
-    outline-offset: 0;
-    box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-  }
-}
-
-.btn-flat-default {
-  background-color: $grey-300;
-
-  &:hover {
-    background-color: lighten($grey-900, 70%);
-  }
-
-  &:active, &.active {
-    background-color: lighten($grey-900, 60%);
-  }
-
-  &:disabled, &.disabled, &[disabled] {
-    background-color: $grey-300;
-  }
-
-  .ink {
-    background-color: lighten($grey-300, 80%);
+/** GRID STYLES **/
+:host /deep/ .grid-list {
+  height: calc(100vh - 180px);
+  overflow: hidden;
+  .table-row-wrapper {
+    height: calc(100vh - 243px);
+    overflow: auto;
   }
 }
 
