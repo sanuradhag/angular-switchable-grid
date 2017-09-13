@@ -107,6 +107,37 @@
         min-height: 0;
         padding: 0;
       }
+      img {
+        padding: 5px;
+        border-radius: 3px;
+        border: 1px solid $grey-300;
+        background-color: transparent;
+        @include box-shadow(0 12px 20px -10px rgba(0,0,0,.18), 0 4px 20px 0 rgba(0,0,0,.02), 0 7px 8px -5px rgba(0,0,0,.1));
+        &.red {
+          background-color: $red-600;
+        }
+        &.pink {
+          background-color: $pink-600;
+        }
+        &.purple {
+          background-color: $purple-600;
+        }
+        &.blue {
+          background-color: $blue-600;
+        }
+        &.green {
+          background-color: $green-600;
+        }
+        &.yellow {
+          background-color: $yellow-600;
+        }
+        &.brown {
+          background-color: $brown-600;
+        }
+        &.grey {
+          background-color: $grey-600;
+        }
+      }
       div, img{
         &.hidden-grid{
           display: none;
