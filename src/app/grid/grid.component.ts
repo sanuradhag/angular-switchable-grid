@@ -126,7 +126,7 @@ export class GridComponent implements OnChanges {
     this.sortedData = _.sortBy(this.sortedData, ([this.mapSortByCategory(this.sortByCategory)]));
     this.isSortExpand = false;
 
-    _.each(element.target.parentElement.children, (child) => {
+    _.each(element.target.parentElement.children, (child: any) => {
       child.className = 'header-item';
     });
     element.target.className = 'active';
