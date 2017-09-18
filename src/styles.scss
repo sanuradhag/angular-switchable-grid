@@ -1,3 +1,14 @@
+import 'codemirror/lib/codemirror.css'
 body {
   margin: 0;
+}
+
+.no-data {
+  height:calc(100vh - 200px);
+  margin: 0 auto;
+  text-align: center;
+  padding: 100px;
+  h2{
+    font-size:24px;
+  }
 }

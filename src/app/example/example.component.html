@@ -1,0 +1,101 @@
+<!-- Header Panel -->
+<div class="header-panel">
+  <div class="grid-control-group pull-right">
+    <div class="filter">
+      <filter class="form-control" [placeholder]="placeholder" [resetFilterTerm]="resetFilterTerm"
+              (getFilterTerm)="getFilterTerm($event)"></filter>
+    </div>
+
+    <div class="filter-type">
+      <div md2-menu>
+        <button class="md-btn btn-flat-default" md2-menu-trigger [tooltip]="'Change the filter category'">Filter
+          by<span
+            class="caret"></span></button>
+        <div md2-menu-content class="menu-content">
+          <ng-container *ngFor="let item of dataObject">
+            <a md2-menu-item (click)="setFilterBy(item)">{{item.displayName}}</a>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-type">
+      <div md2-menu>
+        <button class="md-btn btn-flat-default" md2-menu-trigger [tooltip]="'Grid options'"><span
+          class="ico-gear2"></span><span
+          class="caret"></span></button>
+        <div md2-menu-content x-position="before" class="menu-content">
+          <a md2-menu-item>
+            <div>
+              Change the grid view
+              <ui-switch [(ngModel)]="isGridView"></ui-switch>
+            </div>
+          </a>
+
+          <a md2-menu-item>
+            <div>
+              Enable/Disable selection
+              <ui-switch [(ngModel)]="enableSelection"></ui-switch>
+            </div>
+          </a>
+
+          <a md2-menu-item>
+            <div>
+              Enable/Disable multi select
+              <ui-switch [(ngModel)]="enableMultiSelect"></ui-switch>
+            </div>
+          </a>
+
+          <a md2-menu-item>
+            <div>
+              Enable/Disable sorting
+              <ui-switch [(ngModel)]="enableSort"></ui-switch>
+            </div>
+          </a>
+
+          <a md2-menu-item>
+            <div>
+              Show no data template
+              <ui-switch (change)="onTemplateChange($event)"></ui-switch>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Grid -->
+<angular-switchable-grid
+  [data]="data"
+  [columnTitles]="columnTitles"
+  [isGridView]="isGridView"
+  [filterTerm]="filterTerm"
+  [filterBy]="filterBy"
+  [enableMultiSelect]="enableMultiSelect"
+  [enableSelection]="enableSelection"
+  [enableSort]="enableSort"
+  [noDataTemplate]="noDataTemplate"
+  (getSelectedItems)="getSelectedItems($event)"
+>
+
+  <ng-template let-item>
+    <img class="hidden-table grey" src="{{item.avatar}}">
+    <div class="hidden-grid name">{{item.id}}</div>
+    <div class="show-table">{{item.first_name}}</div>
+    <div class="show-table">{{item.last_name}}</div>
+    <div class="show-table">{{item.email}}</div>
+    <div class="hidden-grid show-table">{{item.gender}}</div>
+    <div class="show-table">{{item.ip_address}}</div>
+  </ng-template>
+
+</angular-switchable-grid>
+
+<ng-template #noDataTemplate>
+  <div class="no-data">
+    <h1>Whoops!</h1>
+    <h2>No data to display. Added data will appear here.</h2>
+  </div>
+</ng-template>
+

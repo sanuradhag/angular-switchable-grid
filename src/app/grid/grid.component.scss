@@ -91,6 +91,7 @@
     overflow: auto;
     //height: 50vh;
     .list-item{
+      background-color: rgba(181, 167, 208, 0.07);
       flex: 1 0 250px;
       margin: 0 10px 20px 10px;
       @include box-shadow(0 1px 4px 0 rgba(0,0,0,0.20));

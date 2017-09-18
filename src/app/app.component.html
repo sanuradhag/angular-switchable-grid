@@ -1,4 +1,3 @@
-<!-- Navigation -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -7,91 +6,37 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">
-        <img src="http://apareciumlabs.com/assets/images/angular-logo.svg" alt="Angular" />
+      <a class="navbar-brand" [routerLink]="['/example']">
+        <img src="http://apareciumlabs.com/assets/images/angular-logo.svg" alt="Angular"/>
         <span class="project-name">Switchable Grid</span><br>
         <span class="version">Version 1.0.8</span>
       </a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="#">Get Started</a></li>
-        <li><a href="#">Style Guide</a></li>
+        <li><a [routerLink]="['/get-started']">Get Started</a></li>
+        <li><a [routerLink]="['/style-guide']">Style Guide</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a target="_blank" href="https://github.com/sanuradhag/angular-switchable-grid"><span class="github"><i class="flaticon-github-logo"></i></span>Github</a></li>
+        <li><a target="_blank" href="https://github.com/sanuradhag/angular-switchable-grid"><span class="github"><i
+          class="flaticon-github-logo"></i></span>Github</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- Header Panel -->
-<div class="header-panel">
-  <div class="grid-control-group pull-right">
-    <div class="filter">
-      <filter class="form-control" [placeholder]="placeholder" [resetFilterTerm]="resetFilterTerm"
-              (getFilterTerm)="getFilterTerm($event)"></filter>
-    </div>
+<router-outlet></router-outlet>
 
-    <div class="filter-type">
-      <div md2-menu>
-        <button class="md-btn btn-flat-default" md2-menu-trigger [tooltip]="'Change the filter category'">Filter
-          by<span
-            class="caret"></span></button>
-        <div md2-menu-content class="menu-content">
-          <ng-container *ngFor="let item of dataObject">
-            <a md2-menu-item (click)="setFilterBy(item)">{{item.displayName}}</a>
-          </ng-container>
-        </div>
-      </div>
-    </div>
-
-    <div class="view-switcher">
-      <button class="grid-btn md-btn btn-flat-default" (click)="isGridView = !isGridView"
-              [tooltip]="'Change the view'"><i
-        [ngClass]="{'flaticon-squares': !isGridView, 'flaticon-interface': isGridView}"></i></button>
-    </div>
-  </div>
-</div>
-
-<!-- Grid -->
-<angular-switchable-grid
-  [data]="data"
-  [columnTitles]="columnTitles"
-  [isGridView]="isGridView"
-  [filterTerm]="filterTerm"
-  [filterBy]="filterBy"
-  [enableMultiSelect]="true"
-  [enableSelection]="true"
-  [enableSort]="true"
-  [noDataTemplate]="null"
-  (getSelectedItems)="getSelectedItems($event)"
->
-
-  <ng-template let-item>
-    <img class="hidden-table blue" src="{{item.avatar}}">
-    <div class="hidden-grid name">{{item.id}}</div>
-    <div class="show-table">{{item.first_name}}</div>
-    <div class="show-table">{{item.last_name}}</div>
-    <div class="show-table">{{item.email}}</div>
-    <div class="hidden-grid show-table">{{item.gender}}</div>
-    <div class="show-table">{{item.ip_address}}</div>
-  </ng-template>
-
-</angular-switchable-grid>
-
-<ng-template #noDataTemplate>
-  <h1>No Data!!!</h1>
-</ng-template>
 
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-content container-fluid">
     <div class="row">
-      <div class="col-sm-4"> <img src="http://apareciumlabs.com/assets/images/angular-logo.svg" alt=""></div>
+      <div class="col-sm-4"><img src="http://apareciumlabs.com/assets/images/angular-logo.svg" alt=""></div>
       <div class="col-sm-8">
         <p class="power-text">Coded with &hearts; by Anuradha Gunasekara ©2017. Code licensed under an
-        <a href="https://github.com/sanuradhag/angular-switchable-grid/blob/master/LICENSE" target="_blank">MIT License</a>.</p>
+          <a href="https://github.com/sanuradhag/angular-switchable-grid/blob/master/LICENSE" target="_blank">MIT
+            License</a>.</p>
       </div>
     </div>
   </div>

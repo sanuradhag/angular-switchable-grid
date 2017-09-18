@@ -46,62 +46,6 @@
   }
 }
 
-.header-panel {
-  height: 50px;
-  width: 100%;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.10);
-  padding: 8px 15px;
-  .grid-control-group {
-    display: inline-flex;
-    .view-switcher {
-      padding: 0 5px;
-      button {
-        height: 34px;;
-      }
-    }
-    .filter-type {
-      padding: 0 5px;
-      font-family: 'Roboto', sans-serif;
-      font-size: 14px;
-
-      button {
-        height: 34px;
-        height: 34px;
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-      .menu-content  {
-        top: 35px;
-        a {
-          color: $grey-700;
-          font-size: 14px;
-        }
-      }
-    }
-    .filter {
-      padding: 0 5px;
-    }
-  }
-
-}
-
-/** GRID STYLES **/
-:host /deep/ .grid-list {
-  height: calc(100vh - 180px);
-  overflow: hidden;
-  .table-row-wrapper {
-    height: calc(100vh - 243px);
-    overflow: auto;
-  }
-}
-
-:host /deep/ .form-control {
-  input {
-    outline: none;
-    border: none;
-  }
-}
-
 /** Footer styling **/
 footer {
   background-color: $outer-space;
