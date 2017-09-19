@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+
+import { GridComponent } from '../grid/grid.component';
 import { users } from '../mock-data';
 
 @Component({
@@ -19,6 +21,9 @@ export class ExampleComponent {
   public enableMultiSelect: boolean;
   public enableSort: boolean;
   public dataObject: Array<{ name: string, displayName: string }>;
+
+  @ViewChild(GridComponent)
+  public grid: GridComponent;
 
   constructor() {
     this.data = users;
@@ -74,5 +79,19 @@ export class ExampleComponent {
    */
   public onTemplateChange(data: any): void {
     data ? this.data = [] : this.data = users;
+  }
+
+  /**
+   * Select all items from the grid.
+   */
+  public selectAll(): void {
+    this.grid.selectAll();
+  }
+
+  /**
+   * Deselect all items from the grid.
+   */
+  public deselectAll(): void {
+    this.grid.deselectAll();
   }
 }

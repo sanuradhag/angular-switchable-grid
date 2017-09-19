@@ -8,7 +8,7 @@ import * as _ from 'lodash';
 })
 
 /**
- * Class representing the grid list toggle component.
+ * Class representing the grid component.
  */
 export class GridComponent implements OnChanges {
 
@@ -73,7 +73,6 @@ export class GridComponent implements OnChanges {
 
   private dataObjectKeys: string[];
   private formattedStrings: string[];
-
 
   constructor() {
     this.data = [];
@@ -163,11 +162,10 @@ export class GridComponent implements OnChanges {
   }
 
   /**
-   * Set the selected device from the device list.
-   * @param device - selected device.
-   * @param event
+   * Set the selected item from the item list.
+   * @param selectedItem - selected item.
    */
-  private setSelectedItem(selectedItem: any): void {
+  public setSelectedItem(selectedItem: any): void {
     if (!this.enableSelection) {
       return;
     }
@@ -186,8 +184,8 @@ export class GridComponent implements OnChanges {
   }
 
   /**
-   * Emits selected device(s) according to the selection type(single/multiple).
-   * @param device - selected device.
+   * Emits selected item(s) according to the selection type(single/multiple).
+   * @param item - selected item.
    */
   private setSelectionPattern(item: any): void {
     if (!this.enableMultiSelect) {
@@ -205,7 +203,7 @@ export class GridComponent implements OnChanges {
 
   /**
    * This method triggers when the document is clicked.
-   * @param element
+   * @param element - html element.
    */
   @HostListener('document:click', ['$event'])
   private onclick(element: any) {
@@ -218,6 +216,11 @@ export class GridComponent implements OnChanges {
     }
   }
 
+  /**
+   * Get the key from grid data object to create sorting categories.
+   * @param columnName - column name.
+   * @returns {string} - object key corresponding to the column name.
+   */
   private mapSortByCategory(columnName: string): string {
     let objectIndex: number = 0;
     columnName = columnName.toLocaleLowerCase();
