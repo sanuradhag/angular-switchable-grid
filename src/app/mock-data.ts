@@ -799,4 +799,3 @@ export let users = [{
   'ip_address': '70.76.128.223',
   'avatar': 'https://robohash.org/voluptatemautconsectetur.bmp?size=80x80&set=set2'
 }];
-

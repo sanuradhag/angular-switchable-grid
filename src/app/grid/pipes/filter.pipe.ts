@@ -11,7 +11,9 @@ export class ItemFilterPipe implements PipeTransform {
       return itemList;
     }
     return itemList.filter((item: any) => {
-      return item[filterBy].toString().toLowerCase().includes(filterTerm.toLowerCase());
+      if(item[filterBy]) {
+        return item[filterBy].toString().toLowerCase().includes(filterTerm.toLowerCase());  
+      }
     });
 
   }

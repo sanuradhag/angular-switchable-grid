@@ -3,6 +3,9 @@ import { Component, ViewChild } from '@angular/core';
 import { GridComponent } from '../grid/grid.component';
 import { users } from '../mock-data';
 
+import * as FileSaver from 'file-saver';
+import * as XLSX from 'xlsx';
+
 @Component({
   selector: 'app-example',
   templateUrl: './example.component.html',
@@ -93,5 +96,31 @@ export class ExampleComponent {
    */
   public deselectAll(): void {
     this.grid.deselectAll();
+  }
+
+  /**
+   * Export the grid data as a excel file.
+   */
+  public exportAsExcelFile(): void {
+    const json = this.data;
+    const excelFileName = 'angular_switchable_grid_data';
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json);
+    const workbook: XLSX.WorkBook = {Sheets: {'data': worksheet}, SheetNames: ['data']};
+    const excelBuffer: any = XLSX.write(workbook, {bookType: 'xlsx', type: 'buffer'});
+    this.saveAsExcelFile(excelBuffer, excelFileName);
+  }
+
+  /**
+   * Save the exported excel file.
+   * @param buffer
+   * @param fileName - file name.
+   */
+  private saveAsExcelFile(buffer: any, fileName: string): void {
+    const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+    const EXCEL_EXTENSION = '.xlsx';
+    const file: Blob = new Blob([buffer], {
+      type: EXCEL_TYPE
+    });
+    FileSaver.saveAs(file, `${fileName}${EXCEL_EXTENSION}`);
   }
 }
