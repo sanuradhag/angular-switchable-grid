@@ -1,0 +1,26 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" [routerLink]="['/example']">
+        <img src="http://apareciumlabs.com/assets/images/angular-logo.svg" alt="Angular"/>
+        <span class="project-name">Switchable Grid</span><br>
+        <span class="version">Version {{version}}</span>
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a [routerLink]="['/get-started']">Get Started</a></li>
+        <li><a [routerLink]="['/style-guide']">Style Guide</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a target="_blank" href="https://github.com/sanuradhag/angular-switchable-grid"><span class="github"><i
+          class="flaticon-github-logo"></i></span>Github</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

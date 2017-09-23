@@ -13,6 +13,8 @@ import { StyleGuideComponent } from './example/style-guide/style-guide.component
 import { GetStartedComponent } from './example/get-started/get-started.component';
 import { ExampleComponent } from './example/example.component';
 import { AppRoutes } from './app.routing.module';
+import { HeaderPanelComponent } from './shared/header-panel/header-panel.component';
+import { FooterPanelComponent } from './shared/footer-panel/footer-panel.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { AppRoutes } from './app.routing.module';
     AppComponent,
     ExampleComponent,
     GetStartedComponent,
-    StyleGuideComponent
+    StyleGuideComponent,
+    HeaderPanelComponent,
+    FooterPanelComponent
   ],
   imports: [
     BrowserModule,

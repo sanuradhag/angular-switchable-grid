@@ -1,0 +1,47 @@
+@import "~compass-mixins";
+@import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../../grid/assets/sass/angular-switchable-grid";
+
+.navbar {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 0;
+  padding-top: 5px;
+  margin-bottom: 0;
+  min-height: 65px;
+  background-color: $outer-space;
+  @include box-shadow(0 2px 5px 0 rgba(0,0,0,0.26));
+  .navbar-brand {
+    img {
+      float: left;
+      margin: -10px 10px 0 10px;
+    }
+    span {
+      &.project-name {
+        color: $white;
+        float: right;
+      }
+      &.version {
+        font-size: 10px;
+        float: right;
+        margin-right: 3px;
+        margin-top: -3px;
+      }
+    }
+  }
+  .navbar-collapse {
+    ul {
+      li {
+        font-size: 16px;
+
+        .github {
+          i {
+            padding: 0 10px;
+          }
+        }
+      }
+    }
+  }
+}
