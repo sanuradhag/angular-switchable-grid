@@ -86,8 +86,21 @@ And should pass a template for the row template.
             <div>{{item.gender}}</div>
             <div>{{item.ip_address}}</div>
      </ng-template>
+     
+Public methods that can be used to access features of the grid.  
+    
+    exportAsExcelFile() - Export the grid data to a excel file.
+    selectAll() - Select all the items in the grid.
+    deselectAll() - Deselect all selected item in the grid.
 
 ### ToDo
 
 * Grid pagination.
 * Lazy loading.
+
+
+### Any suggestions?
+
+  Drop me a e-mail saggunasekara@gmail.com.   
+  
+  Or open a new issue in [https://github.com/sanuradhag/angular-switchable-grid/issues]

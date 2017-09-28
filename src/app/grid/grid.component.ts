@@ -1,5 +1,7 @@
 import { Component, Input, Output, OnChanges, EventEmitter, TemplateRef, ContentChild, HostListener } from '@angular/core';
 import * as _ from 'lodash';
+import * as FileSaver from 'file-saver';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'angular-switchable-grid',
@@ -222,7 +224,8 @@ export class GridComponent implements OnChanges {
    * @returns {string} - object key corresponding to the column name.
    */
   private mapSortByCategory(columnName: string): string {
-    let objectIndex: number = 0;
+    let objectIndex: number;
+    objectIndex = 0;
     columnName = columnName.toLocaleLowerCase();
     columnName = columnName.replace(' ', '');
     if (this.dataObjectKeys.length === 0) {
@@ -241,6 +244,32 @@ export class GridComponent implements OnChanges {
       }
     });
     return this.dataObjectKeys[objectIndex];
+  }
+
+  /**
+   * Export the grid data as a excel file.
+   */
+  public exportAsExcelFile(): void {
+    const json = this.data;
+    const excelFileName = 'angular_switchable_grid_data';
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json);
+    const workbook: XLSX.WorkBook = {Sheets: {'data': worksheet}, SheetNames: ['data']};
+    const excelBuffer: any = XLSX.write(workbook, {bookType: 'xlsx', type: 'buffer'});
+    this.saveAsExcelFile(excelBuffer, excelFileName);
+  }
+
+  /**
+   * Save the exported excel file.
+   * @param buffer
+   * @param fileName - file name.
+   */
+  private saveAsExcelFile(buffer: any, fileName: string): void {
+    const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+    const EXCEL_EXTENSION = '.xlsx';
+    const file: Blob = new Blob([buffer], {
+      type: EXCEL_TYPE
+    });
+    FileSaver.saveAs(file, `${fileName}${EXCEL_EXTENSION}`);
   }
 
 }

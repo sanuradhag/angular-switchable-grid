@@ -65,13 +65,13 @@
 
       <button (click)="selectAll()" [tooltip]="'Select all'">Select all</button>
       <button (click)="deselectAll()" [tooltip]="'Deselect all'">Deselect all</button>
-      <button (click)="exportAsExcelFile()" [tooltip]="'Export as excel file'">Export as excel file</button>
+      <button (click)="grid.exportAsExcelFile()" [tooltip]="'Export as excel file'">Export as excel file</button>
     </div>
   </div>
 </div>
 
 <!-- Grid -->
-<angular-switchable-grid
+<angular-switchable-grid #grid
   [data]="data"
   [columnTitles]="columnTitles"
   [isGridView]="isGridView"
