@@ -264,6 +264,22 @@
   }
 }
 
+:host /deep/ .no-data {
+  .no-data {
+    margin: 0 auto;
+    text-align: center;
+    padding: 100px;
+
+    h2 {
+      font-size: 24px;
+    }
+
+    [class^="flaticon-"]:before {
+      font-size: 30px;
+    }
+  }
+}
+
 @font-face {
   font-family: "Flaticon";
   src: url("assets/fonts/flaticon/Flaticon.eot");
