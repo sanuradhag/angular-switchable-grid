@@ -74,10 +74,10 @@
 >
 
   <ng-template let-item>
-    <img class="hidden-table grey" src="{{item.avatar}}">
+    <div class="hidden-table avatar"><img class="hidden-table blue" src="{{item.avatar}}"></div>
     <div class="hidden-grid name">{{item.id}}</div>
-    <div class="show-table">{{item.first_name}}</div>
-    <div class="show-table">{{item.last_name}}</div>
+    <div class="show-table inline bold">{{item.first_name}}</div>
+    <div class="show-table inline bold">{{item.last_name}}</div>
     <div class="show-table">{{item.email}}</div>
     <div class="hidden-grid show-table">{{item.gender}}</div>
     <div class="show-table">{{item.ip_address}}</div>
