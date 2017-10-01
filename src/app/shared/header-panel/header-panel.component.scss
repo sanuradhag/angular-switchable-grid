@@ -45,3 +45,14 @@
     }
   }
 }
+
+@media only screen and (max-width: 440px) {
+  .navbar-brand {
+    .project-name {
+      display: none;
+    }
+    .version {
+      display: none;
+    }
+  }
+}
