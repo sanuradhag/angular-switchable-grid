@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+const packageDetails = require('../../grid/package.json');
 
 @Component({
   selector: 'header-panel',
@@ -9,7 +10,7 @@ export class HeaderPanelComponent implements OnInit {
   public version: string;
 
   constructor() {
-    this.version = '1.0.10';
+    this.version = packageDetails.version;
   }
 
   ngOnInit() {
