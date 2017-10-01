@@ -13,6 +13,8 @@
     font-size: 14px;
     button {
       margin: 0 5px;
+      height: 34px;
+      height: 34px;
     }
     .view-switcher {
       padding: 0 5px;
@@ -22,13 +24,33 @@
     }
     .filter-type {
       button {
-        height: 34px;
-        height: 34px;
         padding-left: 15px;
         padding-right: 15px;
       }
       .menu-content  {
         top: 35px;
+        right: 7px;
+        a {
+          color: $grey-700;
+          font-size: 14px;
+        }
+      }
+    }
+    .grid-options {
+      i:before {
+        font-size: 14px;
+      }
+      .list-item-desc {
+        width: 80%;
+        margin-right: 15px;
+      }
+      button {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .menu-content  {
+        top: 35px;
+        right: 7px;
         a {
           color: $grey-700;
           font-size: 14px;

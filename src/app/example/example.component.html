@@ -19,45 +19,34 @@
       </div>
     </div>
 
-    <div class="filter-type">
+    <div class="grid-options">
       <div md2-menu>
-        <button class="md-btn btn-flat-default" md2-menu-trigger [tooltip]="'Grid options'"><span
-          class="ico-gear2"></span><span
-          class="caret"></span></button>
+        <button class="md-btn btn-flat-default" md2-menu-trigger [tooltip]="'Grid options'"><i
+          class="flaticon-gear"></i></button>
         <div md2-menu-content x-position="before" class="menu-content">
           <a md2-menu-item>
-            <div>
-              Change the grid view
-              <ui-switch [(ngModel)]="isGridView"></ui-switch>
-            </div>
+            <span class="list-item-desc">Change the grid view</span>
+            <ui-switch class="list-item-toggle" size="small" [(ngModel)]="isGridView"></ui-switch>
           </a>
 
           <a md2-menu-item>
-            <div>
-              Enable/Disable selection
-              <ui-switch [(ngModel)]="enableSelection"></ui-switch>
-            </div>
+              <span class="list-item-desc">Enable/Disable selection</span>
+              <ui-switch class="list-item-toggle" size="small" [(ngModel)]="enableSelection"></ui-switch>
           </a>
 
           <a md2-menu-item>
-            <div>
-              Enable/Disable multi select
-              <ui-switch [(ngModel)]="enableMultiSelect"></ui-switch>
-            </div>
+            <span class="list-item-desc">Enable/Disable multi select</span>
+            <ui-switch class="list-item-toggle" size="small" [(ngModel)]="enableMultiSelect"></ui-switch>
           </a>
 
           <a md2-menu-item>
-            <div>
-              Enable/Disable sorting
-              <ui-switch [(ngModel)]="enableSort"></ui-switch>
-            </div>
+            <span class="list-item-desc">Enable/Disable sorting</span>
+            <ui-switch class="list-item-toggle" size="small" [(ngModel)]="enableSort"></ui-switch>
           </a>
 
           <a md2-menu-item>
-            <div>
-              Show no data template
-              <ui-switch (change)="onTemplateChange($event)"></ui-switch>
-            </div>
+            <span class="list-item-desc">Show no data template</span>
+            <ui-switch class="list-item-toggle" size="small" (change)="onTemplateChange($event)"></ui-switch>
           </a>
 
         </div>
