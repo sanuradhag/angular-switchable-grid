@@ -11,7 +11,7 @@
         <button class="md-btn btn-flat-default" md2-menu-trigger [tooltip]="'Change the filter category'">Filter
           by<span
             class="caret"></span></button>
-        <div md2-menu-content class="menu-content">
+        <div md2-menu-content x-position="before" class="menu-content">
           <ng-container *ngFor="let item of dataObject">
             <a md2-menu-item (click)="setFilterBy(item)">{{item.displayName}}</a>
           </ng-container>
@@ -62,11 +62,11 @@
 
         </div>
       </div>
-
-      <button (click)="selectAll()" [tooltip]="'Select all'">Select all</button>
-      <button (click)="deselectAll()" [tooltip]="'Deselect all'">Deselect all</button>
-      <button (click)="grid.exportAsExcelFile()" [tooltip]="'Export as excel file'">Export as excel file</button>
     </div>
+
+    <button class="md-btn btn-flat-default" (click)="selectAll()" [tooltip]="'Select all'">Select all</button>
+    <button class="md-btn btn-flat-default" (click)="deselectAll()" [tooltip]="'Deselect all'">Deselect all</button>
+    <button class="md-btn btn-flat-default" (click)="grid.exportAsExcelFile()" [tooltip]="'Export as excel file'">Export as excel file</button>
   </div>
 </div>
 

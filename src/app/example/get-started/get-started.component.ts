@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import 'codemirror/mode/go/go'
+//import 'codemirror/mode/go/go'
 
 @Component({
   selector: 'get-started',

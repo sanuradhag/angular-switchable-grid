@@ -9,6 +9,11 @@
   padding: 8px 15px;
   .grid-control-group {
     display: inline-flex;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    button {
+      margin: 0 5px;
+    }
     .view-switcher {
       padding: 0 5px;
       button {
@@ -16,10 +21,6 @@
       }
     }
     .filter-type {
-      padding: 0 5px;
-      font-family: 'Roboto', sans-serif;
-      font-size: 14px;
-
       button {
         height: 34px;
         height: 34px;
