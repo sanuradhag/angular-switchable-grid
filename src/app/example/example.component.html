@@ -18,7 +18,11 @@
         </div>
       </div>
     </div>
-
+    <button class="md-btn btn-flat-default" (click)="selectAll()" [tooltip]="'Select all'">Select all</button>
+    <button class="md-btn btn-flat-default" (click)="deselectAll()" [tooltip]="'Deselect all'">Deselect all</button>
+    <button class="md-btn btn-flat-default" (click)="grid.exportAsExcelFile()" [tooltip]="'Export as excel file'">Export
+      as excel file
+    </button>
     <div class="grid-options">
       <div md2-menu>
         <button class="md-btn btn-flat-default" md2-menu-trigger [tooltip]="'Grid options'"><i
@@ -30,8 +34,8 @@
           </a>
 
           <a md2-menu-item>
-              <span class="list-item-desc">Enable/Disable selection</span>
-              <ui-switch class="list-item-toggle" size="small" [(ngModel)]="enableSelection"></ui-switch>
+            <span class="list-item-desc">Enable/Disable selection</span>
+            <ui-switch class="list-item-toggle" size="small" [(ngModel)]="enableSelection"></ui-switch>
           </a>
 
           <a md2-menu-item>
@@ -52,25 +56,21 @@
         </div>
       </div>
     </div>
-
-    <button class="md-btn btn-flat-default" (click)="selectAll()" [tooltip]="'Select all'">Select all</button>
-    <button class="md-btn btn-flat-default" (click)="deselectAll()" [tooltip]="'Deselect all'">Deselect all</button>
-    <button class="md-btn btn-flat-default" (click)="grid.exportAsExcelFile()" [tooltip]="'Export as excel file'">Export as excel file</button>
   </div>
 </div>
 
 <!-- Grid -->
 <angular-switchable-grid #grid
-  [data]="data"
-  [columnTitles]="columnTitles"
-  [isGridView]="isGridView"
-  [filterTerm]="filterTerm"
-  [filterBy]="filterBy"
-  [enableMultiSelect]="enableMultiSelect"
-  [enableSelection]="enableSelection"
-  [enableSort]="enableSort"
-  [noDataTemplate]="noDataTemplate"
-  (getSelectedItems)="getSelectedItems($event)"
+                         [data]="data"
+                         [columnTitles]="columnTitles"
+                         [isGridView]="isGridView"
+                         [filterTerm]="filterTerm"
+                         [filterBy]="filterBy"
+                         [enableMultiSelect]="enableMultiSelect"
+                         [enableSelection]="enableSelection"
+                         [enableSort]="enableSort"
+                         [noDataTemplate]="noDataTemplate"
+                         (getSelectedItems)="getSelectedItems($event)"
 >
 
   <ng-template let-item>

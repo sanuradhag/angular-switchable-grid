@@ -103,4 +103,4 @@ Public methods that can be used to access features of the grid.
 
   Drop me a e-mail saggunasekara@gmail.com.   
   
-  Or open a new issue in [https://github.com/sanuradhag/angular-switchable-grid/issues]
+  Or open a new issue in https://github.com/sanuradhag/angular-switchable-grid/issues
