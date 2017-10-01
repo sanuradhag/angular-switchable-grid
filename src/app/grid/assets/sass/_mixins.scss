@@ -3,3 +3,8 @@
   -moz-box-shadow: $shadow;
   box-shadow: $shadow;
 }
+@mixin transition($time) {
+  -webkit-transition: $time;
+  -moz-transition: $time;
+  transition: $time;
+}

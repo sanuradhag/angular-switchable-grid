@@ -100,6 +100,8 @@
       cursor: pointer;
       padding: 10px;
       min-height: 160px;
+      border-bottom: 3px solid transparent;
+      @include transition(all .3s ease-in-out);
       &:empty {
         display: flex;
         height: 0;
@@ -164,6 +166,7 @@
       }
       &.selected{
         @include box-shadow(0 2px 7px 0 rgba(0,0,0,0.40));
+        border-bottom: 3px solid $grey-500;
         .name{
           color:$grey-100;
         }
@@ -171,6 +174,30 @@
           background: $blue-A200;
           height: 42px;
           z-index: 2;
+        }
+        &.red {
+          border-bottom: 3px solid $red-600;
+        }
+        &.pink {
+          border-bottom: 3px solid $pink-600;
+        }
+        &.purple {
+          border-bottom: 3px solid $purple-600;
+        }
+        &.blue {
+          border-bottom: 3px solid $blue-600;
+        }
+        &.green {
+          border-bottom: 3px solid $green-600;
+        }
+        &.yellow {
+          border-bottom: 3px solid $yellow-600;
+        }
+        &.brown {
+          border-bottom: 3px solid $brown-600;
+        }
+        &.grey {
+          border-bottom: 3px solid $grey-600;
         }
       }
 
