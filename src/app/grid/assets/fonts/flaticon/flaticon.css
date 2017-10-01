@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 13/09/2017 10:32
+  	Creation date: 01/10/2017 11:59
   	*/
 
 @font-face {
@@ -29,38 +29,39 @@ font-style: normal;
 margin-left: 20px;
 }
 
-.flaticon-github-logo:before { content: "\f100"; }
-.flaticon-filter-1:before { content: "\f101"; }
-.flaticon-filter:before { content: "\f102"; }
-.flaticon-black:before { content: "\f103"; }
-.flaticon-arrows-10:before { content: "\f104"; }
-.flaticon-expand-button:before { content: "\f105"; }
-.flaticon-drop-down-arrow:before { content: "\f106"; }
-.flaticon-go-back-left-arrow:before { content: "\f107"; }
-.flaticon-arrows-9:before { content: "\f108"; }
-.flaticon-arrows-7:before { content: "\f109"; }
-.flaticon-arrows-8:before { content: "\f10a"; }
-.flaticon-interface-2:before { content: "\f10b"; }
-.flaticon-load:before { content: "\f10c"; }
-.flaticon-arrows-6:before { content: "\f10d"; }
-.flaticon-arrows-5:before { content: "\f10e"; }
-.flaticon-arrows-4:before { content: "\f10f"; }
-.flaticon-web:before { content: "\f110"; }
-.flaticon-left-arrow-key:before { content: "\f111"; }
-.flaticon-add-plus-button:before { content: "\f112"; }
-.flaticon-mark-as-favorite-star:before { content: "\f113"; }
-.flaticon-searching-magnifying-glass:before { content: "\f114"; }
-.flaticon-close-button:before { content: "\f115"; }
-.flaticon-check-symbol:before { content: "\f116"; }
-.flaticon-back-arrow:before { content: "\f117"; }
-.flaticon-keyboard-right-arrow-button:before { content: "\f118"; }
-.flaticon-arrows-3:before { content: "\f119"; }
-.flaticon-upload:before { content: "\f11a"; }
-.flaticon-long-arrow-pointing-up:before { content: "\f11b"; }
-.flaticon-arrows-2:before { content: "\f11c"; }
-.flaticon-arrows-1:before { content: "\f11d"; }
-.flaticon-arrows:before { content: "\f11e"; }
-.flaticon-app:before { content: "\f11f"; }
-.flaticon-interface-1:before { content: "\f120"; }
-.flaticon-squares:before { content: "\f121"; }
-.flaticon-interface:before { content: "\f122"; }
+.flaticon-gear:before { content: "\f100"; }
+.flaticon-github-logo:before { content: "\f101"; }
+.flaticon-filter-1:before { content: "\f102"; }
+.flaticon-filter:before { content: "\f103"; }
+.flaticon-black:before { content: "\f104"; }
+.flaticon-arrows-10:before { content: "\f105"; }
+.flaticon-expand-button:before { content: "\f106"; }
+.flaticon-drop-down-arrow:before { content: "\f107"; }
+.flaticon-go-back-left-arrow:before { content: "\f108"; }
+.flaticon-arrows-9:before { content: "\f109"; }
+.flaticon-arrows-7:before { content: "\f10a"; }
+.flaticon-arrows-8:before { content: "\f10b"; }
+.flaticon-interface-2:before { content: "\f10c"; }
+.flaticon-load:before { content: "\f10d"; }
+.flaticon-arrows-6:before { content: "\f10e"; }
+.flaticon-arrows-5:before { content: "\f10f"; }
+.flaticon-arrows-4:before { content: "\f110"; }
+.flaticon-web:before { content: "\f111"; }
+.flaticon-left-arrow-key:before { content: "\f112"; }
+.flaticon-add-plus-button:before { content: "\f113"; }
+.flaticon-mark-as-favorite-star:before { content: "\f114"; }
+.flaticon-searching-magnifying-glass:before { content: "\f115"; }
+.flaticon-close-button:before { content: "\f116"; }
+.flaticon-check-symbol:before { content: "\f117"; }
+.flaticon-back-arrow:before { content: "\f118"; }
+.flaticon-keyboard-right-arrow-button:before { content: "\f119"; }
+.flaticon-arrows-3:before { content: "\f11a"; }
+.flaticon-upload:before { content: "\f11b"; }
+.flaticon-long-arrow-pointing-up:before { content: "\f11c"; }
+.flaticon-arrows-2:before { content: "\f11d"; }
+.flaticon-arrows-1:before { content: "\f11e"; }
+.flaticon-arrows:before { content: "\f11f"; }
+.flaticon-app:before { content: "\f120"; }
+.flaticon-interface-1:before { content: "\f121"; }
+.flaticon-squares:before { content: "\f122"; }
+.flaticon-interface:before { content: "\f123"; }
