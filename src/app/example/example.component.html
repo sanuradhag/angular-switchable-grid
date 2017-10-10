@@ -18,8 +18,12 @@
         </div>
       </div>
     </div>
-    <button class="md-btn btn-flat-default" (click)="selectAll()" [tooltip]="'Select all'">Select all</button>
-    <button class="md-btn btn-flat-default" (click)="deselectAll()" [tooltip]="'Deselect all'">Deselect all</button>
+    <button class="md-btn btn-flat-default" (click)="selectAll()" [tooltip]="'Select all'">
+      Select all
+    </button>
+    <button class="md-btn btn-flat-default" (click)="deselectAll()" [tooltip]="'Deselect all'" [disabled]="selectedItems.length == 0">
+      Deselect all
+    </button>
     <button class="md-btn btn-flat-default" (click)="grid.exportAsExcelFile()" [tooltip]="'Export as excel file'">Export
       as excel file
     </button>

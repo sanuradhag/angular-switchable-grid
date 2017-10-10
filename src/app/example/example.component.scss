@@ -29,7 +29,7 @@
         padding-left: 15px;
         padding-right: 15px;
       }
-      .menu-content  {
+      .menu-content {
         top: 35px;
         right: 7px;
         a {
@@ -46,11 +46,22 @@
         width: 80%;
         margin-right: 15px;
       }
+      ui-switch{
+
+          span {
+            background: #263238 !important;
+            &.checked {
+              background: #263238 !important;
+            }
+          }
+
+      }
+
       button {
         padding-left: 15px;
         padding-right: 15px;
       }
-      .menu-content  {
+      .menu-content {
         top: 35px;
         right: 7px;
         a {
@@ -66,6 +77,12 @@
 
 }
 
+:host /deep/ .switch-small {
+  &.checked {
+    background: #263238 !important;
+  }
+}
+
 /** GRID STYLES **/
 :host /deep/ .grid-list {
   height: calc(100vh - 180px);
@@ -73,6 +90,27 @@
   .table-row-wrapper {
     height: calc(100vh - 243px);
     overflow: auto;
+    .list-item {
+      &.selected {
+        background-color: rgba(181, 167, 208, 0.3);
+        border-bottom: 3px solid #263238 !important;
+      }
+    }
+  }
+  &.table-grid {
+    .table-row-wrapper {
+      height: calc(100vh - 243px);
+      overflow: auto;
+      .list-item {
+        &.selected {
+          background: #263238 !important;
+          border-bottom: 3px solid transparent !important;
+          div {
+            border-bottom-color: transparent !important;
+          }
+        }
+      }
+    }
   }
 }
 

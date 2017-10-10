@@ -21,6 +21,7 @@ export class ExampleComponent {
   public enableMultiSelect: boolean;
   public enableSort: boolean;
   public dataObject: Array<{ name: string, displayName: string }>;
+  public selectedItems: any[];
 
   @ViewChild(GridComponent)
   public grid: GridComponent;
@@ -45,6 +46,7 @@ export class ExampleComponent {
     this.enableSelection = true;
     this.enableMultiSelect = true;
     this.enableSort = true;
+    this.selectedItems = [];
   }
 
   /**
@@ -61,7 +63,10 @@ export class ExampleComponent {
    * @param data - data from the grid.
    */
   public getSelectedItems(data: any): void {
-    console.log(data);
+    if (data) {
+      this.selectedItems = data;
+      console.log(this.selectedItems);
+    }
   }
 
   /**
