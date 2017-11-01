@@ -17,11 +17,11 @@
     </ng-container>
 
     <ng-container *ngIf="enableSort">
-      <ng-container *ngFor="let title of columnTitles">
+      <ng-container *ngFor="let column of columnTitles">
                     <span class="header-item"
-                          [ngClass]="{asc: sortAscending, desc: !sortAscending, active: sortByCategory === title}"
-                          (click)="getSortCategory($event)">
-                        {{title}}
+                          [ngClass]="{asc: sortAscending, desc: !sortAscending, active: sortByCategory === column.property}"
+                          (click)="getSortCategory($event,column.property)">
+                        {{column.displayName}}
                     </span>
       </ng-container>
     </ng-container>
@@ -30,21 +30,21 @@
 
 
   <ng-container *ngIf="data && data.length !== 0">
-      <div class="table-row-wrapper">
-        <ng-container *ngFor="let item of (sortedData | filter: filterTerm: filterBy)" class=" ">
-          <div (click)="setSelectedItem(item)" class="list-item" [ngClass]="{'selected': item.selected}">
-            <ng-template [ngTemplateOutlet]="itemTemplate" [ngOutletContext]="{ $implicit: item }"></ng-template>
-          </div>
-        </ng-container>
-        <div class='list-item'></div>
-        <div class='list-item'></div>
-        <div class='list-item'></div>
-        <div class='list-item'></div>
-        <div class='list-item'></div>
-        <div class='list-item'></div>
-        <div class='list-item'></div>
-        <div class='list-item'></div>
-      </div>
+    <div class="table-row-wrapper">
+      <ng-container *ngFor="let item of (sortedData | filter: filterTerm: filterBy)" class=" ">
+        <div (click)="setSelectedItem(item)" class="list-item" [ngClass]="{'selected': item.selected}">
+          <ng-template [ngTemplateOutlet]="itemTemplate" [ngOutletContext]="{ $implicit: item }"></ng-template>
+        </div>
+      </ng-container>
+      <div class='list-item'></div>
+      <div class='list-item'></div>
+      <div class='list-item'></div>
+      <div class='list-item'></div>
+      <div class='list-item'></div>
+      <div class='list-item'></div>
+      <div class='list-item'></div>
+      <div class='list-item'></div>
+    </div>
   </ng-container>
 
   <ng-container *ngIf="data.length == 0">

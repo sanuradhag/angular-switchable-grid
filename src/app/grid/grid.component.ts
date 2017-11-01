@@ -1,4 +1,13 @@
-import { Component, Input, Output, OnChanges, EventEmitter, TemplateRef, ContentChild, HostListener } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  OnChanges,
+  EventEmitter,
+  TemplateRef,
+  ContentChild,
+  HostListener
+} from '@angular/core';
 import * as _ from 'lodash';
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
@@ -23,7 +32,7 @@ export class GridComponent implements OnChanges {
    * Column titles to be displayed in the grid.
    */
   @Input()
-  public columnTitles: any[];
+  public columnTitles: Array<{ property: string, displayName: string }>;
   /**
    * Enable item selection from the grid.
    */
@@ -100,7 +109,7 @@ export class GridComponent implements OnChanges {
         item.selected = false;
       });
       this.selectedItems = [];
-      this.sortByCategory = this.columnTitles[0];
+      this.sortByCategory = this.columnTitles[0].property;
     }
     this.dataObjectKeys = _.keys(this.data[0]);
   }
@@ -116,15 +125,15 @@ export class GridComponent implements OnChanges {
    * Get the sort category from the sort category dropdown.
    * @param element - selected menu items html element.
    */
-  public getSortCategory(element: any): void {
-    if (this.sortByCategory === element.target.textContent.trim()) {
+  public getSortCategory(element: any, sortBy: string): void {
+    if (this.sortByCategory === sortBy) {
       this.sortAscending = !this.sortAscending;
       this.sortedData = _.reverse(this.sortedData);
       element.target.className = 'active';
       return;
     }
-    this.sortByCategory = element.target.textContent.trim();
-    this.sortedData = _.sortBy(this.sortedData, ([this.mapSortByCategory(this.sortByCategory)]));
+    this.sortByCategory = sortBy;
+    this.sortedData = _.sortBy(this.sortedData, sortBy);
     this.isSortExpand = false;
 
     _.each(element.target.parentElement.children, (child: any) => {
@@ -216,34 +225,6 @@ export class GridComponent implements OnChanges {
     if (this.isSortExpand && element.target.parentElement.className.includes('grid-header')) {
       this.isSortExpand = true;
     }
-  }
-
-  /**
-   * Get the key from grid data object to create sorting categories.
-   * @param columnName - column name.
-   * @returns {string} - object key corresponding to the column name.
-   */
-  private mapSortByCategory(columnName: string): string {
-    let objectIndex: number;
-    objectIndex = 0;
-    columnName = columnName.toLocaleLowerCase();
-    columnName = columnName.replace(' ', '');
-    if (this.dataObjectKeys.length === 0) {
-      this.dataObjectKeys = _.keys(this.data[0]);
-    }
-    if (this.formattedStrings.length === 0) {
-      _.each(this.dataObjectKeys, (property: string) => {
-        const formattedString = _.replace(property, new RegExp('[^a-zA-Z0-9]+'), '');
-        this.formattedStrings.push(formattedString);
-      });
-    }
-
-    _.each(this.formattedStrings, (propertyName: string, index: number) => {
-      if (propertyName.toLowerCase() === columnName) {
-        objectIndex = index;
-      }
-    });
-    return this.dataObjectKeys[objectIndex];
   }
 
   /**

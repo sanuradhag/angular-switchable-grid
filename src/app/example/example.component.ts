@@ -1,7 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 
-import { GridComponent } from '../grid/grid.component';
-import { users } from '../mock-data';
+import {GridComponent} from '../grid/grid.component';
+import {users} from '../mock-data';
 
 @Component({
   selector: 'app-example',
@@ -11,7 +11,6 @@ import { users } from '../mock-data';
 export class ExampleComponent {
 
   public data: any;
-  public columnTitles: string[];
   public filterTerm: string;
   public filterBy: string;
   public placeholder: string;
@@ -20,7 +19,7 @@ export class ExampleComponent {
   public enableSelection: boolean;
   public enableMultiSelect: boolean;
   public enableSort: boolean;
-  public dataObject: Array<{ name: string, displayName: string }>;
+  public columnTitles: Array<{ property: string, displayName: string }>;
   public selectedItems: any[];
 
   @ViewChild(GridComponent)
@@ -28,18 +27,17 @@ export class ExampleComponent {
 
   constructor() {
     this.data = users;
-    this.dataObject = [
-      {name: 'id', displayName: 'ID'},
-      {name: 'first_name', displayName: 'First name'},
-      {name: 'last_name', displayName: 'Last name'},
-      {name: 'email', displayName: 'Email'},
-      {name: 'gender', displayName: 'Gender'},
-      {name: 'ip_address', displayName: 'IP address'}
+    this.columnTitles = [
+      {property: 'id', displayName: 'ID'},
+      {property: 'first_name', displayName: 'First name'},
+      {property: 'last_name', displayName: 'Last name'},
+      {property: 'email', displayName: 'Email'},
+      {property: 'gender', displayName: 'Gender'},
+      {property: 'ip_address', displayName: 'IP address'}
     ];
-    this.columnTitles = ['ID', 'First name', 'Last name', 'Email', 'Gender', 'IP address'];
     this.filterTerm = '';
-    this.placeholder = this.columnTitles[0];
-    this.filterBy = this.dataObject[0].name;
+    this.placeholder = this.columnTitles[0].displayName;
+    this.filterBy = this.columnTitles[0].property;
     this.resetFilterTerm = false;
     this.isGridView = true;
     this.enableSelection = true;
@@ -74,7 +72,7 @@ export class ExampleComponent {
    * @param item - data item.
    */
   public setFilterBy(item): void {
-    this.filterBy = item.name;
+    this.filterBy = item.property;
     this.placeholder = item.displayName;
   }
 
