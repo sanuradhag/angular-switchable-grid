@@ -8,6 +8,7 @@ import {
   ContentChild,
   HostListener
 } from '@angular/core';
+
 import * as _ from 'lodash';
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
@@ -82,9 +83,6 @@ export class GridComponent implements OnChanges {
   public sortByCategory: string;
   public sortAscending: boolean;
 
-  private dataObjectKeys: string[];
-  private formattedStrings: string[];
-
   constructor() {
     this.data = [];
     this.sortedData = this.data;
@@ -97,8 +95,6 @@ export class GridComponent implements OnChanges {
     this.enableSort = false;
     this.enableSelection = true;
     this.sortAscending = true;
-    this.dataObjectKeys = [];
-    this.formattedStrings = [];
   }
 
   ngOnChanges(changes: any) {
@@ -111,7 +107,6 @@ export class GridComponent implements OnChanges {
       this.selectedItems = [];
       this.sortByCategory = this.columnTitles[0].property;
     }
-    this.dataObjectKeys = _.keys(this.data[0]);
   }
 
   /**
