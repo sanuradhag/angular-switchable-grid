@@ -106,3 +106,20 @@ Public methods that can be used to access features of the grid.
   Drop me a e-mail saggunasekara@gmail.com.   
   
   Or open a new issue in https://github.com/sanuradhag/angular-switchable-grid/issues
+
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+ [<img src="https://avatars0.githubusercontent.com/u/24251976?s=400&v=4" width="100px;"/><br /><sub>Anuradha Gunasekara</sub>][anuradha-profile]| [<img src="https://avatars0.githubusercontent.com/u/25959096?s=400&v=4" width="100px;"/><br /><sub>Brion Mario</sub>][brion-profile]|
+| :---: | :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+## License
+
+This software is licensed under the MIT license
+
+[license-badge]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+[license]: https://github.com/yohangz/scala-play-angular-seed/blob/master/LICENSE
+
+[anuradha-profile]: https://github.com/sanuradhag
+[brion-profile]: https://github.com/brionmario
