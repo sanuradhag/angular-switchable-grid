@@ -1,3 +1,8 @@
+<grid-pagination [page]="pageNumber" [offSet]="offSet"
+                 (nextClick)="onNextClick()"
+                 (previousClick)="onPreviousClick()"
+                 [itemsPerPage]="itemsPerPage"
+                 [dataCount]="data.length"></grid-pagination>
 <div class="grid-list" [ngClass]="gridClass">
   <ng-container *ngIf="isGridView && enableSort">
     <div class="sort sort-header-panel">
@@ -31,7 +36,7 @@
 
   <ng-container *ngIf="data && data.length !== 0">
     <div class="table-row-wrapper">
-      <ng-container *ngFor="let item of (sortedData | filter: filterTerm: filterBy)" class=" ">
+      <ng-container *ngFor="let item of (result)" class=" ">
         <div (click)="setSelectedItem(item)" class="list-item" [ngClass]="{'selected': item.selected}">
           <ng-template [ngTemplateOutlet]="itemTemplate" [ngOutletContext]="{ $implicit: item }"></ng-template>
         </div>
@@ -50,8 +55,6 @@
   <ng-container *ngIf="data.length == 0">
     <ng-template [ngTemplateOutlet]=" noDataTemplate ||noDataDefaultTemplate"></ng-template>
   </ng-container>
-
-
 </div>
 
 <ng-template #noDataDefaultTemplate>
