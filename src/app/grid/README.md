@@ -1,6 +1,11 @@
 # Angular Switchable Grid
 
 [![npm version](https://badge.fury.io/js/angular-switchable-grid.svg)](https://badge.fury.io/js/angular-switchable-grid)
+[![npm all downloads](https://img.shields.io/npm/dt/angular-switchable-grid.svg)](https://badge.fury.io/js/angular-switchable-grid)
+[![npm week downloads](https://img.shields.io/npm/dw/angular-switchable-grid.svg)](https://badge.fury.io/js/angular-switchable-grid)
+[![npm month downloads](https://img.shields.io/npm/dm/angular-switchable-grid.svg)](https://badge.fury.io/js/angular-switchable-grid)
+[![npm  year downloads](https://img.shields.io/npm/dy/angular-switchable-grid.svg)](https://badge.fury.io/js/angular-switchable-grid)
+[![npm license](https://img.shields.io/npm/l/angular-switchable-grid.svg)](https://badge.fury.io/js/angular-switchable-grid)
 
 A simple grid for angular, Which can be switched between typical List view and a tile block view
 
