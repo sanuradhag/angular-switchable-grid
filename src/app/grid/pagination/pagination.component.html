@@ -1,3 +1,7 @@
-<button (click)="onPreviousClick()">Previous</button>
-<div><input name="pages"[(ngModel)]="page">/{{noOfPages}}</div>
-<button (click)="onNextClick()">Next</button>
+<div>
+  <button (click)="onPreviousClick()"><</button>
+  <div>
+    <input name="pages" [(ngModel)]="page" (change)="onPageChange($event)">/{{noOfPages}}
+  </div>
+  <button (click)="onNextClick()">></button>
+</div>

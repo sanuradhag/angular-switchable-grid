@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 
 @Component({
   selector: 'grid-pagination',
@@ -26,6 +26,9 @@ export class PaginationComponent implements OnChanges {
   @Output()
   public previousClick: EventEmitter<any> = new EventEmitter<any>();
 
+  @Output()
+  public pageChange: EventEmitter<number> = new EventEmitter<number>();
+
   public noOfPages: number;
 
 
@@ -35,13 +38,12 @@ export class PaginationComponent implements OnChanges {
 
   ngOnChanges(changes) {
     if (changes.dataCount && changes.itemsPerPage) {
-      this.noOfPages = (this.dataCount / this.itemsPerPage);
+      this.noOfPages = Math.ceil(this.dataCount / this.itemsPerPage);
     }
   }
 
 
   public onNextClick(): void {
-
     if (this.page >= this.noOfPages) {
       return;
     }
@@ -53,5 +55,9 @@ export class PaginationComponent implements OnChanges {
       return;
     }
     this.previousClick.emit();
+  }
+
+  public onPageChange(data: any): void {
+    this.pageChange.emit(Number(data.srcElement.value));
   }
 }

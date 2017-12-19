@@ -1,8 +1,3 @@
-<grid-pagination [page]="pageNumber" [offSet]="offSet"
-                 (nextClick)="onNextClick()"
-                 (previousClick)="onPreviousClick()"
-                 [itemsPerPage]="itemsPerPage"
-                 [dataCount]="data.length"></grid-pagination>
 <div class="grid-list" [ngClass]="gridClass">
   <ng-container *ngIf="isGridView && enableSort">
     <div class="sort sort-header-panel">
@@ -56,6 +51,16 @@
     <ng-template [ngTemplateOutlet]=" noDataTemplate ||noDataDefaultTemplate"></ng-template>
   </ng-container>
 </div>
+
+<grid-pagination *ngIf="enablePagination"
+  [page]="pageNumber"
+  [offSet]="offSet"
+  [itemsPerPage]="itemsPerPage"
+  [dataCount]="data.length"
+  (nextClick)="onNextClick()"
+  (pageChange)="onPageChange($event)"
+  (previousClick)="onPreviousClick()">
+</grid-pagination>
 
 <ng-template #noDataDefaultTemplate>
   <div class="no-data">

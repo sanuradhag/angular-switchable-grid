@@ -60,10 +60,17 @@ export class GridComponent implements OnChanges {
   public enableSort: boolean;
 
   /**
+   * Enable pagination.
+   */
+  @Input()
+  public enablePagination: boolean;
+
+  /**
    * Grid view or list view.
    */
   @Input()
   public isGridView: boolean;
+
   @Input()
   public itemsPerPage: number;
   /**
@@ -90,6 +97,7 @@ export class GridComponent implements OnChanges {
     this.data = [];
     this.result = [];
     this.isSortExpand = false;
+    this.enablePagination = false;
     this.filterTerm = '';
     this.sortByCategory = '';
     this.filterBy = '';
@@ -228,6 +236,12 @@ export class GridComponent implements OnChanges {
     this.sliceData(this.data);
   }
 
+  public onPageChange(page: number): void {
+    this.pageNumber = page;
+    this.offSet = this.pageNumber * this.itemsPerPage;
+    this.sliceData(this.data);
+  }
+
   /**
    * Emits selected item(s) according to the selection type(single/multiple).
    * @param item - selected item.
@@ -288,13 +302,11 @@ export class GridComponent implements OnChanges {
   }
 
   private filterData(itemList: any[], filterTerm?: string, filterBy?: any): any[] {
-    if (!filterBy) {
-      return this.data;
+    if (!filterBy || filterTerm === '') {
+      this.offSet = (this.pageNumber - 1) * this.itemsPerPage;
+      return this.data.slice(this.offSet, this.offSet + this.itemsPerPage);
     }
-    if (filterTerm === '') {
-      return this.data;
-    }
-    let data = [];
+    let data;
     filterBy = filterBy.toString();
     data = itemList.filter((item: any) => {
       if (item[filterBy]) {
@@ -308,6 +320,36 @@ export class GridComponent implements OnChanges {
 
   private sliceData(data: any[]): void {
     this.result = data.slice(this.offSet, this.offSet + this.itemsPerPage);
+  }
+
+  private processData(): void {
+    let processedData = [];
+    // filter
+    if (!this.filterBy || this.filterTerm === '') {
+      processedData = this.result;
+    }
+    this.filterBy = this.filterBy.toString();
+    processedData = this.data.filter((item: any) => {
+      if (item[this.filterBy]) {
+        return item[this.filterBy].toString().toLowerCase().includes(this.filterTerm.toLowerCase());
+      }
+    });
+    // sort
+    this.sortAscending = !this.sortAscending;
+    if (this.sortAscending) {
+      this.result = _.sortBy(this.data, this.sortByCategory);
+      this.data = this.result;
+    } else {
+      this.result = _.sortBy(this.data, this.sortByCategory);
+      this.result = _.reverse(this.result);
+      this.data = this.result;
+    }
+    processedData = this.data;
+    // slice
+
+    processedData.slice(this.offSet, this.offSet + this.itemsPerPage)
+
+    this.result = processedData;
   }
 
 }
