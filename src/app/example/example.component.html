@@ -78,14 +78,14 @@
                          (getSelectedItems)="getSelectedItems($event)"
 >
 
-  <ng-template let-item>
+  <ng-template let-item let-widths="widths">
     <div class="hidden-table avatar"><img class="hidden-table blue" src="{{item.avatar}}"></div>
-    <div class="hidden-grid name">{{item.id}}</div>
-    <div class="show-table inline bold">{{item.first_name}}</div>
-    <div class="show-table inline bold">{{item.last_name}}</div>
-    <div class="show-table">{{item.email}}</div>
-    <div class="hidden-grid show-table">{{item.gender}}</div>
-    <div class="show-table">{{item.ip_address}}</div>
+    <div class="hidden-grid name" [style.width]="widths[0]">{{item.id}}</div>
+    <div class="show-table inline bold" [style.width]="widths[1]">{{item.first_name}}</div>
+    <div class="show-table inline bold" [style.width]="widths[2]">{{item.last_name}}</div>
+    <div class="show-table" [style.width]="widths[3]">{{item.email}}</div>
+    <div class="hidden-grid show-table" [style.width]="widths[4]">{{item.gender}}</div>
+    <div class="show-table" [style.width]="widths[5]">{{item.ip_address}}</div>
   </ng-template>
 
 </angular-switchable-grid>

@@ -28,12 +28,12 @@ export class ExampleComponent {
   constructor() {
     this.data = users;
     this.columns = [
-      {property: 'id', displayName: 'ID', width: '50px'},
-      {property: 'first_name', displayName: 'First name'},
-      {property: 'last_name', displayName: 'Last name'},
-      {property: 'email', displayName: 'Email'},
-      {property: 'gender', displayName: 'Gender'},
-      {property: 'ip_address', displayName: 'IP address'}
+      {property: 'id', displayName: 'ID', width: '5%'},
+      {property: 'first_name', displayName: 'First name', width: '15%'},
+      {property: 'last_name', displayName: 'Last name', width: '16%'},
+      {property: 'email', displayName: 'Email', width: '17%'},
+      {property: 'gender', displayName: 'Gender', width: '18%'},
+      {property: 'ip_address', displayName: 'IP address', width: '19%'}
     ];
     this.filterTerm = '';
     this.placeholder = this.columns[0].displayName;

@@ -249,4 +249,16 @@ export class GridComponent implements OnChanges {
     FileSaver.saveAs(file, `${fileName}${EXCEL_EXTENSION}`);
   }
 
+  public getWidths(): string[] {
+    const widths = [];
+    this.columns.forEach((column: any) => {
+      if (column.width) {
+        widths.push(column.width);
+      } else {
+        widths.push('');
+      }
+    });
+    return widths;
+  }
+
 }
