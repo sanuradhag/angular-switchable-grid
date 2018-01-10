@@ -30,10 +30,11 @@ export class GridComponent implements OnChanges {
   @Input()
   public data: any[];
   /**
-   * Column titles to be displayed in the grid.
+   * Column data to be displayed in the grid.
+   * width should be a string ex: - 50%, 50px
    */
   @Input()
-  public columnTitles: Array<{ property: string, displayName: string }>;
+  public columns: Array<{ property: string, displayName: string, width?: string }>;
   /**
    * Enable item selection from the grid.
    */
@@ -105,7 +106,7 @@ export class GridComponent implements OnChanges {
         item.selected = false;
       });
       this.selectedItems = [];
-      this.sortByCategory = this.columnTitles[0].property;
+      this.sortByCategory = this.columns[0].property;
     }
   }
 

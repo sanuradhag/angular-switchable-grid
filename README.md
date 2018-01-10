@@ -36,7 +36,7 @@ Then add  **`angular-switchable-grid`** to your app template.
     
     <angular-switchable-grid
       [data]="data"
-      [columnTitles]="columnTitles"
+      [columns]="columnTitles"
       [enableSelection]="true"
       [enableMultiSelect]="true"
       [filterBy]="'first_name'"
@@ -71,7 +71,7 @@ Style guide will be added soon.
    Property| Input/Output| Default value | Description
    | -------| --------|-------|:--------------|
    |[data]| Input | [] - empty array |The data to be displayed in the grid.|
-   |[columnTitles]| Input| [] - empty array |  Titles of the columns in the grid. Type should be Array<{ property: string, displayName: string }>|
+   |[columns]| Input| [] - empty array |  Titles of the columns in the grid. Type should be Array<{ property: string, displayName: string, width?: string }>|
    |[enableSelection]| Input| false| Enable the selection of the rows of the grid.| 
    |[enableMultiSelect]| Input| false| Enable the multiple selection of the rows of the grid.| 
    |[filterBy]| Input| '' - empty string| Grid will be filtered by this key.| 

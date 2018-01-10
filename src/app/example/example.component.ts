@@ -19,7 +19,7 @@ export class ExampleComponent {
   public enableSelection: boolean;
   public enableMultiSelect: boolean;
   public enableSort: boolean;
-  public columnTitles: Array<{ property: string, displayName: string }>;
+  public columns: Array<{ property: string, displayName: string, width?: string }>;
   public selectedItems: any[];
 
   @ViewChild(GridComponent)
@@ -27,8 +27,8 @@ export class ExampleComponent {
 
   constructor() {
     this.data = users;
-    this.columnTitles = [
-      {property: 'id', displayName: 'ID'},
+    this.columns = [
+      {property: 'id', displayName: 'ID', width: '50px'},
       {property: 'first_name', displayName: 'First name'},
       {property: 'last_name', displayName: 'Last name'},
       {property: 'email', displayName: 'Email'},
@@ -36,8 +36,8 @@ export class ExampleComponent {
       {property: 'ip_address', displayName: 'IP address'}
     ];
     this.filterTerm = '';
-    this.placeholder = this.columnTitles[0].displayName;
-    this.filterBy = this.columnTitles[0].property;
+    this.placeholder = this.columns[0].displayName;
+    this.filterBy = this.columns[0].property;
     this.resetFilterTerm = false;
     this.isGridView = true;
     this.enableSelection = true;

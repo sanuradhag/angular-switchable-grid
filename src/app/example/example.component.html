@@ -12,7 +12,7 @@
           by<span
             class="caret"></span></button>
         <div md2-menu-content x-position="before" class="menu-content">
-          <ng-container *ngFor="let item of columnTitles">
+          <ng-container *ngFor="let item of columns">
             <a md2-menu-item (click)="setFilterBy(item)">{{item.displayName}}</a>
           </ng-container>
         </div>
@@ -67,7 +67,7 @@
 <!-- Grid -->
 <angular-switchable-grid #grid
                          [data]="data"
-                         [columnTitles]="columnTitles"
+                         [columns]="columns"
                          [isGridView]="isGridView"
                          [filterTerm]="filterTerm"
                          [filterBy]="filterBy"
