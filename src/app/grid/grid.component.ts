@@ -99,7 +99,7 @@ export class GridComponent implements OnChanges {
   }
 
   ngOnChanges(changes: any) {
-    this.gridClass = this.isGridView ? '' : 'table-grid';
+    this.gridClass = this.isGridView ? 'grid' : 'table-grid';
     this.sortedData = this.data;
     if (changes.data) {
       _.each(this.selectedItems, (item: any) => {
