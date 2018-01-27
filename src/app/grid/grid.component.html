@@ -7,7 +7,7 @@
       </button>
     </div>
   </ng-container>
-  <div class="grid-header clearfix" [ngClass]="{expand: isSortExpand}">
+  <div class="grid-header" [ngClass]="{expand: isSortExpand}">
     <ng-container *ngIf="!enableSort">
       <ng-container *ngFor="let title of columns">
                     <span class="header-item">
