@@ -47,20 +47,23 @@
     </div>
   </ng-container>
 
+  <grid-pagination class="grid-pagination"
+                   *ngIf="enablePagination"
+                   [page]="pageNumber"
+                   [offSet]="offSet"
+                   [itemsPerPage]="itemsPerPage"
+                   [dataCount]="data.length"
+                   (nextClick)="onNextClick()"
+                   (pageChange)="onPageChange($event)"
+                   (previousClick)="onPreviousClick()">
+  </grid-pagination>
+
   <ng-container *ngIf="data.length == 0">
     <ng-template [ngTemplateOutlet]=" noDataTemplate ||noDataDefaultTemplate"></ng-template>
   </ng-container>
 </div>
 
-<grid-pagination *ngIf="enablePagination"
-  [page]="pageNumber"
-  [offSet]="offSet"
-  [itemsPerPage]="itemsPerPage"
-  [dataCount]="data.length"
-  (nextClick)="onNextClick()"
-  (pageChange)="onPageChange($event)"
-  (previousClick)="onPreviousClick()">
-</grid-pagination>
+
 
 <ng-template #noDataDefaultTemplate>
   <div class="no-data">
