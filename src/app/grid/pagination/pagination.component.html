@@ -1,7 +1,7 @@
 <div class="pagination-container">
-  <button (click)="onPreviousClick()" class="prev-btn"><</button>
-  <div class="page-number">
-    <input name="pages" [(ngModel)]="page" (change)="onPageChange($event)">/ <span>{{noOfPages}}</span>
-  </div>
-  <button (click)="onNextClick()" class="next-btn">></button>
+  <ul>
+    <li class="prev-btn" (click)="onPreviousClick()"><a href="#">&lt;</a></li>
+    <li><input name="pages" [(ngModel)]="page" (change)="onPageChange($event)"><span>&ensp;&ensp;&#47;&ensp;&ensp;{{noOfPages}}</span></li>
+    <li class="next-btn" (click)="onNextClick()"><a href="#">&gt;</a></li>
+  </ul>
 </div>
