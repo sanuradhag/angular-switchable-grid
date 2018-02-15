@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { Md2Module } from 'md2';
-import { UiSwitchModule } from 'ngx-ui-switch/src';
+import { UiSwitchModule } from 'ngx-ui-switch';
 
 import { AppComponent } from './app.component';
 import { GridModule } from './grid/grid.module';

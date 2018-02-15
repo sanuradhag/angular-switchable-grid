@@ -1,0 +1,7 @@
+<div class="pagination-container">
+  <ul>
+    <li class="prev-btn" (click)="onPreviousClick()"><a href="#">&lt;</a></li>
+    <li><input name="pages" [(ngModel)]="page" (change)="onPageChange($event)"><span>&ensp;&ensp;&#47;&ensp;&ensp;{{noOfPages}}</span></li>
+    <li class="next-btn" (click)="onNextClick()"><a href="#">&gt;</a></li>
+  </ul>
+</div>
