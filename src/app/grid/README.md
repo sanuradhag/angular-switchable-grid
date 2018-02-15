@@ -1,6 +1,11 @@
 # Angular Switchable Grid
 
 [![npm version](https://badge.fury.io/js/angular-switchable-grid.svg)](https://badge.fury.io/js/angular-switchable-grid)
+[![npm all downloads](https://img.shields.io/npm/dt/angular-switchable-grid.svg)](https://badge.fury.io/js/angular-switchable-grid)
+[![npm week downloads](https://img.shields.io/npm/dw/angular-switchable-grid.svg)](https://badge.fury.io/js/angular-switchable-grid)
+[![npm month downloads](https://img.shields.io/npm/dm/angular-switchable-grid.svg)](https://badge.fury.io/js/angular-switchable-grid)
+[![npm  year downloads](https://img.shields.io/npm/dy/angular-switchable-grid.svg)](https://badge.fury.io/js/angular-switchable-grid)
+[![npm license](https://img.shields.io/npm/l/angular-switchable-grid.svg)](https://badge.fury.io/js/angular-switchable-grid)
 
 A simple grid for angular, Which can be switched between typical List view and a tile block view
 
@@ -31,7 +36,7 @@ Then add  **`angular-switchable-grid`** to your app template.
     
     <angular-switchable-grid
       [data]="data"
-      [columnTitles]="columnTitles"
+      [columns]="columnTitles"
       [enableSelection]="true"
       [enableMultiSelect]="true"
       [filterBy]="'first_name'"
@@ -66,7 +71,7 @@ Style guide will be added soon.
    Property| Input/Output| Default value | Description
    | -------| --------|-------|:--------------|
    |[data]| Input | [] - empty array |The data to be displayed in the grid.|
-   |[columnTitles]| Input| [] - empty array |  Titles of the columns in the grid. Type should be Array<{ property: string, displayName: string }>|
+   |[columns]| Input| [] - empty array |  Titles of the columns in the grid. Type should be Array<{ property: string, displayName: string, width?: string }>|
    |[enableSelection]| Input| false| Enable the selection of the rows of the grid.| 
    |[enableMultiSelect]| Input| false| Enable the multiple selection of the rows of the grid.| 
    |[filterBy]| Input| '' - empty string| Grid will be filtered by this key.| 
@@ -106,3 +111,20 @@ Public methods that can be used to access features of the grid.
   Drop me a e-mail saggunasekara@gmail.com.   
   
   Or open a new issue in https://github.com/sanuradhag/angular-switchable-grid/issues
+
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+ [<img src="https://avatars0.githubusercontent.com/u/24251976?s=400&v=4" width="100px;"/><br /><sub>Anuradha Gunasekara</sub>][anuradha-profile]| [<img src="https://avatars0.githubusercontent.com/u/25959096?s=400&v=4" width="100px;"/><br /><sub>Brion Mario</sub>][brion-profile]|
+| :---: | :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+## License
+
+This software is licensed under the MIT license
+
+[license-badge]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+[license]: https://github.com/yohangz/scala-play-angular-seed/blob/master/LICENSE
+
+[anuradha-profile]: https://github.com/sanuradhag
+[brion-profile]: https://github.com/brionmario

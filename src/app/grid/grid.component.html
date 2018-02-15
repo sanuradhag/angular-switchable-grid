@@ -9,7 +9,7 @@
   </ng-container>
   <div class="grid-header" [ngClass]="{expand: isSortExpand}">
     <ng-container *ngIf="!enableSort">
-      <ng-container *ngFor="let title of columnTitles">
+      <ng-container *ngFor="let title of columns">
                     <span class="header-item">
                         {{title}}
                     </span>
@@ -17,8 +17,8 @@
     </ng-container>
 
     <ng-container *ngIf="enableSort">
-      <ng-container *ngFor="let column of columnTitles">
-                    <span class="header-item"
+      <ng-container *ngFor="let column of columns">
+                    <span class="header-item" [style.width]="column.width"
                           [ngClass]="{asc: sortAscending, desc: !sortAscending, active: sortByCategory === column.property}"
                           (click)="getSortCategory($event,column.property)">
                         {{column.displayName}}
@@ -31,9 +31,10 @@
 
   <ng-container *ngIf="data && data.length !== 0">
     <div class="table-row-wrapper">
-      <ng-container *ngFor="let item of (result)" class=" ">
+      <ng-container *ngFor="let item of (sortedData | filter: filterTerm: filterBy); let i = index" class=" ">
         <div (click)="setSelectedItem(item)" class="list-item" [ngClass]="{'selected': item.selected}">
-          <ng-template [ngTemplateOutlet]="itemTemplate" [ngOutletContext]="{ $implicit: item }"></ng-template>
+          <ng-template [ngTemplateOutlet]="itemTemplate"
+                       [ngOutletContext]="{ $implicit: item, widths:getWidths()}"></ng-template>
         </div>
       </ng-container>
       <div class='list-item'></div>

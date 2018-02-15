@@ -8,6 +8,7 @@ import {
   ContentChild,
   HostListener
 } from '@angular/core';
+
 import * as _ from 'lodash';
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
@@ -29,10 +30,11 @@ export class GridComponent implements OnChanges {
   @Input()
   public data: any[];
   /**
-   * Column titles to be displayed in the grid.
+   * Column data to be displayed in the grid.
+   * width should be a string ex: - 50%, 50px
    */
   @Input()
-  public columnTitles: Array<{ property: string, displayName: string }>;
+  public columns: Array<{ property: string, displayName: string, width?: string }>;
   /**
    * Enable item selection from the grid.
    */
@@ -116,19 +118,19 @@ export class GridComponent implements OnChanges {
    * @param changes - input value changes.
    */
   ngOnChanges(changes: any) {
-    this.gridClass = this.isGridView ? '' : 'table-grid';
+    this.gridClass = this.isGridView ? 'grid' : 'table-grid';
+    this.sortedData = this.data;
     if (changes.data) {
       _.each(this.selectedItems, (item: any) => {
         item.selected = false;
       });
       this.selectedItems = [];
-      this.sortByCategory = this.columnTitles[0].property;
+     this.sortByCategory = this.columns[0].property;
       this.sliceData(this.data);
     }
     if (changes.filterTerm) {
       this.result = this.filterData(this.data, this.filterTerm, this.filterBy);
     }
-
   }
 
   /**
@@ -350,6 +352,16 @@ export class GridComponent implements OnChanges {
     processedData.slice(this.offSet, this.offSet + this.itemsPerPage)
 
     this.result = processedData;
+  public getWidths(): string[] {
+    const widths = [];
+    this.columns.forEach((column: any) => {
+      if (column.width) {
+        widths.push(column.width);
+      } else {
+        widths.push('');
+      }
+    });
+    return widths;
   }
 
 }

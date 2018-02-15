@@ -19,7 +19,7 @@ export class ExampleComponent {
   public enableSelection: boolean;
   public enableMultiSelect: boolean;
   public enableSort: boolean;
-  public columnTitles: Array<{ property: string, displayName: string }>;
+  public columns: Array<{ property: string, displayName: string, width?: string }>;
   public selectedItems: any[];
 
   @ViewChild(GridComponent)
@@ -27,17 +27,17 @@ export class ExampleComponent {
 
   constructor() {
     this.data = users;
-    this.columnTitles = [
-      {property: 'id', displayName: 'ID'},
-      {property: 'first_name', displayName: 'First name'},
-      {property: 'last_name', displayName: 'Last name'},
-      {property: 'email', displayName: 'Email'},
-      {property: 'gender', displayName: 'Gender'},
-      {property: 'ip_address', displayName: 'IP address'}
+    this.columns = [
+      {property: 'id', displayName: 'ID', width: '5%'},
+      {property: 'first_name', displayName: 'First name', width: '15%'},
+      {property: 'last_name', displayName: 'Last name', width: '16%'},
+      {property: 'email', displayName: 'Email', width: '17%'},
+      {property: 'gender', displayName: 'Gender', width: '18%'},
+      {property: 'ip_address', displayName: 'IP address', width: '19%'}
     ];
     this.filterTerm = '';
-    this.placeholder = this.columnTitles[0].displayName;
-    this.filterBy = this.columnTitles[0].property;
+    this.placeholder = this.columns[0].displayName;
+    this.filterBy = this.columns[0].property;
     this.resetFilterTerm = false;
     this.isGridView = false;
     this.enableSelection = true;

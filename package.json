@@ -4,11 +4,12 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve -p 8085",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.json"
   },
   "private": true,
   "dependencies": {
@@ -22,8 +23,6 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "@types/lodash": "^4.14.68",
-    "angular-froala-wysiwyg": "^2.6.6",
-    "angular2-perfect-scrollbar": "^2.0.6",
     "bootstrap": "^3.3.7",
     "compass-mixins": "^0.12.10",
     "core-js": "^2.4.1",
