@@ -87,7 +87,7 @@ export class GridComponent implements OnChanges {
   @ContentChild(TemplateRef) itemTemplate: TemplateRef<any>;
 
   public gridClass: string;
-  public result: any[];
+  public sortedData: any[];
   public selectedItems: any[];
   public isSortExpand: boolean;
   public sortByCategory: string;
@@ -97,7 +97,7 @@ export class GridComponent implements OnChanges {
 
   constructor() {
     this.data = [];
-    this.result = [];
+    this.sortedData = [];
     this.isSortExpand = false;
     this.enablePagination = false;
     this.filterTerm = '';
@@ -125,11 +125,11 @@ export class GridComponent implements OnChanges {
         item.selected = false;
       });
       this.selectedItems = [];
-     this.sortByCategory = this.columns[0].property;
+      this.sortByCategory = this.columns[0].property;
       this.sliceData(this.data);
     }
     if (changes.filterTerm) {
-      this.result = this.filterData(this.data, this.filterTerm, this.filterBy);
+      this.sortedData = this.filterData(this.data, this.filterTerm, this.filterBy);
     }
   }
 
@@ -149,26 +149,26 @@ export class GridComponent implements OnChanges {
     if (this.sortByCategory === sortBy) {
       this.sortAscending = !this.sortAscending;
       if (this.sortAscending) {
-        this.result = _.sortBy(this.data, sortBy);
-        this.data = this.result;
+        this.sortedData = _.sortBy(this.data, sortBy);
+        this.data = this.sortedData;
       } else {
-        this.result = _.sortBy(this.data, sortBy);
-        this.result = _.reverse(this.result);
-        this.data = this.result;
+        this.sortedData = _.sortBy(this.data, sortBy);
+        this.sortedData = _.reverse(this.sortedData);
+        this.data = this.sortedData;
       }
       element.target.className = 'active';
-      this.sliceData(this.result);
+      this.sliceData(this.sortedData);
       return;
     }
     this.sortByCategory = sortBy;
-    this.result = _.sortBy(this.data, sortBy);
+    this.sortedData = _.sortBy(this.data, sortBy);
     this.isSortExpand = false;
 
     _.each(element.target.parentElement.children, (child: any) => {
       child.className = 'header-item';
     });
     element.target.className = 'active';
-    this.sliceData(this.result);
+    this.sliceData(this.sortedData);
   }
 
   /**
@@ -176,7 +176,7 @@ export class GridComponent implements OnChanges {
    */
   public descendingSort(): void {
     this.sortAscending = !this.sortAscending;
-    this.result = _.reverse(this.data);
+    this.sortedData = _.reverse(this.data);
   }
 
   /**
@@ -250,8 +250,8 @@ export class GridComponent implements OnChanges {
    */
   private setSelectionPattern(item: any): void {
     if (!this.enableMultiSelect) {
-      const index = _.findIndex(this.result, ['selected', true]);
-      index !== -1 ? this.result[index].selected = false : {};
+      const index = _.findIndex(this.sortedData, ['selected', true]);
+      index !== -1 ? this.sortedData[index].selected = false : {};
       this.selectedItems = [item];
       item.selected = true;
       this.getSelectedItems.emit(this.selectedItems);
@@ -321,37 +321,39 @@ export class GridComponent implements OnChanges {
   }
 
   private sliceData(data: any[]): void {
-    this.result = data.slice(this.offSet, this.offSet + this.itemsPerPage);
+    this.sortedData = data.slice(this.offSet, this.offSet + this.itemsPerPage);
   }
 
-  private processData(): void {
-    let processedData = [];
-    // filter
-    if (!this.filterBy || this.filterTerm === '') {
-      processedData = this.result;
-    }
-    this.filterBy = this.filterBy.toString();
-    processedData = this.data.filter((item: any) => {
-      if (item[this.filterBy]) {
-        return item[this.filterBy].toString().toLowerCase().includes(this.filterTerm.toLowerCase());
-      }
-    });
-    // sort
-    this.sortAscending = !this.sortAscending;
-    if (this.sortAscending) {
-      this.result = _.sortBy(this.data, this.sortByCategory);
-      this.data = this.result;
-    } else {
-      this.result = _.sortBy(this.data, this.sortByCategory);
-      this.result = _.reverse(this.result);
-      this.data = this.result;
-    }
-    processedData = this.data;
-    // slice
+  // private processData(): void {
+  //   let processedData = [];
+  //   // filter
+  //   if (!this.filterBy || this.filterTerm === '') {
+  //     processedData = this.sortedData;
+  //   }
+  //   this.filterBy = this.filterBy.toString();
+  //   processedData = this.data.filter((item: any) => {
+  //     if (item[this.filterBy]) {
+  //       return item[this.filterBy].toString().toLowerCase().includes(this.filterTerm.toLowerCase());
+  //     }
+  //   });
+  //   // sort
+  //   this.sortAscending = !this.sortAscending;
+  //   if (this.sortAscending) {
+  //     this.sortedData = _.sortBy(this.data, this.sortByCategory);
+  //     this.data = this.sortedData;
+  //   } else {
+  //     this.sortedData = _.sortBy(this.data, this.sortByCategory);
+  //     this.sortedData = _.reverse(this.sortedData);
+  //     this.data = this.sortedData;
+  //   }
+  //   processedData = this.data;
+  //   // slice
+  //
+  //   processedData.slice(this.offSet, this.offSet + this.itemsPerPage)
+  //
+  //   this.sortedData = processedData;
+  // }
 
-    processedData.slice(this.offSet, this.offSet + this.itemsPerPage)
-
-    this.result = processedData;
   public getWidths(): string[] {
     const widths = [];
     this.columns.forEach((column: any) => {
