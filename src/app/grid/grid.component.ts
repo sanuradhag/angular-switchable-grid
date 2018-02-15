@@ -108,6 +108,7 @@ export class GridComponent implements OnChanges {
     this.enableSort = false;
     this.enableSelection = true;
     this.sortAscending = true;
+    this.isGridView = true;
     this.pageNumber = 1;
     this.offSet = 0;
     this.itemsPerPage = 5;
