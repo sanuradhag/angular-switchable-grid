@@ -1,0 +1,111 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 01/10/2017 11:59
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-gear:before { content: "\f100"; }
+.flaticon-github-logo:before { content: "\f101"; }
+.flaticon-filter-1:before { content: "\f102"; }
+.flaticon-filter:before { content: "\f103"; }
+.flaticon-black:before { content: "\f104"; }
+.flaticon-arrows-10:before { content: "\f105"; }
+.flaticon-expand-button:before { content: "\f106"; }
+.flaticon-drop-down-arrow:before { content: "\f107"; }
+.flaticon-go-back-left-arrow:before { content: "\f108"; }
+.flaticon-arrows-9:before { content: "\f109"; }
+.flaticon-arrows-7:before { content: "\f10a"; }
+.flaticon-arrows-8:before { content: "\f10b"; }
+.flaticon-interface-2:before { content: "\f10c"; }
+.flaticon-load:before { content: "\f10d"; }
+.flaticon-arrows-6:before { content: "\f10e"; }
+.flaticon-arrows-5:before { content: "\f10f"; }
+.flaticon-arrows-4:before { content: "\f110"; }
+.flaticon-web:before { content: "\f111"; }
+.flaticon-left-arrow-key:before { content: "\f112"; }
+.flaticon-add-plus-button:before { content: "\f113"; }
+.flaticon-mark-as-favorite-star:before { content: "\f114"; }
+.flaticon-searching-magnifying-glass:before { content: "\f115"; }
+.flaticon-close-button:before { content: "\f116"; }
+.flaticon-check-symbol:before { content: "\f117"; }
+.flaticon-back-arrow:before { content: "\f118"; }
+.flaticon-keyboard-right-arrow-button:before { content: "\f119"; }
+.flaticon-arrows-3:before { content: "\f11a"; }
+.flaticon-upload:before { content: "\f11b"; }
+.flaticon-long-arrow-pointing-up:before { content: "\f11c"; }
+.flaticon-arrows-2:before { content: "\f11d"; }
+.flaticon-arrows-1:before { content: "\f11e"; }
+.flaticon-arrows:before { content: "\f11f"; }
+.flaticon-app:before { content: "\f120"; }
+.flaticon-interface-1:before { content: "\f121"; }
+.flaticon-squares:before { content: "\f122"; }
+.flaticon-interface:before { content: "\f123"; }
+    
+    $font-Flaticon-gear: "\f100";
+    $font-Flaticon-github-logo: "\f101";
+    $font-Flaticon-filter-1: "\f102";
+    $font-Flaticon-filter: "\f103";
+    $font-Flaticon-black: "\f104";
+    $font-Flaticon-arrows-10: "\f105";
+    $font-Flaticon-expand-button: "\f106";
+    $font-Flaticon-drop-down-arrow: "\f107";
+    $font-Flaticon-go-back-left-arrow: "\f108";
+    $font-Flaticon-arrows-9: "\f109";
+    $font-Flaticon-arrows-7: "\f10a";
+    $font-Flaticon-arrows-8: "\f10b";
+    $font-Flaticon-interface-2: "\f10c";
+    $font-Flaticon-load: "\f10d";
+    $font-Flaticon-arrows-6: "\f10e";
+    $font-Flaticon-arrows-5: "\f10f";
+    $font-Flaticon-arrows-4: "\f110";
+    $font-Flaticon-web: "\f111";
+    $font-Flaticon-left-arrow-key: "\f112";
+    $font-Flaticon-add-plus-button: "\f113";
+    $font-Flaticon-mark-as-favorite-star: "\f114";
+    $font-Flaticon-searching-magnifying-glass: "\f115";
+    $font-Flaticon-close-button: "\f116";
+    $font-Flaticon-check-symbol: "\f117";
+    $font-Flaticon-back-arrow: "\f118";
+    $font-Flaticon-keyboard-right-arrow-button: "\f119";
+    $font-Flaticon-arrows-3: "\f11a";
+    $font-Flaticon-upload: "\f11b";
+    $font-Flaticon-long-arrow-pointing-up: "\f11c";
+    $font-Flaticon-arrows-2: "\f11d";
+    $font-Flaticon-arrows-1: "\f11e";
+    $font-Flaticon-arrows: "\f11f";
+    $font-Flaticon-app: "\f120";
+    $font-Flaticon-interface-1: "\f121";
+    $font-Flaticon-squares: "\f122";
+    $font-Flaticon-interface: "\f123";
