@@ -62,10 +62,19 @@ export class GridComponent implements OnChanges {
   public enableSort: boolean;
 
   /**
+   * Enable pagination.
+   */
+  @Input()
+  public enablePagination: boolean;
+
+  /**
    * Grid view or list view.
    */
   @Input()
   public isGridView: boolean;
+
+  @Input()
+  public itemsPerPage: number;
   /**
    * No data template.
    */
@@ -78,16 +87,19 @@ export class GridComponent implements OnChanges {
   @ContentChild(TemplateRef) itemTemplate: TemplateRef<any>;
 
   public gridClass: string;
-  public sortedData: any[];
+  public result: any[];
   public selectedItems: any[];
   public isSortExpand: boolean;
   public sortByCategory: string;
   public sortAscending: boolean;
+  public pageNumber: number;
+  public offSet: number;
 
   constructor() {
     this.data = [];
-    this.sortedData = this.data;
+    this.result = [];
     this.isSortExpand = false;
+    this.enablePagination = false;
     this.filterTerm = '';
     this.sortByCategory = '';
     this.filterBy = '';
@@ -96,8 +108,15 @@ export class GridComponent implements OnChanges {
     this.enableSort = false;
     this.enableSelection = true;
     this.sortAscending = true;
+    this.pageNumber = 1;
+    this.offSet = 0;
+    this.itemsPerPage = 5;
   }
 
+  /**
+   * Inpur data changes i=event hanlder.
+   * @param changes - input value changes.
+   */
   ngOnChanges(changes: any) {
     this.gridClass = this.isGridView ? 'grid' : 'table-grid';
     this.sortedData = this.data;
@@ -106,7 +125,11 @@ export class GridComponent implements OnChanges {
         item.selected = false;
       });
       this.selectedItems = [];
-      this.sortByCategory = this.columns[0].property;
+     this.sortByCategory = this.columns[0].property;
+      this.sliceData(this.data);
+    }
+    if (changes.filterTerm) {
+      this.result = this.filterData(this.data, this.filterTerm, this.filterBy);
     }
   }
 
@@ -120,22 +143,32 @@ export class GridComponent implements OnChanges {
   /**
    * Get the sort category from the sort category dropdown.
    * @param element - selected menu items html element.
+   * @param sortBy - sort category
    */
   public getSortCategory(element: any, sortBy: string): void {
     if (this.sortByCategory === sortBy) {
       this.sortAscending = !this.sortAscending;
-      this.sortedData = _.reverse(this.sortedData);
+      if (this.sortAscending) {
+        this.result = _.sortBy(this.data, sortBy);
+        this.data = this.result;
+      } else {
+        this.result = _.sortBy(this.data, sortBy);
+        this.result = _.reverse(this.result);
+        this.data = this.result;
+      }
       element.target.className = 'active';
+      this.sliceData(this.result);
       return;
     }
     this.sortByCategory = sortBy;
-    this.sortedData = _.sortBy(this.sortedData, sortBy);
+    this.result = _.sortBy(this.data, sortBy);
     this.isSortExpand = false;
 
     _.each(element.target.parentElement.children, (child: any) => {
       child.className = 'header-item';
     });
     element.target.className = 'active';
+    this.sliceData(this.result);
   }
 
   /**
@@ -143,7 +176,7 @@ export class GridComponent implements OnChanges {
    */
   public descendingSort(): void {
     this.sortAscending = !this.sortAscending;
-    this.sortedData = _.reverse(this.sortedData);
+    this.result = _.reverse(this.data);
   }
 
   /**
@@ -190,14 +223,35 @@ export class GridComponent implements OnChanges {
     }
   }
 
+  public onNextClick(): void {
+    if (this.offSet === 0) {
+      this.offSet = 1;
+    }
+    this.offSet = this.pageNumber * this.itemsPerPage;
+    this.sliceData(this.data);
+    this.pageNumber += 1;
+  }
+
+  public onPreviousClick(): void {
+    this.pageNumber -= 1;
+    this.offSet = (this.pageNumber - 1) * this.itemsPerPage;
+    this.sliceData(this.data);
+  }
+
+  public onPageChange(page: number): void {
+    this.pageNumber = page;
+    this.offSet = this.pageNumber * this.itemsPerPage;
+    this.sliceData(this.data);
+  }
+
   /**
    * Emits selected item(s) according to the selection type(single/multiple).
    * @param item - selected item.
    */
   private setSelectionPattern(item: any): void {
     if (!this.enableMultiSelect) {
-      const index = _.findIndex(this.sortedData, ['selected', true]);
-      index !== -1 ? this.sortedData[index].selected = false : {};
+      const index = _.findIndex(this.result, ['selected', true]);
+      index !== -1 ? this.result[index].selected = false : {};
       this.selectedItems = [item];
       item.selected = true;
       this.getSelectedItems.emit(this.selectedItems);
@@ -249,6 +303,55 @@ export class GridComponent implements OnChanges {
     FileSaver.saveAs(file, `${fileName}${EXCEL_EXTENSION}`);
   }
 
+  private filterData(itemList: any[], filterTerm?: string, filterBy?: any): any[] {
+    if (!filterBy || filterTerm === '') {
+      this.offSet = (this.pageNumber - 1) * this.itemsPerPage;
+      return this.data.slice(this.offSet, this.offSet + this.itemsPerPage);
+    }
+    let data;
+    filterBy = filterBy.toString();
+    data = itemList.filter((item: any) => {
+      if (item[filterBy]) {
+        return item[filterBy].toString().toLowerCase().includes(filterTerm.toLowerCase());
+      }
+    });
+    this.offSet = 0;
+    data = data.slice(this.offSet, this.offSet + this.itemsPerPage);
+    return data;
+  }
+
+  private sliceData(data: any[]): void {
+    this.result = data.slice(this.offSet, this.offSet + this.itemsPerPage);
+  }
+
+  private processData(): void {
+    let processedData = [];
+    // filter
+    if (!this.filterBy || this.filterTerm === '') {
+      processedData = this.result;
+    }
+    this.filterBy = this.filterBy.toString();
+    processedData = this.data.filter((item: any) => {
+      if (item[this.filterBy]) {
+        return item[this.filterBy].toString().toLowerCase().includes(this.filterTerm.toLowerCase());
+      }
+    });
+    // sort
+    this.sortAscending = !this.sortAscending;
+    if (this.sortAscending) {
+      this.result = _.sortBy(this.data, this.sortByCategory);
+      this.data = this.result;
+    } else {
+      this.result = _.sortBy(this.data, this.sortByCategory);
+      this.result = _.reverse(this.result);
+      this.data = this.result;
+    }
+    processedData = this.data;
+    // slice
+
+    processedData.slice(this.offSet, this.offSet + this.itemsPerPage)
+
+    this.result = processedData;
   public getWidths(): string[] {
     const widths = [];
     this.columns.forEach((column: any) => {

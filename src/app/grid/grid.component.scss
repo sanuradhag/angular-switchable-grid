@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
 @import "assets/sass/angular-switchable-grid";
 
-:host /deep/ .grid-list{
+:host /deep/ .grid-list {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   padding: 3px 0 0 0px;
   position: relative;
-  .sort{
+  .sort {
     text-align: right;
     padding: 0 15px;
     &.sort-header-panel {
@@ -15,45 +15,45 @@
       border-bottom: 1px solid $grey-100;
       padding: 8px 20px;
     }
-    button{
+    button {
       outline: none;
       border: 1px solid $grey-900;
       border-radius: 2px;
       cursor: pointer;
-      &.btn{
+      &.btn {
         font-size: 14px;
         text-decoration: none;
         color: $grey-800;
         padding: 5px 10px;
         background: none;
-        i{
+        i {
           @include transition(all 0.2s ease-in);
           display: inline-block;
         }
-        &:hover, &:active{
+        &:hover, &:active {
           background-color: lighten($grey-900, 70%);
           @include box-shadow(0 1px 2px $grey-100);
           outline: none;
         }
-        &.asc{
-          i{
+        &.asc {
+          i {
             @include transform(rotate(0deg));
           }
         }
-        &.desc{
-          i{
+        &.desc {
+          i {
             @include transform(rotate(180deg));
           }
         }
       }
-      [class^='flaticon-']:before{
+      [class^='flaticon-']:before {
         font-size: 14px;
       }
     }
   }
-  .grid-header{
+  .grid-header {
     display: none;
-    &.expand{
+    &.expand {
       display: block;
       position: absolute;
       top: 44px;
@@ -62,7 +62,7 @@
       @include box-shadow(0 1px 5px $grey-800);
       z-index: 4;
       padding: 5px 0;
-      span{
+      span {
         display: block;
         padding: 10px 10px 10px 15px;
         min-width: 250px;
@@ -70,10 +70,10 @@
         font-size: 14px;
         position: relative;
         font-weight: 400;
-        &:hover{
+        &:hover {
           background: $grey-100;
         }
-        &.active:before{
+        &.active:before {
           content: "\f11c";
           font-family: Flaticon;
           font-size: 16px;
@@ -83,18 +83,18 @@
       }
     }
   }
-  .table-row-wrapper{
+  .table-row-wrapper {
     display: flex;
     //flex-direction: row;
     flex-wrap: wrap;
     padding: 15px 5px 0 5px;
     overflow: auto;
     //height: 50vh;
-    .list-item{
+    .list-item {
       background-color: rgba(181, 167, 208, 0.07);
       flex: 1 0 250px;
       margin: 0 10px 20px 10px;
-      @include box-shadow(0 1px 4px 0 rgba(0,0,0,0.20));
+      @include box-shadow(0 1px 4px 0 rgba(0, 0, 0, 0.20));
       border-radius: 3px;
       position: relative;
       cursor: pointer;
@@ -144,11 +144,11 @@
           }
         }
       }
-      div, img{
-        &.hidden-grid{
+      div, img {
+        &.hidden-grid {
           display: none;
         }
-        &.show-grid{
+        &.show-grid {
           display: block;
         }
         &.inline {
@@ -161,16 +161,16 @@
           font-style: italic;
         }
       }
-      &:hover{
-        @include box-shadow(0 1px 5px 0 rgba(0,0,0,0.30));
+      &:hover {
+        @include box-shadow(0 1px 5px 0 rgba(0, 0, 0, 0.30));
       }
-      &.selected{
-        @include box-shadow(0 2px 7px 0 rgba(0,0,0,0.40));
+      &.selected {
+        @include box-shadow(0 2px 7px 0 rgba(0, 0, 0, 0.40));
         border-bottom: 3px solid $grey-500;
-        .name{
-          color:$grey-100;
+        .name {
+          color: $grey-100;
         }
-        .status{
+        .status {
           background: $blue-A200;
           height: 42px;
           z-index: 2;
@@ -204,20 +204,20 @@
     }
   }
 
-  &.table-grid{
+  &.table-grid {
     display: table;
     table-layout: fixed;
-    padding:0;
-    width:100%;
+    padding: 0;
+    width: 100%;
     //border: 1px solid $grey-100;
-    .sort{
+    .sort {
       display: none;
     }
-    .grid-header{
+    .grid-header {
       display: table-header-group;
-      width:100%;
-      background: lighten($grey-100,2%);
-      span{
+      width: 100%;
+      background: lighten($grey-100, 2%);
+      span {
         display: table-cell;
         line-height: 36px;
         border-bottom: 1px solid $grey-100;
@@ -227,14 +227,14 @@
         height: 70px;
         position: relative;
         font-weight: 600;
-        &:hover{
-          background: darken($grey-100,2%);
+        &:hover {
+          background: darken($grey-100, 2%);
         }
-        &:nth-child(1){
+        &:nth-child(1) {
           //width: 100px;
         }
-        &.active{
-          &:before{
+        &.active {
+          &:before {
             content: "\f11c";
             font-family: Flaticon;
             font-size: 16px;
@@ -242,40 +242,40 @@
             right: 10px;
             @include transition(all 0.2s ease-in);
           }
-          &.asc{
-            &:before{
+          &.asc {
+            &:before {
               @include transform(rotate(0deg));
             }
           }
-          &.desc{
-            &:before{
+          &.desc {
+            &:before {
               @include transform(rotate(180deg));
             }
           }
         }
       }
     }
-    .table-row-wrapper{
+    .table-row-wrapper {
       display: table-row-group;
-      .list-item{
+      .list-item {
         display: table-row;
         margin: 0;
         @include box-shadow(none);
         min-height: 45px;
         padding: 0;
         position: relative;
-        &.selected{
-          background: lighten($blue-A200,1%);
-          &:hover{
-            background:lighten($blue-A200,1%);
+        &.selected {
+          background: lighten($blue-A200, 1%);
+          &:hover {
+            background: lighten($blue-A200, 1%);
           }
-          div{
-            color:$grey-100;
-            border-bottom-color:darken($blue-A200, 5%);
+          div {
+            color: $grey-100;
+            border-bottom-color: darken($blue-A200, 5%);
           }
         }
-        div, img{
-          display:table-cell;
+        div, img {
+          display: table-cell;
           position: static;
           font-size: 14px;
           align-items: center;
@@ -285,17 +285,17 @@
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
-          [class^="flaticon-"]:before{
+          [class^="flaticon-"]:before {
             font-size: 16px;
           }
-          &.hidden-table{
+          &.hidden-table {
             display: none;
           }
-          &.show-table{
+          &.show-table {
             display: table-cell;
           }
         }
-        &:hover{
+        &:hover {
           background: $grey-100;
         }
       }

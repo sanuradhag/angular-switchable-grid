@@ -39,7 +39,7 @@ export class ExampleComponent {
     this.placeholder = this.columns[0].displayName;
     this.filterBy = this.columns[0].property;
     this.resetFilterTerm = false;
-    this.isGridView = true;
+    this.isGridView = false;
     this.enableSelection = true;
     this.enableSelection = true;
     this.enableMultiSelect = true;
