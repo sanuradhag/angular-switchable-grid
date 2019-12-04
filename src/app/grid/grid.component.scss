@@ -1,0 +1,341 @@
+@import '~compass-mixins';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+@import "assets/sass/angular-switchable-grid";
+
+:host /deep/ .grid-list {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  padding: 3px 0 0 0px;
+  position: relative;
+  .sort {
+    text-align: right;
+    padding: 0 15px;
+    &.sort-header-panel {
+      height: 31px;
+      border-bottom: 1px solid $grey-100;
+      padding: 8px 20px;
+    }
+    button {
+      outline: none;
+      border: 1px solid $grey-900;
+      border-radius: 2px;
+      cursor: pointer;
+      &.btn {
+        font-size: 14px;
+        text-decoration: none;
+        color: $grey-800;
+        padding: 5px 10px;
+        background: none;
+        i {
+          @include transition(all 0.2s ease-in);
+          display: inline-block;
+        }
+        &:hover, &:active {
+          background-color: lighten($grey-900, 70%);
+          @include box-shadow(0 1px 2px $grey-100);
+          outline: none;
+        }
+        &.asc {
+          i {
+            @include transform(rotate(0deg));
+          }
+        }
+        &.desc {
+          i {
+            @include transform(rotate(180deg));
+          }
+        }
+      }
+      [class^='flaticon-']:before {
+        font-size: 14px;
+      }
+    }
+  }
+  .grid-header {
+    display: none;
+    &.expand {
+      display: block;
+      position: absolute;
+      top: 44px;
+      right: 63px;
+      background: $white;
+      @include box-shadow(0 1px 5px $grey-800);
+      z-index: 4;
+      padding: 5px 0;
+      span {
+        display: block;
+        padding: 10px 10px 10px 15px;
+        min-width: 250px;
+        cursor: pointer;
+        font-size: 14px;
+        position: relative;
+        font-weight: 400;
+        &:hover {
+          background: $grey-100;
+        }
+        &.active:before {
+          content: "\f11c";
+          font-family: Flaticon;
+          font-size: 16px;
+          position: absolute;
+          right: 15px;
+        }
+      }
+    }
+  }
+  .table-row-wrapper {
+    display: flex;
+    //flex-direction: row;
+    flex-wrap: wrap;
+    padding: 15px 5px 0 5px;
+    overflow: auto;
+    //height: 50vh;
+    .list-item {
+      background-color: rgba(181, 167, 208, 0.07);
+      flex: 1 0 250px;
+      margin: 0 10px 20px 10px;
+      @include box-shadow(0 1px 4px 0 rgba(0, 0, 0, 0.20));
+      border-radius: 3px;
+      position: relative;
+      cursor: pointer;
+      padding: 10px;
+      min-height: 160px;
+      border-bottom: 3px solid transparent;
+      @include transition(all .3s ease-in-out);
+      &:empty {
+        display: flex;
+        height: 0;
+        border: none;
+        margin-bottom: 0;
+        min-height: 0;
+        padding: 0;
+      }
+      .avatar {
+        margin-bottom: 10px;
+        img {
+          padding: 5px;
+          border-radius: 3px;
+          border: 1px solid $grey-300;
+          background-color: transparent;
+          @include box-shadow(0 12px 20px -10px rgba(0, 0, 0, .18), 0 4px 20px 0 rgba(0, 0, 0, .02), 0 7px 8px -5px rgba(0, 0, 0, .1));
+          &.red {
+            background-color: $red-600;
+          }
+          &.pink {
+            background-color: $pink-600;
+          }
+          &.purple {
+            background-color: $purple-600;
+          }
+          &.blue {
+            background-color: $blue-600;
+          }
+          &.green {
+            background-color: $green-600;
+          }
+          &.yellow {
+            background-color: $yellow-600;
+          }
+          &.brown {
+            background-color: $brown-600;
+          }
+          &.grey {
+            background-color: $grey-600;
+          }
+        }
+      }
+      div, img {
+        &.hidden-grid {
+          display: none;
+        }
+        &.show-grid {
+          display: block;
+        }
+        &.inline {
+          display: inline-flex;
+        }
+        &.bold {
+          font-weight: 600;
+        }
+        &.italic {
+          font-style: italic;
+        }
+      }
+      &:hover {
+        @include box-shadow(0 1px 5px 0 rgba(0, 0, 0, 0.30));
+      }
+      &.selected {
+        @include box-shadow(0 2px 7px 0 rgba(0, 0, 0, 0.40));
+        border-bottom: 3px solid $grey-500;
+        .name {
+          color: $grey-100;
+        }
+        .status {
+          background: $blue-A200;
+          height: 42px;
+          z-index: 2;
+        }
+        &.red {
+          border-bottom: 3px solid $red-600;
+        }
+        &.pink {
+          border-bottom: 3px solid $pink-600;
+        }
+        &.purple {
+          border-bottom: 3px solid $purple-600;
+        }
+        &.blue {
+          border-bottom: 3px solid $blue-600;
+        }
+        &.green {
+          border-bottom: 3px solid $green-600;
+        }
+        &.yellow {
+          border-bottom: 3px solid $yellow-600;
+        }
+        &.brown {
+          border-bottom: 3px solid $brown-600;
+        }
+        &.grey {
+          border-bottom: 3px solid $grey-600;
+        }
+      }
+
+    }
+  }
+
+  &.table-grid {
+    display: table;
+    table-layout: fixed;
+    padding: 0;
+    width: 100%;
+    //border: 1px solid $grey-100;
+    .sort {
+      display: none;
+    }
+    .grid-header {
+      display: table-header-group;
+      width: 100%;
+      background: lighten($grey-100, 2%);
+      span {
+        display: table-cell;
+        line-height: 36px;
+        border-bottom: 1px solid $grey-100;
+        padding: 0 10px;
+        font-size: 12px;
+        cursor: pointer;
+        height: 70px;
+        position: relative;
+        font-weight: 600;
+        &:hover {
+          background: darken($grey-100, 2%);
+        }
+        &:nth-child(1) {
+          //width: 100px;
+        }
+        &.active {
+          &:before {
+            content: "\f11c";
+            font-family: Flaticon;
+            font-size: 16px;
+            position: absolute;
+            right: 10px;
+            @include transition(all 0.2s ease-in);
+          }
+          &.asc {
+            &:before {
+              @include transform(rotate(0deg));
+            }
+          }
+          &.desc {
+            &:before {
+              @include transform(rotate(180deg));
+            }
+          }
+        }
+      }
+    }
+    .table-row-wrapper {
+      display: table-row-group;
+      .list-item {
+        display: table-row;
+        margin: 0;
+        @include box-shadow(none);
+        min-height: 45px;
+        padding: 0;
+        position: relative;
+        &.selected {
+          background: lighten($blue-A200, 1%);
+          &:hover {
+            background: lighten($blue-A200, 1%);
+          }
+          div {
+            color: $grey-100;
+            border-bottom-color: darken($blue-A200, 5%);
+          }
+        }
+        div, img {
+          display: table-cell;
+          position: static;
+          font-size: 14px;
+          align-items: center;
+          line-height: 40px;
+          padding: 0 10px;
+          border-bottom: 1px solid $grey-100;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          [class^="flaticon-"]:before {
+            font-size: 16px;
+          }
+          &.hidden-table {
+            display: none;
+          }
+          &.show-table {
+            display: table-cell;
+          }
+        }
+        &:hover {
+          background: $grey-100;
+        }
+      }
+    }
+  }
+}
+
+:host /deep/ .no-data {
+  position: absolute;
+  top: 75px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 100px;
+
+  h2 {
+    font-size: 24px;
+  }
+
+  [class^="flaticon-"]:before {
+    font-size: 30px;
+  }
+}
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("assets/fonts/flaticon/Flaticon.eot");
+  src: url("assets/fonts/flaticon/Flaticon.eot?#iefix") format("embedded-opentype"),
+  url("assets/fonts/flaticon/Flaticon.woff") format("woff"),
+  url("assets/fonts/flaticon/Flaticon.ttf") format("truetype"),
+  url("assets/fonts/flaticon/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="flaticon-"]:before,
+[class*=" flaticon-"]:before,
+[class^="flaticon-"]:after,
+[class*=" flaticon-"]:after {
+  font-family: Flaticon;
+  font-size: 24px;
+  font-style: normal;
+}

@@ -1,0 +1,72 @@
+<div class="grid-list" [ngClass]="gridClass">
+  <ng-container *ngIf="isGridView && enableSort">
+    <div class="sort sort-header-panel">
+      <button class="btn" (click)="toggleSortExpand()">{{sortByCategory}}</button>
+      <button class="btn" [ngClass]="{asc: sortAscending, desc: !sortAscending}" (click)="descendingSort()">
+        <i class="flaticon-arrows-2"></i>
+      </button>
+    </div>
+  </ng-container>
+  <div class="grid-header" [ngClass]="{expand: isSortExpand}">
+    <ng-container *ngIf="!enableSort">
+      <ng-container *ngFor="let title of columns">
+                    <span class="header-item">
+                        {{title}}
+                    </span>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="enableSort">
+      <ng-container *ngFor="let column of columns">
+                    <span class="header-item" [style.width]="column.width"
+                          [ngClass]="{asc: sortAscending, desc: !sortAscending, active: sortByCategory === column.property}"
+                          (click)="getSortCategory($event,column.property)">
+                        {{column.displayName}}
+                    </span>
+      </ng-container>
+    </ng-container>
+
+  </div>
+
+
+  <ng-container *ngIf="data && data.length !== 0">
+    <div class="table-row-wrapper">
+      <ng-container *ngFor="let item of (sortedData | filter: filterTerm: filterBy); let i = index" class=" ">
+        <div (click)="setSelectedItem(item)" class="list-item" [ngClass]="{'selected': item.selected}">
+          <ng-template [ngTemplateOutlet]="itemTemplate"
+                       [ngOutletContext]="{ $implicit: item, widths:getWidths()}"></ng-template>
+        </div>
+      </ng-container>
+      <div class='list-item'></div>
+      <div class='list-item'></div>
+      <div class='list-item'></div>
+      <div class='list-item'></div>
+      <div class='list-item'></div>
+      <div class='list-item'></div>
+      <div class='list-item'></div>
+      <div class='list-item'></div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="data.length == 0">
+    <ng-template [ngTemplateOutlet]=" noDataTemplate ||noDataDefaultTemplate"></ng-template>
+  </ng-container>
+</div>
+
+<grid-pagination class="grid-pagination"
+                 *ngIf="enablePagination"
+                 [page]="pageNumber"
+                 [offSet]="offSet"
+                 [itemsPerPage]="itemsPerPage"
+                 [dataCount]="data.length"
+                 (nextClick)="onNextClick()"
+                 (pageChange)="onPageChange($event)"
+                 (previousClick)="onPreviousClick()">
+</grid-pagination>
+
+
+<ng-template #noDataDefaultTemplate>
+  <div class="no-data">
+    <h1>Whoops!</h1>
+    <h2>No data to display. Added data will appear here.</h2>
+  </div>
+</ng-template>

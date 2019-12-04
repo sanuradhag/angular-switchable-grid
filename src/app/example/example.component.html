@@ -1,0 +1,100 @@
+<!-- Header Panel -->
+<div class="header-panel">
+  <div class="grid-control-group pull-right">
+    <div class="filter">
+      <filter class="form-control" [placeholder]="placeholder" [resetFilterTerm]="resetFilterTerm"
+              (getFilterTerm)="getFilterTerm($event)"></filter>
+    </div>
+
+    <div class="filter-type">
+      <div md2-menu>
+        <button class="md-btn btn-flat-default" md2-menu-trigger [tooltip]="'Change the filter category'">Filter
+          by<span
+            class="caret"></span></button>
+        <div md2-menu-content x-position="before" class="menu-content">
+          <ng-container *ngFor="let item of columns">
+            <a md2-menu-item (click)="setFilterBy(item)">{{item.displayName}}</a>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <button class="md-btn btn-flat-default" (click)="selectAll()" [tooltip]="'Select all'">
+      Select all
+    </button>
+    <button class="md-btn btn-flat-default" (click)="deselectAll()" [tooltip]="'Deselect all'"
+            [disabled]="selectedItems.length == 0">
+      Deselect all
+    </button>
+    <button class="md-btn btn-flat-default" (click)="grid.exportAsExcelFile()" [tooltip]="'Export as excel file'">Export
+      as excel file
+    </button>
+    <div class="grid-options">
+      <div md2-menu>
+        <button class="md-btn btn-flat-default" md2-menu-trigger [tooltip]="'Grid options'"><i
+          class="flaticon-gear"></i></button>
+        <div md2-menu-content x-position="before" class="menu-content">
+          <a md2-menu-item>
+            <span class="list-item-desc">Change the grid view</span>
+            <ui-switch class="list-item-toggle" size="small" [(ngModel)]="isGridView"></ui-switch>
+          </a>
+
+          <a md2-menu-item>
+            <span class="list-item-desc">Enable/Disable selection</span>
+            <ui-switch class="list-item-toggle" size="small" [(ngModel)]="enableSelection"></ui-switch>
+          </a>
+
+          <a md2-menu-item>
+            <span class="list-item-desc">Enable/Disable multi select</span>
+            <ui-switch class="list-item-toggle" size="small" [(ngModel)]="enableMultiSelect"></ui-switch>
+          </a>
+
+          <a md2-menu-item>
+            <span class="list-item-desc">Enable/Disable sorting</span>
+            <ui-switch class="list-item-toggle" size="small" [(ngModel)]="enableSort"></ui-switch>
+          </a>
+
+          <a md2-menu-item>
+            <span class="list-item-desc">Show no data template</span>
+            <ui-switch class="list-item-toggle" size="small" (change)="onTemplateChange($event)"></ui-switch>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Grid -->
+<angular-switchable-grid #grid
+                         [data]="data"
+                         [columns]="columns"
+                         [isGridView]="isGridView"
+                         [filterTerm]="filterTerm"
+                         [filterBy]="filterBy"
+                         [enableMultiSelect]="enableMultiSelect"
+                         [enableSelection]="enableSelection"
+                         [enableSort]="enableSort"
+                         [enablePagination]="true"
+                         [itemsPerPage]="10"
+                         [noDataTemplate]="noDataTemplate"
+                         (getSelectedItems)="getSelectedItems($event)"
+>
+
+  <ng-template let-item let-widths="widths">
+    <div class="hidden-table avatar"><img class="hidden-table blue" src="{{item.avatar}}"></div>
+    <div class="hidden-grid name" [style.width]="widths[0]">{{item.id}}</div>
+    <div class="show-table inline bold" [style.width]="widths[1]">{{item.first_name}}</div>
+    <div class="show-table inline bold" [style.width]="widths[2]">{{item.last_name}}</div>
+    <div class="show-table" [style.width]="widths[3]">{{item.email}}</div>
+    <div class="hidden-grid show-table" [style.width]="widths[4]">{{item.gender}}</div>
+    <div class="show-table" [style.width]="widths[5]">{{item.ip_address}}</div>
+  </ng-template>
+
+</angular-switchable-grid>
+
+<ng-template #noDataTemplate>
+  <div class="no-data">
+    <h1>Whoops!</h1>
+    <h2>No data to display. Added data will appear here.</h2>
+  </div>
+</ng-template>

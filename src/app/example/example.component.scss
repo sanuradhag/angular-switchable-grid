@@ -1,0 +1,122 @@
+@import "~compass-mixins";
+@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../grid/assets/sass/angular-switchable-grid";
+
+.header-panel {
+  height: 50px;
+  width: 100%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.10);
+  padding: 8px 15px;
+  .grid-control-group {
+    display: inline-flex;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    button {
+      margin: 0 5px;
+      height: 34px;
+      height: 34px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .view-switcher {
+      padding: 0 5px;
+      button {
+        height: 34px;;
+      }
+    }
+    .filter-type {
+      button {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .menu-content {
+        top: 35px;
+        right: 7px;
+        a {
+          color: $grey-700;
+          font-size: 14px;
+        }
+      }
+    }
+    .grid-options {
+      i:before {
+        font-size: 14px;
+      }
+      .list-item-desc {
+        width: 80%;
+        margin-right: 15px;
+      }
+      ui-switch{
+
+          span {
+            background: #263238 !important;
+            &.checked {
+              background: #263238 !important;
+            }
+          }
+
+      }
+
+      button {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .menu-content {
+        top: 35px;
+        right: 7px;
+        a {
+          color: $grey-700;
+          font-size: 14px;
+        }
+      }
+    }
+    .filter {
+      padding: 0 5px;
+    }
+  }
+
+}
+
+:host /deep/ .switch-small {
+  &.checked {
+    background: #263238 !important;
+  }
+}
+
+/** GRID STYLES **/
+:host /deep/ .grid-list {
+  height: calc(100vh - 180px);
+  overflow: hidden;
+  .table-row-wrapper {
+    height: calc(100vh - 243px);
+    overflow: auto;
+    .list-item {
+      &.selected {
+        background-color: rgba(181, 167, 208, 0.3);
+        border-bottom: 3px solid #263238 !important;
+      }
+    }
+  }
+  &.table-grid {
+    .table-row-wrapper {
+      height: calc(100vh - 243px);
+      overflow: auto;
+      .list-item {
+        &.selected {
+          background: #263238 !important;
+          border-bottom: 3px solid transparent !important;
+          div {
+            border-bottom-color: transparent !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+:host /deep/ .form-control {
+  input {
+    outline: none;
+    border: none;
+  }
+}
