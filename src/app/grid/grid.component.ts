@@ -11,7 +11,7 @@ import {
 
 import * as _ from 'lodash';
 import * as FileSaver from 'file-saver';
-import * as XLSX from 'xlsx';
+// import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'angular-switchable-grid',
@@ -84,7 +84,7 @@ export class GridComponent implements OnChanges {
   @Output()
   public getSelectedItems: EventEmitter<any[]> = new EventEmitter<any[]>();
 
-  @ContentChild(TemplateRef) itemTemplate: TemplateRef<any>;
+  @ContentChild(TemplateRef, {static: false}) itemTemplate: TemplateRef<any>;
 
   public gridClass: string;
   public sortedData: any[];
@@ -281,12 +281,12 @@ export class GridComponent implements OnChanges {
    * Export the grid data as a excel file.
    */
   public exportAsExcelFile(): void {
-    const json = this.data;
-    const excelFileName = 'angular_switchable_grid_data';
-    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json);
-    const workbook: XLSX.WorkBook = {Sheets: {'data': worksheet}, SheetNames: ['data']};
-    const excelBuffer: any = XLSX.write(workbook, {bookType: 'xlsx', type: 'buffer'});
-    this.saveAsExcelFile(excelBuffer, excelFileName);
+    // const json = this.data;
+    // const excelFileName = 'angular_switchable_grid_data';
+    // const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json);
+    // const workbook: XLSX.WorkBook = {Sheets: {'data': worksheet}, SheetNames: ['data']};
+    // const excelBuffer: any = XLSX.write(workbook, {bookType: 'xlsx', type: 'buffer'});
+    // this.saveAsExcelFile(excelBuffer, excelFileName);
   }
 
   /**

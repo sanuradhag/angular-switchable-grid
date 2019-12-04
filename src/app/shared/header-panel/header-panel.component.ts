@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// @ts-ignore
 const packageDetails = require('../../grid/package.json');
 
 @Component({

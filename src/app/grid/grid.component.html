@@ -34,7 +34,7 @@
       <ng-container *ngFor="let item of (sortedData | filter: filterTerm: filterBy); let i = index" class=" ">
         <div (click)="setSelectedItem(item)" class="list-item" [ngClass]="{'selected': item.selected}">
           <ng-template [ngTemplateOutlet]="itemTemplate"
-                       [ngOutletContext]="{ $implicit: item, widths:getWidths()}"></ng-template>
+                       [ngTemplateOutletContext]="{ $implicit: item, widths:getWidths()}"></ng-template>
         </div>
       </ng-container>
       <div class='list-item'></div>

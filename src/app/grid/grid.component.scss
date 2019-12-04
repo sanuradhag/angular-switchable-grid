@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
 @import "assets/sass/angular-switchable-grid";
 
-:host /deep/ .grid-list {
+:host ::ng-deep .grid-list {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   padding: 3px 0 0 0px;
@@ -303,7 +303,7 @@
   }
 }
 
-:host /deep/ .no-data {
+:host ::ng-deep .no-data {
   position: absolute;
   top: 75px;
   width: 100%;

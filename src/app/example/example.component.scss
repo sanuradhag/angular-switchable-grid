@@ -77,14 +77,14 @@
 
 }
 
-:host /deep/ .switch-small {
+:host ::ng-deep .switch-small {
   &.checked {
     background: #263238 !important;
   }
 }
 
 /** GRID STYLES **/
-:host /deep/ .grid-list {
+:host ::ng-deep .grid-list {
   height: calc(100vh - 180px);
   overflow: hidden;
   .table-row-wrapper {
@@ -114,7 +114,7 @@
   }
 }
 
-:host /deep/ .form-control {
+:host ::ng-deep .form-control {
   input {
     outline: none;
     border: none;

@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 
-import {GridComponent} from '../grid/grid.component';
+import {GridComponent} from '../grid';
 import {users} from '../mock-data';
 
 @Component({
@@ -22,7 +22,7 @@ export class ExampleComponent {
   public columns: Array<{ property: string, displayName: string, width?: string }>;
   public selectedItems: any[];
 
-  @ViewChild(GridComponent)
+  @ViewChild(GridComponent, {static: false})
   public grid: GridComponent;
 
   constructor() {
